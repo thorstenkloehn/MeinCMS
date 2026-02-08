@@ -3,6 +3,5 @@ mvc/obj
 Services/bin
 Services/obj
 mvc/app.app
-mvc/appsettings.Development.json
 mvc/appsettings.json
 publish/
