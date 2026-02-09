@@ -34,13 +34,12 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    name: "cms",
+    pattern: "{*slute}",
+    defaults: new { controller = "Page", action = "Index" })
     .WithStaticAssets();
 
 app.MapRazorPages()
    .WithStaticAssets();
-
 app.Run();
