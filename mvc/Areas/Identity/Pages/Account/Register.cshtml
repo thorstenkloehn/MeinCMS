@@ -30,36 +30,7 @@
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrieren</button>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Verwenden Sie einen anderen Dienst zur Registrierung.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            Es sind keine externen Authentifizierungsdienste konfiguriert. Siehe diesen <a href="https://go.microsoft.com/fwlink/?LinkID=532715">Artikel
-                            über das Einrichten dieser ASP.NET-Anwendung zur Unterstützung der Anmeldung über externe Dienste</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Melden Sie sich mit Ihrem @provider.DisplayName-Konto an">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
+
 </div>
 
 @section Scripts {
