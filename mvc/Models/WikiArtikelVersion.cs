@@ -1,10 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace mvc.Models;
 
 public class WikiArtikelVersion
 {
-    public long VersionNummer{get;set;}
+
+[Key]
+public long VersionNummer{get;set;}
      public string MarkdownInhalt { get; set; }
     public string HtmlInhalt { get; set; }
     public DateTime Zeitpunkt { get; set; }
