@@ -62,7 +62,7 @@ namespace mvc.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Benutzer mit der ID '{_userManager.GetUserId(User)}' konnte nicht geladen werden.");
             }
 
             HasAuthenticator = await _userManager.GetAuthenticatorKeyAsync(user) != null;
@@ -78,11 +78,11 @@ namespace mvc.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Benutzer mit der ID '{_userManager.GetUserId(User)}' konnte nicht geladen werden.");
             }
 
             await _signInManager.ForgetTwoFactorClientAsync();
-            StatusMessage = "The current browser has been forgotten. When you login again from this browser you will be prompted for your 2fa code.";
+            StatusMessage = "Der aktuelle Browser wurde vergessen. Wenn Sie sich von diesem Browser erneut anmelden, werden Sie nach Ihrem 2FA-Code gefragt.";
             return RedirectToPage();
         }
     }

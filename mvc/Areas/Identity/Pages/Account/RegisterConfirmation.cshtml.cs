@@ -55,7 +55,7 @@ namespace mvc.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return NotFound($"Unable to load user with email '{email}'.");
+                return NotFound($"Benutzer mit der E-Mail '{email}' konnte nicht geladen werden.");
             }
 
             Email = email;

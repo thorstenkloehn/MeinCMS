@@ -44,8 +44,8 @@ namespace mvc.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Das Feld {0} ist erforderlich.")]
+            [EmailAddress(ErrorMessage = "Das Feld {0} ist keine gültige E-Mail-Adresse.")]
             public string Email { get; set; }
         }
 
@@ -70,10 +70,10 @@ namespace mvc.Areas.Identity.Pages.Account
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(
+                    await _emailSender.SendEmailAsync(
                     Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Passwort zurücksetzen",
+                    $"Bitte setzen Sie Ihr Passwort zurück, indem Sie <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier klicken</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

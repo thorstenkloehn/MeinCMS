@@ -74,9 +74,9 @@ namespace mvc.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage = "Das Feld {0} ist erforderlich.")]
+            [EmailAddress(ErrorMessage = "Das Feld {0} ist keine gültige E-Mail-Adresse.")]
+            [Display(Name = "E-Mail")]
             public string Email { get; set; }
 
             /// <summary>
@@ -84,9 +84,9 @@ namespace mvc.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "Das {0} muss mindestens {2} und maximal {1} Zeichen lang sein.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Passwort")]
             public string Password { get; set; }
 
             /// <summary>
@@ -94,8 +94,8 @@ namespace mvc.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Passwort bestätigen")]
+            [Compare("Password", ErrorMessage = "Das Passwort und das Bestätigungspasswort stimmen nicht überein.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -131,8 +131,8 @@ namespace mvc.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Bestätigen Sie Ihre E-Mail",
+                        $"Bitte bestätigen Sie Ihr Konto, indem Sie <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier klicken</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
