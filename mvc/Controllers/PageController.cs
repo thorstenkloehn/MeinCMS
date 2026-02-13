@@ -1,14 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
+using mvc.Data;
+using mvc.Migrations;
 
 namespace mvc.Controllers
 {
     public class PageController : Controller
     {
         // GET: PageController
-      public ActionResult Index(string slute)
+
+        private readonly ApplicationDbContext _context;
+        public PageController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+ public ActionResult Index(string slute)
 {
-    ViewBag.slute = slute;
-    return View();
+    var page = _context.WikiArtikels.FirstOrDefault(w => w.Slug == slute);
+   
+  
+    return View(page);
 }
 
 
