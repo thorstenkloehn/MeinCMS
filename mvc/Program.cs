@@ -34,10 +34,7 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-app.MapControllerRoute(
-    name: "cms",
-    pattern: "{*slute}",
-    defaults: new { controller = "Page", action = "Index" })
+app.MapControllers()
     .WithStaticAssets();
 
 app.MapRazorPages()

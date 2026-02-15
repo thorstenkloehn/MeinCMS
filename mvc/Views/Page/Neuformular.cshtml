@@ -1,0 +1,13 @@
+@model WikiArtikel
+
+<h2>Neue Seite erstellen</h2>
+@ViewBag.UrlSlug
+<form asp-action="Create">
+       <input type="hidden" name="Slug" value="@ViewBag.UrlSlug" />
+       <textarea>Inhalt erstellen</textarea>
+    <button type="submit" class="btn btn-primary">Erstellen</button>
+
+  </form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

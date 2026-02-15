@@ -1,1 +1,18 @@
-﻿<h1>@ViewBag.slute</h1>
+﻿@model WikiArtikel
+
+@{
+    if (Model != null)
+    {
+        ViewBag.slute = Model.Slug;
+    }
+    else
+    {
+        ViewBag.slute = "Kein Artikel gefunden";
+    }
+}
+
+<h2>
+  <h1>@ViewBag.slute</h1>
+
+<h1>@ViewBag.slute</h1>
+<div>URL-Slug: @ViewBag.UrlSlug</div>
