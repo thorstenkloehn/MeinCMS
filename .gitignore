@@ -5,3 +5,5 @@ Services/obj
 mvc/app.app
 mvc/appsettings.json
 publish/
+UserAdmin/bin
+UserAdmin/obj
