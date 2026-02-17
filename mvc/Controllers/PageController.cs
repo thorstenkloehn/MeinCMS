@@ -19,13 +19,32 @@ namespace mvc.Controllers
         return View();
         }
 
-        [HttpGet("{*slute}")]
-        public ActionResult Index(string slute)
+ 
+
+      
+        public ActionResult Edit(string slute)
         {
             var page = _context.WikiArtikels.FirstOrDefault(w => w.Slug == slute);
+            if (page == null)
+                return NotFound();
             ViewBag.UrlSlug = slute;
             return View(page);
         }
+
+ [HttpGet("{*slug}")]
+public ActionResult Index(string slug)
+{
+   if (string.IsNullOrEmpty(slug))
+{
+    slug = "Hauptseite";
+}
+    // Regex-Prüfung im Code
+    if (!System.Text.RegularExpressions.Regex.IsMatch(slug, @"^[a-zA-Z0-9/_-]+$"))
+        return BadRequest("Ungültiger Url.");
+    var page = _context.WikiArtikels.FirstOrDefault(w => w.Slug == slug);
+    ViewBag.UrlSlug = slug;
+    return View(page);
+}
 
     }
 }
