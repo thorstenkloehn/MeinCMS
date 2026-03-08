@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: mvc.Models
+  commentId: N:mvc.Models
+  id: mvc.Models
+  children:
+  - mvc.Models.ErrorViewModel
+  - mvc.Models.WikiArtikel
+  - mvc.Models.WikiArtikelVersion
+  langs:
+  - csharp
+  - vb
+  name: mvc.Models
+  nameWithType: mvc.Models
+  fullName: mvc.Models
+  type: Namespace
+  assemblies:
+  - mvc
+references:
+- uid: mvc.Models.ErrorViewModel
+  commentId: T:mvc.Models.ErrorViewModel
+  href: mvc.Models.ErrorViewModel.html
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: mvc.Models.ErrorViewModel
+- uid: mvc.Models.WikiArtikel
+  commentId: T:mvc.Models.WikiArtikel
+  href: mvc.Models.WikiArtikel.html
+  name: WikiArtikel
+  nameWithType: WikiArtikel
+  fullName: mvc.Models.WikiArtikel
+- uid: mvc.Models.WikiArtikelVersion
+  commentId: T:mvc.Models.WikiArtikelVersion
+  href: mvc.Models.WikiArtikelVersion.html
+  name: WikiArtikelVersion
+  nameWithType: WikiArtikelVersion
+  fullName: mvc.Models.WikiArtikelVersion

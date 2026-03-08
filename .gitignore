@@ -1,0 +1,15 @@
+mvc/bin
+mvc/obj
+Services/bin
+Services/obj
+mvc/app.app
+mvc/appsettings.json
+publish/
+UserAdmin/bin
+UserAdmin/obj
+/bin
+bin
+_site
+bin\Debug/net10.0
+
+

@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: mvc.Controllers
+  commentId: N:mvc.Controllers
+  id: mvc.Controllers
+  children:
+  - mvc.Controllers.HomeController
+  - mvc.Controllers.PageController
+  langs:
+  - csharp
+  - vb
+  name: mvc.Controllers
+  nameWithType: mvc.Controllers
+  fullName: mvc.Controllers
+  type: Namespace
+  assemblies:
+  - mvc
+references:
+- uid: mvc.Controllers.HomeController
+  commentId: T:mvc.Controllers.HomeController
+  href: mvc.Controllers.HomeController.html
+  name: HomeController
+  nameWithType: HomeController
+  fullName: mvc.Controllers.HomeController
+- uid: mvc.Controllers.PageController
+  commentId: T:mvc.Controllers.PageController
+  href: mvc.Controllers.PageController.html
+  name: PageController
+  nameWithType: PageController
+  fullName: mvc.Controllers.PageController

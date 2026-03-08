@@ -1,0 +1,544 @@
+### YamlMime:ManagedReference
+items:
+- uid: mvc.Models.WikiArtikel
+  commentId: T:mvc.Models.WikiArtikel
+  id: WikiArtikel
+  parent: mvc.Models
+  children:
+  - mvc.Models.WikiArtikel.Id
+  - mvc.Models.WikiArtikel.Slug
+  - mvc.Models.WikiArtikel.Versionen
+  langs:
+  - csharp
+  - vb
+  name: WikiArtikel
+  nameWithType: WikiArtikel
+  fullName: mvc.Models.WikiArtikel
+  type: Class
+  source:
+    remote:
+      path: mvc/Models/WikiArtikel.cs
+      branch: main
+      repo: https://github.com/thorstenkloehn/MeinCMS.git
+    id: WikiArtikel
+    path: mvc/Models/WikiArtikel.cs
+    startLine: 8
+  assemblies:
+  - mvc
+  namespace: mvc.Models
+  summary: Repräsentiert einen Wiki-Artikel im System.
+  example: []
+  syntax:
+    content: public class WikiArtikel
+    content.vb: Public Class WikiArtikel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: mvc.Models.WikiArtikel.Id
+  commentId: P:mvc.Models.WikiArtikel.Id
+  id: Id
+  parent: mvc.Models.WikiArtikel
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: WikiArtikel.Id
+  fullName: mvc.Models.WikiArtikel.Id
+  type: Property
+  source:
+    remote:
+      path: mvc/Models/WikiArtikel.cs
+      branch: main
+      repo: https://github.com/thorstenkloehn/MeinCMS.git
+    id: Id
+    path: mvc/Models/WikiArtikel.cs
+    startLine: 13
+  assemblies:
+  - mvc
+  namespace: mvc.Models
+  summary: Eindeutige ID des Artikels.
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      public long Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <Key>
+
+      Public Property Id As Long
+  overload: mvc.Models.WikiArtikel.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: mvc.Models.WikiArtikel.Slug
+  commentId: P:mvc.Models.WikiArtikel.Slug
+  id: Slug
+  parent: mvc.Models.WikiArtikel
+  langs:
+  - csharp
+  - vb
+  name: Slug
+  nameWithType: WikiArtikel.Slug
+  fullName: mvc.Models.WikiArtikel.Slug
+  type: Property
+  source:
+    remote:
+      path: mvc/Models/WikiArtikel.cs
+      branch: main
+      repo: https://github.com/thorstenkloehn/MeinCMS.git
+    id: Slug
+    path: mvc/Models/WikiArtikel.cs
+    startLine: 19
+  assemblies:
+  - mvc
+  namespace: mvc.Models
+  summary: Der eindeutige URL-Slug (Pfad) des Artikels.
+  example: []
+  syntax:
+    content: public string Slug { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Slug As String
+  overload: mvc.Models.WikiArtikel.Slug*
+- uid: mvc.Models.WikiArtikel.Versionen
+  commentId: P:mvc.Models.WikiArtikel.Versionen
+  id: Versionen
+  parent: mvc.Models.WikiArtikel
+  langs:
+  - csharp
+  - vb
+  name: Versionen
+  nameWithType: WikiArtikel.Versionen
+  fullName: mvc.Models.WikiArtikel.Versionen
+  type: Property
+  source:
+    remote:
+      path: mvc/Models/WikiArtikel.cs
+      branch: main
+      repo: https://github.com/thorstenkloehn/MeinCMS.git
+    id: Versionen
+    path: mvc/Models/WikiArtikel.cs
+    startLine: 24
+  assemblies:
+  - mvc
+  namespace: mvc.Models
+  summary: Liste aller historischen und aktuellen Versionen dieses Artikels.
+  example: []
+  syntax:
+    content: public List<WikiArtikelVersion> Versionen { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{mvc.Models.WikiArtikelVersion}
+    content.vb: Public Property Versionen As List(Of WikiArtikelVersion)
+  overload: mvc.Models.WikiArtikel.Versionen*
+references:
+- uid: mvc.Models
+  commentId: N:mvc.Models
+  href: mvc.html
+  name: mvc.Models
+  nameWithType: mvc.Models
+  fullName: mvc.Models
+  spec.csharp:
+  - uid: mvc
+    name: mvc
+    href: mvc.html
+  - name: .
+  - uid: mvc.Models
+    name: Models
+    href: mvc.Models.html
+  spec.vb:
+  - uid: mvc
+    name: mvc
+    href: mvc.html
+  - name: .
+  - uid: mvc.Models
+    name: Models
+    href: mvc.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: mvc.Models.WikiArtikel.Id*
+  commentId: Overload:mvc.Models.WikiArtikel.Id
+  href: mvc.Models.WikiArtikel.html#mvc_Models_WikiArtikel_Id
+  name: Id
+  nameWithType: WikiArtikel.Id
+  fullName: mvc.Models.WikiArtikel.Id
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: mvc.Models.WikiArtikel.Slug*
+  commentId: Overload:mvc.Models.WikiArtikel.Slug
+  href: mvc.Models.WikiArtikel.html#mvc_Models_WikiArtikel_Slug
+  name: Slug
+  nameWithType: WikiArtikel.Slug
+  fullName: mvc.Models.WikiArtikel.Slug
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: mvc.Models.WikiArtikel.Versionen*
+  commentId: Overload:mvc.Models.WikiArtikel.Versionen
+  href: mvc.Models.WikiArtikel.html#mvc_Models_WikiArtikel_Versionen
+  name: Versionen
+  nameWithType: WikiArtikel.Versionen
+  fullName: mvc.Models.WikiArtikel.Versionen
+- uid: System.Collections.Generic.List{mvc.Models.WikiArtikelVersion}
+  commentId: T:System.Collections.Generic.List{mvc.Models.WikiArtikelVersion}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<WikiArtikelVersion>
+  nameWithType: List<WikiArtikelVersion>
+  fullName: System.Collections.Generic.List<mvc.Models.WikiArtikelVersion>
+  nameWithType.vb: List(Of WikiArtikelVersion)
+  fullName.vb: System.Collections.Generic.List(Of mvc.Models.WikiArtikelVersion)
+  name.vb: List(Of WikiArtikelVersion)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: mvc.Models.WikiArtikelVersion
+    name: WikiArtikelVersion
+    href: mvc.Models.WikiArtikelVersion.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: mvc.Models.WikiArtikelVersion
+    name: WikiArtikelVersion
+    href: mvc.Models.WikiArtikelVersion.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

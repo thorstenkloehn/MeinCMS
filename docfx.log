@@ -1,0 +1,25 @@
+[38;5;15mLoading project /home/thorsten/MeinCMS/Services/Services.csproj[0m
+  Wiederherzustellende Projekte werden ermittelt...
+  Alle Projekte sind für die Wiederherstellung auf dem neuesten Stand.
+[38;5;15mLoading project /home/thorsten/MeinCMS/mvc/mvc.csproj[0m
+  Wiederherzustellende Projekte werden ermittelt...
+  Alle Projekte sind für die Wiederherstellung auf dem neuesten Stand.
+[38;5;11mwarning: /home/thorsten/MeinCMS/mvc/Migrations/20260208182442_thorsten.cs(10,26): warning CS8981: The type name 'thorsten' only contains lower-cased ascii characters. Such names may become reserved for the language.[0m
+[38;5;11mwarning: /home/thorsten/MeinCMS/mvc/Migrations/20260208182442_thorsten.Designer.cs(16,19): warning CS8981: The type name 'thorsten' only contains lower-cased ascii characters. Such names may become reserved for the language.[0m
+[38;5;15mProcessing Services[0m
+[38;5;15mProcessing mvc[0m
+[38;5;15mCreating output...[0m
+[38;5;15mSearching built-in plugins in directory /home/thorsten/.nuget/packages/docfx/2.78.5/tools/net10.0/any/...[0m
+[38;5;15mNo files are found with glob pattern images/**, excluding <none>, under directory "/home/thorsten/MeinCMS/doc"[0m
+[38;5;15m7 plug-in(s) loaded.[0m
+[38;5;15mBuilding 3 file(s) in TocDocumentProcessor(BuildTocDocument)...[0m
+[38;5;15mBuilding 3 file(s) in ConceptualDocumentProcessor(BuildConceptualDocument=>ValidateConceptualDocumentMetadata)...[0m
+[38;5;15mBuilding 63 file(s) in ManagedReferenceDocumentProcessor(BuildManagedReferenceDocument=>SplitClassPageToMemberLevel=>ValidateManagedReferenceDocumentMetadata=>ApplyOverwriteDocumentForMref=>FillReferenceInformation=>FillMetadata)...[0m
+[38;5;11m/home/thorsten/MeinCMS/doc/api/index.md(7,1): warning InvalidFileLink: Invalid file link:(~/doc/api/Services.html).[0m
+[38;5;11m/home/thorsten/MeinCMS/doc/api/index.md(8,1): warning InvalidFileLink: Invalid file link:(~/doc/api/mvc.Models.html).[0m
+[38;5;11m/home/thorsten/MeinCMS/doc/api/index.md(9,1): warning InvalidFileLink: Invalid file link:(~/doc/api/mvc.Data.html).[0m
+[38;5;11m/home/thorsten/MeinCMS/doc/api/index.md(6,1): warning InvalidFileLink: Invalid file link:(~/doc/api/mvc.Controllers.html).[0m
+[38;5;15mApplying templates to 69 model(s)...[0m
+[38;5;15mXRef map exported.[0m
+Serving "/home/thorsten/MeinCMS/_site" on http://localhost:8080
+Press Ctrl+C to shut down

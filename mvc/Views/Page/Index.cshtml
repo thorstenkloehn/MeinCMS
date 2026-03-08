@@ -1,0 +1,45 @@
+﻿@model WikiArtikel
+
+@{
+    var latestVersion = Model?.Versionen?.OrderByDescending(v => v.Zeitpunkt).FirstOrDefault();
+    ViewData["Title"] = Model?.Slug ?? ViewBag.UrlSlug;
+}
+
+<div class="wiki-content">
+    @if (Model == null)
+    {
+        <div class="alert alert-info">
+            <h4>Diese Seite existiert noch nicht.</h4>
+            <p>Möchten Sie die Seite <strong>@ViewBag.UrlSlug</strong> erstellen?</p>
+            <a asp-action="Neuformular" asp-route-slug="@ViewBag.UrlSlug" class="btn btn-success">Seite erstellen</a>
+        </div>
+    }
+    else
+    {
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>@Model.Slug</h1>
+            <div>
+                <a asp-action="Edit" asp-route-slug="@Model.Slug" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
+            </div>
+        </div>
+
+        <div class="markdown-body">
+            @if (latestVersion != null)
+            {
+                @Html.Raw(latestVersion.HtmlInhalt)
+            }
+            else
+            {
+                <p><em>Kein Inhalt verfügbar.</em></p>
+            }
+        </div>
+
+        @if (latestVersion != null)
+        {
+            <hr />
+            <div class="text-muted small">
+                Zuletzt aktualisiert am @latestVersion.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")
+            </div>
+        }
+    }
+</div>
