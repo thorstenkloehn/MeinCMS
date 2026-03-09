@@ -1,15 +1,41 @@
-mvc/bin
-mvc/obj
-Services/bin
-Services/obj
-mvc/app.app
-mvc/appsettings.json
+# .NET Core / ASP.NET Core Standard
+[Bb]in/
+[Oo]bj/
+out/
 publish/
-UserAdmin/bin
-UserAdmin/obj
-/bin
-bin
-_site
-bin\Debug/net10.0
 
+# MSBuild / Visual Studio
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.doccache
+*.suo
+*.user
+*.userosscache
+*.sln.doccache
+*.suo
 
+# User secrets and local configuration
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+# Verhindere, dass versehentlich Passwörter in appsettings.json landen
+# Man sollte stattdessen _appsettings.json (Vorlage) committen
+
+# Datenbanken & Logs
+*.db
+*.sqlite
+*.log
+pgdata/
+
+# OS-spezifisch
+.DS_Store
+Thumbs.db
+
+# Projekt-spezifische Pfade von MeinCMS
+mvc/app.app
+_site/
+docfx.log
+api/
+docs/api/
