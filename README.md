@@ -69,6 +69,21 @@ Folgende Funktionen sind aktuell noch in Planung oder in Arbeit:
 - [ ] **Themes**: Unterstützung für anpassbare CSS-Themes oder ein dunkles Design.
 - [ ] **Berechtigungssystem**: Feinere Rollenverteilung für Wiki-Editoren und Administratoren.
 
+### Meilenstein: Sicherheitspruefung und Debug-Status
+
+Stand: 09.03.2026
+
+- Web-App Build erfolgreich (`dotnet build mvc/mvc.csproj`), dabei nur Warnungen und keine Build-Fehler.
+- Paketpruefung ohne bekannte verwundbare NuGet-Pakete (`dotnet list mvc/mvc.csproj package --vulnerable`).
+- Gepruefte Seiten: `/`, `/Home/Privacy`, `/testseite`, `/Neuformular/testseite/`, `/Identity/Account/Login`.
+- Auffaellige Route: `/Identity/Account/Register` liefert absichtlich `404`, da die Registrierung im Code deaktiviert ist.
+- Auffaellige Route: `/Edit/testseite` liefert `404`, solange die Seite noch nicht existiert.
+- Kritisches Risiko: gespeicherter Wiki-Inhalt wird als HTML ausgegeben; ohne Sanitizing besteht Stored-XSS-Gefahr.
+- Hohes Risiko: Wiki-Seiten koennen aktuell ohne Authentifizierung erstellt und bearbeitet werden.
+- Mittleres Risiko: In der Web-App fehlt `UseAuthentication()`, obwohl Identity konfiguriert ist.
+- Mittleres Risiko: Der Connection-String mit Passwort steht im Repository in `mvc/appsettings.json`.
+- Mittleres Risiko: `UserAdmin` erlaubt extrem schwache Passwoerter fuer neue Benutzer.
+
 ## 🏗 Projektstruktur
 
 - `mvc/`: Die ASP.NET Core MVC Webanwendung.
