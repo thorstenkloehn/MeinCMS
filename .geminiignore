@@ -41,3 +41,8 @@ _site/
 docfx.log
 api/
 docs/api/
+
+# Große Backup-Dateien & Lizenzen (Token-Sparmaßnahmen)
+/*.xml
+/*.yaml
+LICENSE

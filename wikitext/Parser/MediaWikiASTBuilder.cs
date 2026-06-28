@@ -39,6 +39,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
         var tokenList = tokens.ToList();
         bool startOfLine = true;
         int consecutiveNewLines = 0;
+        int listTokensProcessedOnThisLine = 0;
 
         void CloseInlineAndBlockIfNeeded(bool forceCloseParagraph = false)
         {
@@ -68,8 +69,8 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
         {
             if (isBlock)
             {
-                // Ensure we are in RootNode or something that can contain blocks (like TableCell)
-                while (stack.Count > 1 && (stack.Peek() is ParagraphNode || stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is HeadingNode || stack.Peek() is ListItemNode || stack.Peek() is ListNode))
+                // Ensure we are in RootNode or something that can contain blocks (like TableCell or ListItemNode)
+                while (stack.Count > 1 && (stack.Peek() is ParagraphNode || stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is HeadingNode || stack.Peek() is ListNode))
                 {
                     stack.Pop();
                 }
@@ -100,6 +101,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
             if (token.Type == TokenType.NewLine)
             {
                 consecutiveNewLines++;
+                listTokensProcessedOnThisLine = 0;
                 
                 // On NewLine, close short-lived inline nodes (Bold, Italic, Heading, ListItem)
                 // BUT don't necessarily close the paragraph unless it's a double newline
@@ -340,26 +342,45 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                 case TokenType.NumberedList:
                     var lType = token.Type == TokenType.BulletList ? ListType.Unordered : ListType.Ordered;
                     
-                    if (stack.Peek() is ListNode currentList && currentList.Type == lType)
+                    if (startOfLine)
                     {
-                        // Already in the right list
+                        listTokensProcessedOnThisLine = 0;
+                    }
+                    listTokensProcessedOnThisLine++;
+                    
+                    while (stack.Count > 1 && (stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is CodeNode))
+                    {
+                        stack.Pop();
+                    }
+
+                    while (stack.Count > 1 && stack.Count(n => n is ListNode) > listTokensProcessedOnThisLine - 1)
+                    {
+                        stack.Pop();
+                    }
+                    
+                    while (stack.Count > 1 && (stack.Peek() is ParagraphNode || stack.Peek() is HeadingNode))
+                    {
+                        stack.Pop();
+                    }
+                    
+                    var container = stack.Peek();
+                    var existingList = container.Children.LastOrDefault() as ListNode;
+                    
+                    if (existingList != null && existingList.Type == lType)
+                    {
+                        stack.Push(existingList);
                     }
                     else
                     {
-                        var listRoot = EnsureContainer(isBlock: true);
-                        if (!(listRoot.Children.LastOrDefault() is ListNode existingList && existingList.Type == lType))
-                        {
-                            existingList = new ListNode { Type = lType };
-                            listRoot.Children.Add(existingList);
-                        }
-                        
-                        while (stack.Count > 1 && stack.Peek() != listRoot) stack.Pop();
+                        existingList = new ListNode { Type = lType };
+                        container.Children.Add(existingList);
                         stack.Push(existingList);
                     }
                     
                     var li = new ListItemNode();
-                    stack.Peek().Children.Add(li);
+                    existingList.Children.Add(li);
                     stack.Push(li);
+                    
                     startOfLine = false;
                     break;
 

@@ -10,3 +10,8 @@
 dist/
 build/
 out/
+
+# Große Backup-Dateien & Lizenzen (Token-Sparmaßnahmen)
+/*.xml
+/*.yaml
+LICENSE
