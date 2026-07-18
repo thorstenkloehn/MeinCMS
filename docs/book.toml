@@ -1,0 +1,6 @@
+[book]
+authors = ["Thorsten Klöhn"]
+language = "en"
+multilingual = false
+src = "src"
+title = "MeinCMS Dokumentation"

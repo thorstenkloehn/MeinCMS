@@ -4,7 +4,6 @@
 
 # Sensitive Configuration & Passwords
 .env
-.env.*
 config/users.json
 config/appsettings.json
 appsettings.json
@@ -26,3 +25,5 @@ debug.yaml
 .idea/
 .DS_Store
 Thumbs.db
+book
+node_modules

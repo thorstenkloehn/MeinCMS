@@ -13,5 +13,6 @@ maud = "0.26"
 tower-http = { version = "0.6", features = ["fs", "trace", "cors", "compression-gzip", "compression-br"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+dotenvy = "0.15"
 chrono = { version = "0.4", features = ["serde"] }
 meincms_parser = { path = "../meincms_parser" }

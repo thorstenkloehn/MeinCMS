@@ -1,0 +1,12 @@
+{
+  "name": "wissen-ahrensburg-docs",
+  "version": "0.1.0",
+  "scripts": {
+    "docs:build": "mdbook build docs",
+    "docs:serve": "mdbook serve docs --open",
+    "deploy": "mdbook build docs && gh-pages -d docs/book"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
