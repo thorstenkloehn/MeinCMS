@@ -74,11 +74,46 @@ async fn main() {
         .layer(TraceLayer::new_for_http())
         .with_state(db_store);
 
-    let port = std::env::var("PORT").unwrap_or_else(|_| "5000".to_string());
-    let addr: SocketAddr = format!("0.0.0.0:{}", port).parse().expect("Invalid address");
+    if let Ok(socket_path) = std::env::var("UNIX_SOCKET") {
+        #[cfg(unix)]
+        {
+            use tower::ServiceExt;
+            use hyper_util::rt::{TokioExecutor, TokioIo};
+            use hyper_util::server::conn::auto::Builder;
 
-    tracing::info!("🚀 MeinCMS Rust Web Backend gestartet auf http://{}", addr);
+            let _ = std::fs::remove_file(&socket_path);
+            let listener = tokio::net::UnixListener::bind(&socket_path).expect("Failed to bind Unix socket");
+            tracing::info!("🚀 MeinCMS Rust Web Backend gestartet auf Unix Socket: {}", socket_path);
 
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+            loop {
+                let (stream, _) = match listener.accept().await {
+                    Ok(val) => val,
+                    Err(e) => {
+                        tracing::error!("Unix listener accept error: {}", e);
+                        continue;
+                    }
+                };
+                let app_service = app.clone();
+                tokio::spawn(async move {
+                    let io = TokioIo::new(stream);
+                    let service = hyper::service::service_fn(move |req| {
+                        app_service.clone().oneshot(req)
+                    });
+                    if let Err(err) = Builder::new(TokioExecutor::new()).serve_connection(io, service).await {
+                        tracing::warn!("Error serving connection: {}", err);
+                    }
+                });
+            }
+        }
+        #[cfg(not(unix))]
+        {
+            panic!("Unix Sockets werden auf diesem Betriebssystem nicht unterstützt.");
+        }
+    } else {
+        let port = std::env::var("PORT").unwrap_or_else(|_| "5000".to_string());
+        let addr: SocketAddr = format!("0.0.0.0:{}", port).parse().expect("Invalid address");
+        tracing::info!("🚀 MeinCMS Rust Web Backend gestartet auf http://{}", addr);
+        let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+        axum::serve(listener, app).await.unwrap();
+    }
 }

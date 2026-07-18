@@ -40,7 +40,11 @@ GRANT ALL PRIVILEGES ON DATABASE meincms TO meincms;
 Setze anschließend die Umgebungsvariable `DATABASE_URL`:
 
 ```bash
+# Option A: TCP Connection (Entwicklung)
 export DATABASE_URL="postgres://meincms:dein_sicheres_passwort@localhost:5432/meincms"
+
+# Option B: Unix Domain Socket (Produktions-Server)
+export DATABASE_URL="postgres://meincms:dein_sicheres_passwort@/var/run/postgresql/meincms"
 ```
 
 ---
@@ -83,20 +87,20 @@ Das CLI-Tool fordert dich auf, ein sicheres Passwort einzugeben. Der Hash wird m
 Starte den Axum-Server mit:
 
 ```bash
-# Entwicklungsmodus:
+# Entwicklungsmodus (TCP Port):
 PORT=5000 cargo run -p meincms_web
 
-# Produktionsmodus (aus Release-Binary):
-PORT=5000 ./target/release/meincms_web
+# Produktionsmodus (Unix Domain Socket):
+UNIX_SOCKET="/run/meincms/meincms.sock" ./target/release/meincms_web
 ```
 
-Nach dem Start ist die Anwendung unter `http://localhost:5000` erreichbar.
+Nach dem Start im TCP-Modus ist die Anwendung unter `http://localhost:5000` erreichbar.
 
 ---
 
 ## 6. Nginx Reverse Proxy (Produktion)
 
-Um die Anwendung im Produktivbetrieb mit HTTPS / Let's Encrypt abzusichern, erstelle eine Nginx-Konfiguration:
+Um die Anwendung im Produktivbetrieb mit HTTPS / Let's Encrypt über den Unix-Socket abzusichern:
 
 ```nginx
 server {
@@ -104,7 +108,7 @@ server {
     server_name wissen-ahrensburg.de;
 
     location / {
-        proxy_pass http://127.0.0.1:5000;
+        proxy_pass http://unix:/run/meincms/meincms.sock;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

@@ -1,29 +1,51 @@
-# Rust Build Artifacts
-/target/
+# ==========================================
+# 1. Rust Build-Artefakte
+# ==========================================
+target/
+**/target/
 **/*.rs.bk
 
-# Sensitive Configuration & Passwords
+# ==========================================
+# 2. Geheimnisse & Umgebungsvariablen
+# ==========================================
 .env
-config/users.json
-config/appsettings.json
-appsettings.json
-appsettings.Development.json
+.env.local
+.env.*.local
+!.env.example
 
-# Backups & Data Files with Sensitive Info
-*.xml
-*.yaml
-*.sqlite
-*.db
+# ==========================================
+# 3. Datenbanken, Logs & Backups
+# ==========================================
 *.log
-debug.yaml
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.tmp
+*.xml
+meine_sicherung.*
+mein_backup.*
 
-# .NET / IDE / OS
-[Bb]in/
-[Oo]bj/
-.vs/
+# ==========================================
+# 4. IDE- & Editor-Dateien
+# ==========================================
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
 .idea/
+*.iml
+
 .DS_Store
 Thumbs.db
-book
-node_modules
+desktop.ini
+
+# ==========================================
+# 5. Generierte Dokumentation & Web-Builds
+# ==========================================
+node_modules/
+dist/
+book/

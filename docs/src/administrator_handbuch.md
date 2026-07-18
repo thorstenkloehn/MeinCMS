@@ -94,8 +94,8 @@ Type=simple
 User=www-data
 WorkingDirectory=/var/www/wissen-ahrensburg.de
 ExecStart=/var/www/wissen-ahrensburg.de/target/release/meincms_web
-Environment="PORT=5000"
-Environment="DATABASE_URL=postgres://meincms:SicheresPasswort@localhost:5432/meincms"
+Environment="UNIX_SOCKET=/run/meincms/meincms.sock"
+Environment="DATABASE_URL=postgres://meincms:SicheresPasswort@/var/run/postgresql/meincms"
 Restart=always
 RestartSec=5
 

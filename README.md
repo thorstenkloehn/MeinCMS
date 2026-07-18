@@ -18,7 +18,7 @@ Ein hochperformantes, mandantenfähiges (Multi-Tenancy) Wiki-CMS System, vollst�
 
 ---
 
-📘 **Ausführliche Dokumentation:** Siehe [Administrator-Handbuch (`ADMINISTRATOR_HANDBUCH.md`)](ADMINISTRATOR_HANDBUCH.md) für alle Details zu Architektur, Deployment, Sicherheit & Verwaltung.
+📘 **Ausführliche Dokumentation:** Siehe [Administrator-Handbuch](docs/src/administrator_handbuch.md) für alle Details zu Architektur, Deployment, Sicherheit & Verwaltung.
 
 ---
 
@@ -50,12 +50,15 @@ cargo run -p meincms_web
 
 ## ⚙️ Einstellungen ändern (Konfiguration)
 
-### 1. Port & Datenbank-Verbindung (Umgebungsvariablen)
-Du kannst Einstellungen über Umgebungsvariablen beim Start übergeben:
+### 1. Port & Datenbank-Verbindung (Umgebungsvariablen / .env)
+Die Konfiguration erfolgt über die `.env`-Datei oder Umgebungsvariablen:
 
 ```bash
-# Port und PostgreSQL-Datenbankverbindung festlegen:
-PORT=8080 DATABASE_URL="postgres://postgres:dein_passwort@localhost:5432/meincms" ./target/release/meincms_web
+# TCP-Modus (Entwicklung):
+PORT=5000 DATABASE_URL="postgres://postgres:dein_passwort@localhost:5432/meincms" ./target/release/meincms_web
+
+# Unix-Socket-Modus (Produktions-Server):
+DATABASE_URL="postgres://postgres:dein_passwort@/var/run/postgresql/meincms" UNIX_SOCKET="/run/meincms/meincms.sock" ./target/release/meincms_web
 ```
 
 ### 2. Administrator-Account verwalten (Passwort & Nutzer ändern)
