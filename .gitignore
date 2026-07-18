@@ -4,6 +4,7 @@
 target/
 **/target/
 **/*.rs.bk
+meincms_web/target
 
 # ==========================================
 # 2. Geheimnisse & Umgebungsvariablen
