@@ -1,8 +1,0 @@
-[book]
-authors = ["Thorsten Klöhn"]
-language = "de"
-src = "src"
-title = "MeinCMS Installationsanleitung"
-
-[output.html]
-git-repository-url = "https://github.com/thorstenkloehn/wissen-ahrensburg.de"

@@ -1,0 +1,17 @@
+[package]
+name = "meincms_web"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres", "chrono", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+maud = "0.26"
+tower-http = { version = "0.6", features = ["fs", "trace", "cors", "compression-gzip", "compression-br"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+chrono = { version = "0.4", features = ["serde"] }
+meincms_parser = { path = "../meincms_parser" }

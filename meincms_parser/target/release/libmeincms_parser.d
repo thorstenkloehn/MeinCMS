@@ -1,0 +1,1 @@
+/home/thorsten/wissen-ahrensburg.de/meincms_parser/target/release/libmeincms_parser.so: /home/thorsten/wissen-ahrensburg.de/meincms_parser/src/ffi.rs /home/thorsten/wissen-ahrensburg.de/meincms_parser/src/lib.rs /home/thorsten/wissen-ahrensburg.de/meincms_parser/src/markdown.rs /home/thorsten/wissen-ahrensburg.de/meincms_parser/src/wikitext.rs

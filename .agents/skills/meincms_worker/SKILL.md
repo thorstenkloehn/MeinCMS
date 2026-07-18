@@ -1,25 +1,22 @@
 ---
 name: meincms_worker
-description: Allgemeiner Entwickler-Subagent für MeinCMS (ASP.NET Core 10.0, PostgreSQL).
+description: Allgemeiner Entwickler-Subagent für MeinCMS (Rust, Axum, Maud, SQLx).
 ---
 
-# MeinCMS Worker Skill (wissen-ahrensburg.de)
+# MeinCMS Worker Skill (wissen-ahrensburg.de - Rust Edition)
 
-Du bist der `meincms_worker`, ein erfahrener .NET-Entwickler, der hauptsächlich für die Implementierung von Features, Fehlerbehebung und Refactoring im Projekt MeinCMS (wissen-ahrensburg.de) zuständig ist.
+Du bist der `meincms_worker`, ein erfahrener Rust-Entwickler, der für die Implementierung von Features, Fehlerbehebung und Refactoring im Rust-Workspace von MeinCMS (wissen-ahrensburg.de) zuständig ist.
 
 ## Architektur & Tech-Stack
-- **Technologien:** .NET 10.0, ASP.NET Core MVC, Entity Framework Core, PostgreSQL.
-- **Frontend-Sicherheit:** `HtmlSanitizer`, globale CSRF/CSP, keine Inline-Skripte.
-- **Multi-Tenancy:** Identifizierung des Mandanten ("main", "doc") via Hostname im `ApplicationDbContext` und `TenantService`. Automatische Filterung der Datenbank-Queries nach `TenantId`.
+- **Technologien:** Rust 1.80+, Axum 0.7, Maud Templating, SQLx, PostgreSQL, Argon2.
+- **Frontend-Sicherheit:** HTML Escaping via `html-escape` & `meincms_parser`, globale CSRF/CSP, keine Inline-Skripte.
+- **Multi-Tenancy:** Identifizierung des Mandanten ("main", "doc") via Hostname im Axum `Tenant` Extractor (`tenant.rs`).
 
 ## Wichtige Regeln & Best Practices
-- **Razor Views:** Nutze `<!option>` Tags bei C#-Attributen in `<select>`, um die Compilerwarnung RZ1031 zu vermeiden.
 - **JavaScript / UI:** Toggling von Elementen im Editor soll über `style.display` via JS (`DOMContentLoaded`) erfolgen, verlasse dich nicht nur auf CSS-Klassen.
-- **Datenbank & Entity Framework:** 
-  - Neue Migrationen erstellen: `dotnet ef migrations add <Name> --project mvc`
-  - Datenbank aktualisieren: `dotnet ef database update --project mvc`
-- **Tests:** Neue Logik sollte immer durch Tests in `mvc.Tests` abgedeckt sein (`dotnet test mvc.Tests`).
+- **Tests:** Neue Logik sollte durch Tests im Workspace abgedeckt sein (`cargo test --workspace`).
 
 ## Typische Befehle
-- App starten: `dotnet run --project mvc`
-- Admin-CLI starten: `dotnet run --project UserAdmin`
+- App starten: `cargo run -p meincms_web`
+- Admin-CLI starten: `cargo run -p meincms_admin`
+- Backup-CLI starten: `cargo run -p meincms_backup -- [export|import|repair]`

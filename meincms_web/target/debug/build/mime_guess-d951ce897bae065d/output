@@ -1,0 +1,1 @@
+cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/home/thorsten/wissen-ahrensburg.de/meincms_web/target/debug/build/mime_guess-d951ce897bae065d/out/mime_types_generated.rs

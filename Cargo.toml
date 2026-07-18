@@ -1,0 +1,15 @@
+[workspace]
+resolver = "2"
+members = [
+    "meincms_parser",
+    "meincms_web",
+    "meincms_backup",
+    "meincms_admin",
+]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
