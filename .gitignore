@@ -1,45 +1,28 @@
-# .NET Core / ASP.NET Core Standard
+# Rust Build Artifacts
+/target/
+**/*.rs.bk
+
+# Sensitive Configuration & Passwords
+.env
+.env.*
+config/users.json
+config/appsettings.json
+appsettings.json
+appsettings.Development.json
+
+# Backups & Data Files with Sensitive Info
+*.xml
+*.yaml
+*.sqlite
+*.db
+*.log
+debug.yaml
+
+# .NET / IDE / OS
 [Bb]in/
 [Oo]bj/
-out/
-publish/
-.idea
-.idea/
-
-# MSBuild / Visual Studio
 .vs/
 .vscode/
-*.user
-*.userosscache
-*.sln.doccache
-*.suo
-*.user
-*.userosscache
-*.sln.doccache
-*.suo
-
-# User secrets and local configuration
-mvc/appsettings.Development.json
-mvc/appsettings.json
-appsettings.json
-config/
-
-# Verhindere, dass versehentlich Passwörter in appsettings.json landen
-# Man sollte stattdessen _appsettings.json (Vorlage) committen
-
-# Datenbanken & Logs
-*.db
-*.sqlite
-*.log
-pgdata/
-
-# OS-spezifisch
+.idea/
 .DS_Store
 Thumbs.db
-
-# Projekt-spezifische Pfade von MeinCMS
-mvc/app.app
-_site/
-docfx.log
-api/
-docs/api/
