@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">4.</strong> 3. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">5.</strong> 4. Datenschschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">4.</strong> 4. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">5.</strong> 5. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">5.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">5.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">5.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">5.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">5.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">5.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">6.</strong> 6. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">7.</strong> 7. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -254,6 +254,23 @@ UNIX_SOCKET="/run/meincms/meincms.sock" ./target/release/meincms_web
     }
 }
 </code></pre>
+<hr />
+<h2 id="7-dokumentation-bauen--veröffentlichen-mdbook"><a class="header" href="#7-dokumentation-bauen--veröffentlichen-mdbook">7. Dokumentation bauen &amp; veröffentlichen (mdBook)</a></h2>
+<p>Die Handbuch-Dokumentation wird mit <strong>mdBook</strong> generiert und bindet automatisch <code>AGENTS.md</code> sowie alle Subagent-Skills ein.</p>
+<ul>
+<li>
+<p><strong>Dokumentation lokal bauen:</strong></p>
+<pre><code class="language-bash">npm run build:docs
+</code></pre>
+<p><em>Synchronisiert <code>.agents/AGENTS.md</code> und <code>.agents/skills/</code> nach <code>docs/src/</code> und führt <code>mdbook build docs</code> aus.</em></p>
+</li>
+<li>
+<p><strong>Dokumentation bauen &amp; automatisch veröffentlichen:</strong></p>
+<pre><code class="language-bash">npm run ver
+</code></pre>
+<p><em>Baut die Dokumentation neu und lädt sie via GitHub Pages auf <code>handbuch.wissen-ahrensburg.de</code> hoch.</em></p>
+</li>
+</ul>
 <hr />
 <h2 id="-installation-testen"><a class="header" href="#-installation-testen">🧪 Installation testen</a></h2>
 <p>Führe alle Unittests des Workspaces aus, um die korrekte Installation zu bestätigen:</p>

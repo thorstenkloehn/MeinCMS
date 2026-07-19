@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">4.</strong> 3. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">5.</strong> 4. Datenschschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">4.</strong> 4. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">5.</strong> 5. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">5.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">5.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">5.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">5.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">5.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">5.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">6.</strong> 6. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">7.</strong> 7. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -256,6 +256,23 @@ UNIX_SOCKET="/run/meincms/meincms.sock" ./target/release/meincms_web
 }
 </code></pre>
 <hr />
+<h2 id="7-dokumentation-bauen--veröffentlichen-mdbook"><a class="header" href="#7-dokumentation-bauen--veröffentlichen-mdbook">7. Dokumentation bauen &amp; veröffentlichen (mdBook)</a></h2>
+<p>Die Handbuch-Dokumentation wird mit <strong>mdBook</strong> generiert und bindet automatisch <code>AGENTS.md</code> sowie alle Subagent-Skills ein.</p>
+<ul>
+<li>
+<p><strong>Dokumentation lokal bauen:</strong></p>
+<pre><code class="language-bash">npm run build:docs
+</code></pre>
+<p><em>Synchronisiert <code>.agents/AGENTS.md</code> und <code>.agents/skills/</code> nach <code>docs/src/</code> und führt <code>mdbook build docs</code> aus.</em></p>
+</li>
+<li>
+<p><strong>Dokumentation bauen &amp; automatisch veröffentlichen:</strong></p>
+<pre><code class="language-bash">npm run ver
+</code></pre>
+<p><em>Baut die Dokumentation neu und lädt sie via GitHub Pages auf <code>handbuch.wissen-ahrensburg.de</code> hoch.</em></p>
+</li>
+</ul>
+<hr />
 <h2 id="-installation-testen"><a class="header" href="#-installation-testen">🧪 Installation testen</a></h2>
 <p>Führe alle Unittests des Workspaces aus, um die korrekte Installation zu bestätigen:</p>
 <pre><code class="language-bash">cargo test --workspace
@@ -385,6 +402,22 @@ doc.wissen-ahrensburg.de {
     }
 }
 </code></pre>
+<h3 id="5-dokumentation-bauen--veröffentlichen-mdbook"><a class="header" href="#5-dokumentation-bauen--veröffentlichen-mdbook">5. Dokumentation bauen &amp; veröffentlichen (mdBook)</a></h3>
+<p>Die Handbuch-Dokumentation wird automatisiert mit <strong>mdBook</strong> gebaut und bindet <code>AGENTS.md</code> und alle Subagent-Skills aus <code>.agents/</code> ein:</p>
+<ul>
+<li>
+<p><strong>Dokumentation lokal bauen:</strong></p>
+<pre><code class="language-bash">npm run build:docs
+</code></pre>
+<p><em>(Synchronisiert <code>AGENTS.md</code> &amp; Skills nach <code>docs/src</code> und führt <code>mdbook build docs</code> aus)</em></p>
+</li>
+<li>
+<p><strong>Dokumentation bauen &amp; automatisch veröffentlichen:</strong></p>
+<pre><code class="language-bash">npm run ver
+</code></pre>
+<p><em>(Baut die Dokumentation inkl. <code>AGENTS.md</code> &amp; Skills und lädt sie via GitHub Pages auf <code>handbuch.wissen-ahrensburg.de</code> hoch)</em></p>
+</li>
+</ul>
 <hr />
 <h2 id="4-konfiguration--umgebungsvariablen"><a class="header" href="#4-konfiguration--umgebungsvariablen">4. Konfiguration &amp; Umgebungsvariablen</a></h2>
 <p>Das Verhalten des Webbackends lässt sich über Umgebungsvariablen steuern:</p>
@@ -658,6 +691,146 @@ Crates innerhalb der angegebenen Minor-Versionen können mit folgendem Befehl au
 Alle verwendeten Bibliotheken nutzen verträgliche Open-Source-Lizenzen (wie MIT, Apache-2.0 oder BSD), die vollständig mit der <strong>AGPL-3.0-Lizenz</strong> von MeinCMS kompatibel sind.</p>
 </li>
 </ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wissen-ahrensburgde-meincms"><a class="header" href="#wissen-ahrensburgde-meincms">wissen-ahrensburg.de (MeinCMS)</a></h1>
+<p>CMS mit Wiki-Funktion &amp; Multi-Tenancy (100% Rust Workspace Edition, PostgreSQL).</p>
+<h2 id="architektur--tech-rust-workspace"><a class="header" href="#architektur--tech-rust-workspace">Architektur &amp; Tech (Rust Workspace)</a></h2>
+<ul>
+<li><strong>meincms_parser/</strong>: Hochleistungs Markdown &amp; MediaWiki Parser Crate (mit C-FFI Exporten).</li>
+<li><strong>meincms_web/</strong>: Axum 0.7 Webanwendung. Multi-Tenancy via Hostname, Maud Templating, Admin-Auth, No-Cache Middleware.</li>
+<li><strong>meincms_backup/</strong>: Backup &amp; Repair CLI Tool (YAML/XML Ex-/Import &amp; Repair).</li>
+<li><strong>meincms_admin/</strong>: User &amp; Admin Management CLI Tool (Argon2 Password Hashing).</li>
+<li><strong>Tech</strong>: Rust 1.80+, Tokio, Axum, Maud, SQLx, PostgreSQL, Argon2.</li>
+<li><strong>Lizenz</strong>: AGPL-3.0.</li>
+</ul>
+<h2 id="befehle-rust--qualitätssicherung"><a class="header" href="#befehle-rust--qualitätssicherung">Befehle (Rust &amp; Qualitätssicherung)</a></h2>
+<ul>
+<li>Workspace Check &amp; Test: <code>cargo check</code> &amp; <code>cargo test --workspace</code></li>
+<li>Linter &amp; Formatierung: <code>cargo clippy</code> &amp; <code>cargo fmt --check</code></li>
+<li>Dokumentation (mdBook): <code>npm run build:docs</code> (synchronisiert <code>AGENTS.md</code> &amp; Skills nach <code>docs/src</code> und führt <code>mdbook build docs</code> aus)</li>
+<li>Dokus veröffentlich: <code>npm run ver</code> (baut Dokus inkl. AGENTS.md &amp; Skills und veröffentlicht automatisch via gh-pages)</li>
+<li>Web Backend: <code>cargo run -p meincms_web</code></li>
+<li>Backup CLI: <code>cargo run -p meincms_backup -- [export|import|repair]</code></li>
+<li>Admin CLI: <code>cargo run -p meincms_admin</code></li>
+</ul>
+<h2 id="konventionen--regeln-für-ki-agenten"><a class="header" href="#konventionen--regeln-für-ki-agenten">Konventionen &amp; Regeln für KI-Agenten</a></h2>
+<ul>
+<li><strong>Git &amp; Sicherheit:</strong> NIEMALS <code>.env</code> oder Passwörter einchecken. <code>!.env.example</code> als Referenz nutzen.</li>
+<li><strong>Produktion / Unix Socket:</strong> PostgreSQL-Verbindung bevorzugt über Unix Domain Socket (<code>DATABASE_URL="postgres://user:pass@/var/run/postgresql/meincms"</code>). Webserver via <code>UNIX_SOCKET</code>.</li>
+<li><strong>Mandanten:</strong> Multi-Tenancy mit Filterung nach <code>TenantId</code> ("main" = Standard, "doc" = Technik).</li>
+<li><strong>Sicherheit:</strong> Markdown &amp; MediaWiki strikt gegen XSS/CSRF sichern, keine Inline-Skripte. No-Cache-Header erzwingen.</li>
+<li><strong>Frontend / Maud:</strong> Editor-Toggling via Vanilla JS (<code>DOMContentLoaded</code> &amp; <code>style.display</code>), nicht rein über CSS-Klassen.</li>
+<li><strong>Backend:</strong> Beim Speichern von Wiki-Artikeln das jeweils nicht genutzte Inhaltsfeld (Markdown/MediaWiki) explizit leeren.</li>
+<li><strong>DB-Modell:</strong> <code>WikiArtikel</code>, <code>WikiArtikelVersion</code>, <code>WikiNamespace</code>, <code>WikiCategory</code>.</li>
+<li><strong>Backup &amp; Repair:</strong> Nach Import oder Parser-Änderungen stets <code>repair</code> über <code>meincms_backup</code> ausführen.</li>
+<li><strong>Dokumentation &amp; mdBook:</strong> Bei Konfigurations- oder Architekturänderungen stets die Doku in <code>docs/</code> aktualisieren und danach <code>mdbook build docs</code> ausführen.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="agent-skills-overview"><a class="header" href="#agent-skills-overview">Agent Skills Overview</a></h1>
+<p>Übersicht aller verfügbaren Subagent Skills:</p>
+<ul>
+<li><a href="skills/./admin_manager.html"><strong>admin_manager</strong></a>: Experte für das MeinCMS Admin &amp; User CLI Tool (Argon2 Hashing, User Management).</li>
+<li><a href="skills/./backup_manager.html"><strong>backup_manager</strong></a>: Experte für das MeinCMS Rust Backup-System (YAML/XML Export, Import und Repair).</li>
+<li><a href="skills/./db_admin.html"><strong>db_admin</strong></a>: Datenbank- und Mandanten-Experte für SQLx, PostgreSQL und Rust Data Access.</li>
+<li><a href="skills/./meincms_worker.html"><strong>meincms_worker</strong></a>: Allgemeiner Entwickler-Subagent für MeinCMS (Rust, Axum, Maud, SQLx).</li>
+<li><a href="skills/./parser.html"><strong>parser</strong></a>: Experte für das Rust WikiText/Markdown Compiler Crate (meincms_parser).</li>
+<li><a href="skills/./ui_worker.html"><strong>ui_worker</strong></a>: Frontend- und UI-Experte für Maud Templating, Vanilla JavaScript und CSS.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p><strong>Beschreibung:</strong> Experte für das MeinCMS Admin &amp; User CLI Tool (Argon2 Hashing, User Management).</p>
+</blockquote>
+<h1 id="admin-cli-experte-meincms_admin"><a class="header" href="#admin-cli-experte-meincms_admin">Admin CLI Experte (meincms_admin)</a></h1>
+<p>Verantwortlich für das Crate <code>meincms_admin/</code>.</p>
+<ul>
+<li><strong>Fokus:</strong> Benutzer- und Administratorverwaltung, Passwort-Hashing mit Argon2.</li>
+<li><strong>Speicherort:</strong> <code>config/users.json</code> / Datenbank-Passwort-Hashes.</li>
+<li><strong>Befehle:</strong>
+<ul>
+<li><code>cargo run -p meincms_admin</code> (Interaktiv)</li>
+<li><code>cargo run -p meincms_admin -- create-user --username &lt;email&gt;</code></li>
+<li><code>cargo run -p meincms_admin -- list-users</code></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p><strong>Beschreibung:</strong> Experte für das MeinCMS Rust Backup-System (YAML/XML Export, Import und Repair).</p>
+</blockquote>
+<h1 id="backup-experte-meincms-rust-edition"><a class="header" href="#backup-experte-meincms-rust-edition">Backup-Experte (MeinCMS Rust Edition)</a></h1>
+<p>Du bist der <code>backup_manager</code>, zuständig für das eigenständige Rust Backup-Projekt des CMS.</p>
+<h2 id="verantwortlichkeiten"><a class="header" href="#verantwortlichkeiten">Verantwortlichkeiten</a></h2>
+<ul>
+<li><strong>Fokus:</strong> Das Crate <code>meincms_backup/</code>.</li>
+<li><strong>Format:</strong> Daten werden im YAML- oder XML-Format exportiert und importiert (PascalCase-Kompatibilität).</li>
+<li><strong>Speicherregel:</strong> Es wird <strong>nur</strong> der rohe WikiText oder Markdown-Code gesichert. Generiertes HTML wird niemals im Backup gespeichert.</li>
+<li><strong>Repair-Prozess:</strong> Nach einem Import (oder wenn sich der Parser ändert), muss das HTML neu generiert werden. Dafür ist der Befehl <code>cargo run -p meincms_backup -- repair</code> zuständig.</li>
+<li><strong>Ausführung:</strong>
+<ul>
+<li>Export: <code>cargo run -p meincms_backup -- export</code></li>
+<li>Import: <code>cargo run -p meincms_backup -- import &lt;file&gt;</code></li>
+<li>Repair: <code>cargo run -p meincms_backup -- repair</code></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p><strong>Beschreibung:</strong> Datenbank- und Mandanten-Experte für SQLx, PostgreSQL und Rust Data Access.</p>
+</blockquote>
+<h1 id="datenbank-experte-meincms-rust-edition"><a class="header" href="#datenbank-experte-meincms-rust-edition">Datenbank-Experte (MeinCMS Rust Edition)</a></h1>
+<p>Du bist der <code>db_admin</code>, spezialisiert auf die Datenbankarchitektur und SQLx-Integration von MeinCMS.</p>
+<h2 id="verantwortlichkeiten-1"><a class="header" href="#verantwortlichkeiten-1">Verantwortlichkeiten</a></h2>
+<ul>
+<li><strong>Technologien:</strong> Rust, SQLx, PostgreSQL.</li>
+<li><strong>Multi-Tenancy (Mandantenfähigkeit):</strong> Das System trennt Daten strikt nach Mandanten (z. B. "main", "doc"). Bei Datenbankabfragen muss nach der <code>TenantId</code> gefiltert werden.</li>
+<li><strong>Verbindungszeichenfolge:</strong> Steuerung über Umgebungsvariable <code>DATABASE_URL=postgres://...</code>.</li>
+<li><strong>Modelle:</strong> Achte auf die korrekten Datenstrukturen wie <code>WikiArtikel</code>, <code>WikiArtikelVersion</code>, <code>WikiNamespace</code> und <code>WikiCategory</code>.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p><strong>Beschreibung:</strong> Allgemeiner Entwickler-Subagent für MeinCMS (Rust, Axum, Maud, SQLx).</p>
+</blockquote>
+<h1 id="meincms-worker-skill-wissen-ahrensburgde---rust-edition"><a class="header" href="#meincms-worker-skill-wissen-ahrensburgde---rust-edition">MeinCMS Worker Skill (wissen-ahrensburg.de - Rust Edition)</a></h1>
+<p>Du bist der <code>meincms_worker</code>, ein erfahrener Rust-Entwickler, der für die Implementierung von Features, Fehlerbehebung und Refactoring im Rust-Workspace von MeinCMS (wissen-ahrensburg.de) zuständig ist.</p>
+<h2 id="architektur--tech-stack"><a class="header" href="#architektur--tech-stack">Architektur &amp; Tech-Stack</a></h2>
+<ul>
+<li><strong>Technologien:</strong> Rust 1.80+, Axum 0.7, Maud Templating, SQLx, PostgreSQL, Argon2.</li>
+<li><strong>Frontend-Sicherheit:</strong> HTML Escaping via <code>html-escape</code> &amp; <code>meincms_parser</code>, globale CSRF/CSP, keine Inline-Skripte.</li>
+<li><strong>Multi-Tenancy:</strong> Identifizierung des Mandanten ("main", "doc") via Hostname im Axum <code>Tenant</code> Extractor (<code>tenant.rs</code>).</li>
+</ul>
+<h2 id="wichtige-regeln--best-practices"><a class="header" href="#wichtige-regeln--best-practices">Wichtige Regeln &amp; Best Practices</a></h2>
+<ul>
+<li><strong>JavaScript / UI:</strong> Toggling von Elementen im Editor soll über <code>style.display</code> via JS (<code>DOMContentLoaded</code>) erfolgen, verlasse dich nicht nur auf CSS-Klassen.</li>
+<li><strong>Tests:</strong> Neue Logik sollte durch Tests im Workspace abgedeckt sein (<code>cargo test --workspace</code>).</li>
+</ul>
+<h2 id="typische-befehle"><a class="header" href="#typische-befehle">Typische Befehle</a></h2>
+<ul>
+<li>App starten: <code>cargo run -p meincms_web</code></li>
+<li>Admin-CLI starten: <code>cargo run -p meincms_admin</code></li>
+<li>Backup-CLI starten: <code>cargo run -p meincms_backup -- [export|import|repair]</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p><strong>Beschreibung:</strong> Experte für das Rust WikiText/Markdown Compiler Crate (meincms_parser).</p>
+</blockquote>
+<h1 id="parser-skill-meincms---meincms_parser"><a class="header" href="#parser-skill-meincms---meincms_parser">Parser Skill (MeinCMS - meincms_parser)</a></h1>
+<p>Du bist der Experte für den Custom WikiText/Markdown Compiler-Parser in diesem Projekt (<code>meincms_parser</code>).</p>
+<h2 id="verantwortlichkeiten--architektur"><a class="header" href="#verantwortlichkeiten--architektur">Verantwortlichkeiten &amp; Architektur</a></h2>
+<ul>
+<li><strong>Fokus:</strong> Das Crate <code>meincms_parser/</code> (Tokenizer, AST Builder, HTML Serializer, FFI Exporte).</li>
+<li><strong>Sicherheit:</strong> Der Output wird mit striktem HTML Escaping gesichert. Verhindere XSS/CSRF/CSP Schwachstellen. Es sind keine Inline-Skripte erlaubt!</li>
+<li><strong>Inhaltsfelder:</strong> Beim Speichern im Backend muss das jeweils nicht genutzte Inhaltsfeld (Markdown vs. MediaWiki) explizit geleert werden.</li>
+<li><strong>Backup &amp; HTML:</strong> Das generierte HTML wird nicht im Backup gespeichert. Nach Änderungen am Parser oder einem Import muss der Befehl <code>cargo run -p meincms_backup -- repair</code> ausgeführt werden.</li>
+</ul>
+<h2 id="typische-workflow-befehle"><a class="header" href="#typische-workflow-befehle">Typische Workflow-Befehle</a></h2>
+<ul>
+<li>Tests für den Parser ausführen: <code>cargo test -p meincms_parser</code></li>
+<li>Nach Parser-Anpassungen (Repair-Job): <code>cargo run -p meincms_backup -- repair</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p><strong>Beschreibung:</strong> Frontend- und UI-Experte für Maud Templating, Vanilla JavaScript und CSS.</p>
+</blockquote>
+<h1 id="frontend-experte-meincms-rust-edition"><a class="header" href="#frontend-experte-meincms-rust-edition">Frontend-Experte (MeinCMS Rust Edition)</a></h1>
+<p>Du bist der <code>ui_worker</code>, spezialisiert auf das Frontend von MeinCMS.</p>
+<h2 id="verantwortlichkeiten-2"><a class="header" href="#verantwortlichkeiten-2">Verantwortlichkeiten</a></h2>
+<ul>
+<li><strong>Technologien:</strong> Maud HTML-Makros in Rust, Vanilla JavaScript, Vanilla CSS.</li>
+<li><strong>Sicherheit (WICHTIG):</strong> Es gibt eine strikte Content Security Policy (CSP). Es sind <strong>keine</strong> Inline-Skripte (z. B. <code>onclick="..."</code>) in HTML erlaubt. Skripte müssen über EventListener (<code>DOMContentLoaded</code>) angebunden werden.</li>
+<li><strong>UI-Logik:</strong> Toggling von Editor-Elementen (Ein-/Ausblenden) soll robust über <code>style.display</code> in JavaScript gesteuert werden.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><p>Angaben gemäß § 5 TMG</p>
 <ul>
 <li>Thorsten Klöhn</li>

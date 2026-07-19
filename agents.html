@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>7. Datenschutz - MeinCMS Dokumentation</title>
+        <title>4. KI-Agenten Konfiguration (AGENTS.md) - MeinCMS Dokumentation</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">4.</strong> 4. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">5.</strong> 5. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">5.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">5.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">5.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">5.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">5.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">5.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">6.</strong> 6. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html" class="active"><strong aria-hidden="true">7.</strong> 7. Datenschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="agents.html" class="active"><strong aria-hidden="true">4.</strong> 4. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">5.</strong> 5. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">5.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">5.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">5.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">5.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">5.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">5.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">6.</strong> 6. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">7.</strong> 7. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,104 +173,51 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der
-EU-Datenschutzgrundverordnung (DSGVO), ist:</p>
+                        <h1 id="wissen-ahrensburgde-meincms"><a class="header" href="#wissen-ahrensburgde-meincms">wissen-ahrensburg.de (MeinCMS)</a></h1>
+<p>CMS mit Wiki-Funktion &amp; Multi-Tenancy (100% Rust Workspace Edition, PostgreSQL).</p>
+<h2 id="architektur--tech-rust-workspace"><a class="header" href="#architektur--tech-rust-workspace">Architektur &amp; Tech (Rust Workspace)</a></h2>
 <ul>
-<li>Thorsten Klöhn</li>
-<li>Gerhardstraße 2</li>
-<li>22926 Ahrensburg</li>
-<li>Telefon: 04102-2 17 40 07</li>
-<li>e-Mail: thorstenkloehn@gmail.com</li>
+<li><strong>meincms_parser/</strong>: Hochleistungs Markdown &amp; MediaWiki Parser Crate (mit C-FFI Exporten).</li>
+<li><strong>meincms_web/</strong>: Axum 0.7 Webanwendung. Multi-Tenancy via Hostname, Maud Templating, Admin-Auth, No-Cache Middleware.</li>
+<li><strong>meincms_backup/</strong>: Backup &amp; Repair CLI Tool (YAML/XML Ex-/Import &amp; Repair).</li>
+<li><strong>meincms_admin/</strong>: User &amp; Admin Management CLI Tool (Argon2 Password Hashing).</li>
+<li><strong>Tech</strong>: Rust 1.80+, Tokio, Axum, Maud, SQLx, PostgreSQL, Argon2.</li>
+<li><strong>Lizenz</strong>: AGPL-3.0.</li>
 </ul>
-<h2 id="ihre-betroffenenrechte"><a class="header" href="#ihre-betroffenenrechte">Ihre Betroffenenrechte</a></h2>
-<p>Unter den angegebenen Kontaktdaten unseres Datenschutzbeauftragten
-können Sie jederzeit folgende Rechte ausüben:</p>
+<h2 id="befehle-rust--qualitätssicherung"><a class="header" href="#befehle-rust--qualitätssicherung">Befehle (Rust &amp; Qualitätssicherung)</a></h2>
 <ul>
-<li>Auskunft über Ihre bei uns gespeicherten Daten und deren
-Verarbeitung (Art. 15 DSGVO),</li>
-<li>Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO),</li>
-<li>Löschung Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO),</li>
-<li>Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund
-gesetzlicher Pflichten noch nicht löschen dürfen (Art. 18 DSGVO),</li>
-<li>Widerspruch gegen die Verarbeitung Ihrer Daten bei uns (Art. 21
-DSGVO) und</li>
-<li>Datenübertragbarkeit, sofern Sie in die Datenverarbeitung
-eingewilligt haben oder einen Vertrag mit uns abgeschlossen haben
-(Art. 20 DSGVO).</li>
+<li>Workspace Check &amp; Test: <code>cargo check</code> &amp; <code>cargo test --workspace</code></li>
+<li>Linter &amp; Formatierung: <code>cargo clippy</code> &amp; <code>cargo fmt --check</code></li>
+<li>Dokumentation (mdBook): <code>npm run build:docs</code> (synchronisiert <code>AGENTS.md</code> &amp; Skills nach <code>docs/src</code> und führt <code>mdbook build docs</code> aus)</li>
+<li>Dokus veröffentlich: <code>npm run ver</code> (baut Dokus inkl. AGENTS.md &amp; Skills und veröffentlicht automatisch via gh-pages)</li>
+<li>Web Backend: <code>cargo run -p meincms_web</code></li>
+<li>Backup CLI: <code>cargo run -p meincms_backup -- [export|import|repair]</code></li>
+<li>Admin CLI: <code>cargo run -p meincms_admin</code></li>
 </ul>
-<p>Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese
-jederzeit mit Wirkung für die Zukunft widerrufen.</p>
-<p>Sie können sich jederzeit mit einer Beschwerde an eine Aufsichtsbehörde
-wenden, z. B. an die zuständige Aufsichtsbehörde des Bundeslands Ihres
-Wohnsitzes oder an die für uns als verantwortliche Stelle zuständige
-Behörde.</p>
-<p>Eine Liste der Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit
-Anschrift finden Sie unter:
-.</p>
-<h2 id="eingebettete-youtube-videos"><a class="header" href="#eingebettete-youtube-videos">Eingebettete YouTube-Videos</a></h2>
-<h3 id="art-und-zweck-der-verarbeitung"><a class="header" href="#art-und-zweck-der-verarbeitung">Art und Zweck der Verarbeitung:</a></h3>
-<p>Auf einigen unserer Webseiten betten wir YouTube-Videos ein. Betreiber
-der entsprechenden Plugins ist die YouTube, LLC, 901 Cherry Ave., San
-Bruno, CA 94066, USA (nachfolgend „YouTube“). Wenn Sie eine Seite mit
-dem YouTube-Plugin besuchen, wird eine Verbindung zu Servern von YouTube
-hergestellt. Dabei wird YouTube mitgeteilt, welche Seiten Sie besuchen.
-Wenn Sie in Ihrem YouTube-Account eingeloggt sind, kann YouTube Ihr
-Surfverhalten Ihnen persönlich zuzuordnen. Dies verhindern Sie, indem
-Sie sich vorher aus Ihrem YouTube-Account ausloggen.</p>
-<p>Wird ein YouTube-Video gestartet, setzt der Anbieter Cookies ein, die
-Hinweise über das Nutzerverhalten sammeln.</p>
-<p>Weitere Informationen zu Zweck und Umfang der Datenerhebung und ihrer
-Verarbeitung durch YouTube erhalten Sie in den Datenschutzerklärungen
-des Anbieters, Dort erhalten Sie auch weitere Informationen zu Ihren
-diesbezüglichen Rechten und Einstellungsmöglichkeiten zum Schutze Ihrer
-Privatsphäre (). Google verarbeitet
-Ihre Daten in den USA und hat sich dem EU-US Privacy Shield unterworfen
-https://www.privacyshield.gov/EU-US-Framework</p>
-<h3 id="rechtsgrundlage"><a class="header" href="#rechtsgrundlage">Rechtsgrundlage:</a></h3>
-<p>Rechtsgrundlage für die Einbindung von YouTube und dem damit verbundenen
-Datentransfer zu Google ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a
-DSGVO).</p>
-<h3 id="empfänger"><a class="header" href="#empfänger">Empfänger:</a></h3>
-<p>Der Aufruf von YouTube löst automatisch eine Verbindung zu Google aus.</p>
-<h3 id="speicherdauer-und-widerruf-der-einwilligung"><a class="header" href="#speicherdauer-und-widerruf-der-einwilligung">Speicherdauer und Widerruf der Einwilligung:</a></h3>
-<p>Wer das Speichern von Cookies für das Google-Ad-Programm deaktiviert
-hat, wird auch beim Anschauen von YouTube-Videos mit keinen solchen
-Cookies rechnen müssen. YouTube legt aber auch in anderen Cookies
-nicht-personenbezogene Nutzungsinformationen ab. Möchten Sie dies
-verhindern, so müssen Sie das Speichern von Cookies im Browser
-blockieren.</p>
-<p>Weitere Informationen zum Datenschutz bei „YouTube“ finden Sie in der
-Datenschutzerklärung des Anbieters unter:</p>
-<h3 id="drittlandtransfer"><a class="header" href="#drittlandtransfer">Drittlandtransfer:</a></h3>
-<p>Google verarbeitet Ihre Daten in den USA und hat sich dem EU_US Privacy
-Shield unterworfen .</p>
-<h3 id="bereitstellung-vorgeschrieben-oder-erforderlich"><a class="header" href="#bereitstellung-vorgeschrieben-oder-erforderlich">Bereitstellung vorgeschrieben oder erforderlich:</a></h3>
-<p>Die Bereitstellung Ihrer personenbezogenen Daten erfolgt freiwillig,
-allein auf Basis Ihrer Einwilligung. Sofern Sie den Zugriff unterbinden,
-kann es hierdurch zu Funktionseinschränkungen auf der Website kommen.</p>
-<h2 id="Änderung-unserer-datenschutzbestimmungen"><a class="header" href="#Änderung-unserer-datenschutzbestimmungen">Änderung unserer Datenschutzbestimmungen</a></h2>
-<p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie
-stets den aktuellen rechtlichen Anforderungen entspricht oder um
-Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen,
-z.B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt
-dann die neue Datenschutzerklärung.</p>
-<h2 id="fragen-an-den-datenschutzbeauftragten"><a class="header" href="#fragen-an-den-datenschutzbeauftragten">Fragen an den Datenschutzbeauftragten</a></h2>
-<p>Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine
-E-Mail oder wenden Sie sich direkt an die für den Datenschutz
-verantwortliche Person in unserer Organisation:</p>
-<p><em>Die Datenschutzerklärung wurde mit dem</em>
-<a href="https://www.activemind.de/datenschutz/datenschutzhinweis-generator/"><em>Datenschutzerklärungs-Generator der activeMind AG
-erstellt</em></a>
-*(Version 2018-09-24).c</p>
+<h2 id="konventionen--regeln-für-ki-agenten"><a class="header" href="#konventionen--regeln-für-ki-agenten">Konventionen &amp; Regeln für KI-Agenten</a></h2>
+<ul>
+<li><strong>Git &amp; Sicherheit:</strong> NIEMALS <code>.env</code> oder Passwörter einchecken. <code>!.env.example</code> als Referenz nutzen.</li>
+<li><strong>Produktion / Unix Socket:</strong> PostgreSQL-Verbindung bevorzugt über Unix Domain Socket (<code>DATABASE_URL="postgres://user:pass@/var/run/postgresql/meincms"</code>). Webserver via <code>UNIX_SOCKET</code>.</li>
+<li><strong>Mandanten:</strong> Multi-Tenancy mit Filterung nach <code>TenantId</code> ("main" = Standard, "doc" = Technik).</li>
+<li><strong>Sicherheit:</strong> Markdown &amp; MediaWiki strikt gegen XSS/CSRF sichern, keine Inline-Skripte. No-Cache-Header erzwingen.</li>
+<li><strong>Frontend / Maud:</strong> Editor-Toggling via Vanilla JS (<code>DOMContentLoaded</code> &amp; <code>style.display</code>), nicht rein über CSS-Klassen.</li>
+<li><strong>Backend:</strong> Beim Speichern von Wiki-Artikeln das jeweils nicht genutzte Inhaltsfeld (Markdown/MediaWiki) explizit leeren.</li>
+<li><strong>DB-Modell:</strong> <code>WikiArtikel</code>, <code>WikiArtikelVersion</code>, <code>WikiNamespace</code>, <code>WikiCategory</code>.</li>
+<li><strong>Backup &amp; Repair:</strong> Nach Import oder Parser-Änderungen stets <code>repair</code> über <code>meincms_backup</code> ausführen.</li>
+<li><strong>Dokumentation &amp; mdBook:</strong> Bei Konfigurations- oder Architekturänderungen stets die Doku in <code>docs/</code> aktualisieren und danach <code>mdbook build docs</code> ausführen.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="Impressum.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="externe_bibliotheken.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="skills/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -278,10 +225,13 @@ erstellt</em></a>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="Impressum.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="externe_bibliotheken.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="skills/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
