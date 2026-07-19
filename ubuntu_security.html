@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>1. Installation &amp; Setup - MeinCMS Dokumentation</title>
+        <title>5. Ubuntu Security Handbuch für C-Pakete - MeinCMS Dokumentation</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html"><strong aria-hidden="true">5.</strong> 5. Ubuntu Security Handbuch für C-Pakete</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">6.</strong> 6. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">7.</strong> 7. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">7.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">7.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">7.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">7.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">7.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">7.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">8.</strong> 8. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">9.</strong> 9. Datenschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html" class="active"><strong aria-hidden="true">5.</strong> 5. Ubuntu Security Handbuch für C-Pakete</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">6.</strong> 6. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">7.</strong> 7. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">7.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">7.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">7.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">7.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">7.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">7.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">8.</strong> 8. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">9.</strong> 9. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,116 +173,74 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="1-installation--setup"><a class="header" href="#1-installation--setup">1. Installation &amp; Setup</a></h1>
-<p>Willkommen bei <strong>MeinCMS</strong> (wissen-ahrensburg.de). Dieses Kapitel führt dich Schritt für Schritt durch die Vorbereitung der Systemumgebung, das Klonen, das Kompilieren sowie die initiale Einrichtung der Datenbank und des Administrator-Accounts.</p>
+                        <h1 id="-ubuntu-security-handbuch-für-cc-pakete--systembibliotheken"><a class="header" href="#-ubuntu-security-handbuch-für-cc-pakete--systembibliotheken">🛡️ Ubuntu Security Handbuch für C/C++ Pakete &amp; Systembibliotheken</a></h1>
+<p>Dieses Dokument beschreibt die offiziellen Informationsquellen, Sicherheitsportale sowie Terminal-Befehle zur Überprüfung und Absicherung einzelner C/C++-Pakete und Systembibliotheken auf <strong>Ubuntu Linux</strong>.</p>
 <hr />
-<h2 id="-systemvoraussetzungen"><a class="header" href="#-systemvoraussetzungen">📋 Systemvoraussetzungen</a></h2>
-<p>Stelle sicher, dass folgende Softwarekomponenten auf deinem Linux-System installiert sind:</p>
+<h2 id="1-offizielle-ubuntu-security-webseiten--cve-datenbanken"><a class="header" href="#1-offizielle-ubuntu-security-webseiten--cve-datenbanken">1. Offizielle Ubuntu Security Webseiten &amp; CVE-Datenbanken</a></h2>
+<p>Canonical stellt dedizierte Portale bereit, um den Sicherheitszustand aller in Ubuntu verwendeten C-Bibliotheken (<code>glibc</code>, <code>openssl</code>, <code>zlib</code>, <code>curl</code>, <code>libssl</code> etc.) einzusehen:</p>
 <ul>
-<li><strong>Rust &amp; Cargo:</strong> Version <code>1.80</code> oder neuer (<a href="https://rustup.rs/">rustup.rs</a>)</li>
-<li><strong>PostgreSQL:</strong> Version <code>14</code> oder neuer</li>
-<li><strong>Git:</strong> Zum Klonen des Quellcodes</li>
-<li><em>(Optional)</em> <strong>Nginx</strong> oder <strong>Caddy</strong>: Als Reverse Proxy für TLS/HTTPS im Produktionsbetrieb.</li>
+<li>
+<p><strong>Ubuntu Security Notices (USN):</strong><br />
+🔗 <a href="https://ubuntu.com/security/notices">https://ubuntu.com/security/notices</a><br />
+<em>Hier veröffentlicht Canonical alle offiziellen Sicherheitswarnungen und veröffentlichten Fixes für C-Bibliotheken und Pakete unter Ubuntu.</em></p>
+</li>
+<li>
+<p><strong>Ubuntu CVE Tracker:</strong><br />
+🔗 <a href="https://ubuntu.com/security/cve">https://ubuntu.com/security/cve</a><br />
+<em>Ermöglicht die gezielte Suche nach Sicherheitslücken (CVEs) für einzelne C-Pakete (z. B. <code>glibc</code>, <code>openssl</code>, <code>zlib</code>, <code>curl</code>, <code>libssl</code>).</em></p>
+</li>
+<li>
+<p><strong>Ubuntu Package Directory:</strong><br />
+🔗 <a href="https://packages.ubuntu.com">https://packages.ubuntu.com</a><br />
+<em>Übersicht aller Pakete und deren Herkunft aus den Repositories (<code>main</code>, <code>universe</code>, <code>security</code>).</em></p>
+</li>
 </ul>
 <hr />
-<h2 id="1-repository-klonen"><a class="header" href="#1-repository-klonen">1. Repository klonen</a></h2>
-<p>Klone das Repository auf deinen Zielserver:</p>
-<pre><code class="language-bash">git clone https://github.com/thorstenkloehn/wissen-ahrensburg.de.git
-cd wissen-ahrensburg.de
+<h2 id="2-befehle-auf-dem-ubuntu-terminal-zur-prüfung-einzelner-c-pakete"><a class="header" href="#2-befehle-auf-dem-ubuntu-terminal-zur-prüfung-einzelner-c-pakete">2. Befehle auf dem Ubuntu-Terminal zur Prüfung einzelner C-Pakete</a></h2>
+<p>Zur Diagnose und Sicherheitsüberprüfung lokaler Ubuntu-Systeme dienen folgende Befehle:</p>
+<ul>
+<li>
+<p><strong><code>pro status</code></strong> <em>(oder <code>ubuntu-security-status</code>)</em>:<br />
+Prüft den allgemeinen Sicherheits- und ESM-Status (<strong>Expanded Security Maintenance</strong>) Ihres Ubuntu-Systems.</p>
+</li>
+<li>
+<p><strong><code>apt-cache policy &lt;paketname&gt;</code></strong>:<br />
+Zeigt die exakt installierte Paketversion sowie die Herkunft (z. B. <code>noble-security</code>, <code>jammy-security</code>) für ein spezifisches C-Paket an:</p>
+<pre><code class="language-bash">apt-cache policy libc6 libssl3 curl
 </code></pre>
+</li>
+<li>
+<p><strong><code>debsecan</code></strong>:<br />
+Analysiert das laufende Ubuntu-System auf alle aktuell bekannten CVE-Sicherheitslücken in den installierten Paketen:</p>
+<pre><code class="language-bash">sudo apt install debsecan
+debsecan
+</code></pre>
+</li>
+</ul>
 <hr />
-<h2 id="2-postgresql-datenbank-einrichten"><a class="header" href="#2-postgresql-datenbank-einrichten">2. PostgreSQL Datenbank einrichten</a></h2>
-<p>MeinCMS benötigt eine PostgreSQL-Datenbank. Erstelle eine neue Datenbank und einen Datenbank-Benutzer:</p>
-<pre><code class="language-sql">-- In psql (als postgres-User):
-CREATE USER meincms WITH PASSWORD 'dein_sicheres_passwort';
-CREATE DATABASE meincms OWNER meincms;
-GRANT ALL PRIVILEGES ON DATABASE meincms TO meincms;
-</code></pre>
-<p>Setze anschließend die Umgebungsvariable <code>DATABASE_URL</code>:</p>
-<pre><code class="language-bash"># Option A: TCP Connection (Entwicklung)
-export DATABASE_URL="postgres://meincms:dein_sicheres_passwort@localhost:5432/meincms"
-
-# Option B: Unix Domain Socket (Produktions-Server)
-export DATABASE_URL="postgres://meincms:dein_sicheres_passwort@/var/run/postgresql/meincms"
-</code></pre>
-<hr />
-<h2 id="3-projekt-kompilieren-build"><a class="header" href="#3-projekt-kompilieren-build">3. Projekt kompilieren (Build)</a></h2>
-<p>Der Rust Workspace besteht aus den vier Crates:</p>
+<h2 id="3-sicherheitsarchitektur-der-c-abi-in-meincms-meincms_parser"><a class="header" href="#3-sicherheitsarchitektur-der-c-abi-in-meincms-meincms_parser">3. Sicherheitsarchitektur der C-ABI in MeinCMS (<code>meincms_parser</code>)</a></h2>
+<p>Die C-ABI Schnittstelle in <code>meincms_parser</code> profitiert von den Sicherheitsgarantien der Rust-Laufzeitumgebung:</p>
 <ol>
-<li><code>meincms_parser</code>: Markdown &amp; MediaWiki Compiler</li>
-<li><code>meincms_web</code>: Axum Webbackend</li>
-<li><code>meincms_backup</code>: Backup &amp; Repair CLI</li>
-<li><code>meincms_admin</code>: Admin &amp; Benutzer-Verwaltung</li>
+<li><strong>Speichersicherheit (Memory Safety):</strong><br />
+Rust führt vor dem Export an die C-ABI strikte Bounds-Checks und UTF-8-Validierungen durch. Dadurch werden klassische C-Pufferüberläufe (Buffer Overflows) ausgeschlossen.</li>
+<li><strong>Explizite Speichergabe:</strong><br />
+Die C-API stellt die Funktion <code>meincms_free_string(*mut c_char)</code> bereit, die C/C++-Entwicklern eine kontrollierte Freigabe des Rust-Heap-Speichers garantiert.</li>
+<li><strong>Ubuntu Compiler Hardening Flags:</strong><br />
+Bei der Einbindung von <code>libmeincms_parser.so</code> in eigene C/C++-Programme unter Ubuntu sollten folgende GCC/Clang-Hardening-Flags verwendet werden:
+<pre><code class="language-bash">gcc -O2 -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE -pie -Wl,-z,relro,-z,now main.c -lmeincms_parser -o main_app
+</code></pre>
+</li>
 </ol>
-<h3 id="entwicklungs-build-debugging"><a class="header" href="#entwicklungs-build-debugging">Entwicklungs-Build (Debugging)</a></h3>
-<pre><code class="language-bash">cargo build
-</code></pre>
-<h3 id="produktions-build-optimiert"><a class="header" href="#produktions-build-optimiert">Produktions-Build (Optimiert)</a></h3>
-<p>Für maximale Performance kompiliere die Anwendung im Release-Modus:</p>
-<pre><code class="language-bash">cargo build --release
-</code></pre>
-<p>Die fertigen Binaries befinden sich anschließend unter <code>target/release/</code>.</p>
-<hr />
-<h2 id="4-admin-benutzer-erstellen"><a class="header" href="#4-admin-benutzer-erstellen">4. Admin-Benutzer erstellen</a></h2>
-<p>Vor dem ersten Start solltest du deinen Administrator-Account anlegen. Nutze dafür das CLI-Tool <code>meincms_admin</code>:</p>
-<pre><code class="language-bash">cargo run -p meincms_admin -- create-user --username admin@wissen-ahrensburg.de
-</code></pre>
-<p>Das CLI-Tool fordert dich auf, ein sicheres Passwort einzugeben. Der Hash wird mittels <strong>Argon2id</strong> geschützt und in <code>config/users.json</code> gespeichert.</p>
-<hr />
-<h2 id="5-webserver-starten"><a class="header" href="#5-webserver-starten">5. Webserver starten</a></h2>
-<p>Starte den Axum-Server mit:</p>
-<pre><code class="language-bash"># Entwicklungsmodus (TCP Port):
-PORT=5000 cargo run -p meincms_web
-
-# Produktionsmodus (Unix Domain Socket):
-UNIX_SOCKET="/run/meincms/meincms.sock" ./target/release/meincms_web
-</code></pre>
-<p>Nach dem Start im TCP-Modus ist die Anwendung unter <code>http://localhost:5000</code> erreichbar.</p>
-<hr />
-<h2 id="6-nginx-reverse-proxy-produktion"><a class="header" href="#6-nginx-reverse-proxy-produktion">6. Nginx Reverse Proxy (Produktion)</a></h2>
-<p>Um die Anwendung im Produktivbetrieb mit HTTPS / Let's Encrypt über den Unix-Socket abzusichern:</p>
-<pre><code class="language-nginx">server {
-    listen 80;
-    server_name wissen-ahrensburg.de;
-
-    location / {
-        proxy_pass http://unix:/run/meincms/meincms.sock;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-</code></pre>
-<hr />
-<h2 id="7-dokumentation-bauen--veröffentlichen-mdbook"><a class="header" href="#7-dokumentation-bauen--veröffentlichen-mdbook">7. Dokumentation bauen &amp; veröffentlichen (mdBook)</a></h2>
-<p>Die Handbuch-Dokumentation wird mit <strong>mdBook</strong> generiert und bindet automatisch <code>AGENTS.md</code> sowie alle Subagent-Skills ein.</p>
-<ul>
-<li>
-<p><strong>Dokumentation lokal bauen:</strong></p>
-<pre><code class="language-bash">npm run build:docs
-</code></pre>
-<p><em>Synchronisiert <code>.agents/AGENTS.md</code> und <code>.agents/skills/</code> nach <code>docs/src/</code> und führt <code>mdbook build docs</code> aus.</em></p>
-</li>
-<li>
-<p><strong>Dokumentation bauen &amp; automatisch veröffentlichen:</strong></p>
-<pre><code class="language-bash">npm run ver
-</code></pre>
-<p><em>Baut die Dokumentation neu und lädt sie via GitHub Pages auf <code>handbuch.wissen-ahrensburg.de</code> hoch.</em></p>
-</li>
-</ul>
-<hr />
-<h2 id="-installation-testen"><a class="header" href="#-installation-testen">🧪 Installation testen</a></h2>
-<p>Führe alle Unittests des Workspaces aus, um die korrekte Installation zu bestätigen:</p>
-<pre><code class="language-bash">cargo test --workspace
-</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="c_api_conan_npm.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="administrator_handbuch.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="agents.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -292,8 +250,11 @@ UNIX_SOCKET="/run/meincms/meincms.sock" ./target/release/meincms_web
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="c_api_conan_npm.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="administrator_handbuch.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="agents.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

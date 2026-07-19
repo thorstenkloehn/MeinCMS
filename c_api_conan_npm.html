@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html" class="active"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">5.</strong> 5. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">6.</strong> 6. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">6.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">6.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">6.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">6.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">6.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">6.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">7.</strong> 7. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">8.</strong> 8. Datenschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html" class="active"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html"><strong aria-hidden="true">5.</strong> 5. Ubuntu Security Handbuch für C-Pakete</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">6.</strong> 6. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">7.</strong> 7. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">7.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">7.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">7.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">7.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">7.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">7.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">8.</strong> 8. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">9.</strong> 9. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -174,7 +174,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="-c-api--c-abi-conan-npm--pip-paketmanager"><a class="header" href="#-c-api--c-abi-conan-npm--pip-paketmanager">⚙️ C-API / C-ABI, Conan, NPM &amp; PIP Paketmanager</a></h1>
-<p>Dieses Kapitel beschreibt die plattformübergreifenden Schnittstellen und Paketmanager-Integrationen von <strong>MeinCMS (wissen-ahrensburg.de)</strong>. Es erläutert die C-API / C-ABI Exporte des Parser-Crates, die Paketierung für C/C++ über Conan, die verwendeten NPM-Pakete für Dokumentations-Builds sowie die Anbindung an das Python/PIP-Ökosystem.</p>
+<p>Dieses Kapitel beschreibt die plattformübergreifenden Schnittstellen und Paketmanager-Integrationen von <strong>MeinCMS (wissen-ahrensburg.de)</strong>. Es erläutert die C-API / C-ABI Exporte des Parser-Crates, die Paketierung für C/C++ über Conan sowie Ubuntu Linux-Alternativen (APT, vcpkg, pkg-config, CMake, Ubuntu Security Portale), die verwendeten NPM-Pakete für Dokumentations-Builds sowie die Anbindung an das Python/PIP-Ökosystem.</p>
 <hr />
 <h2 id="1-c-api--c-abi-interface-meincms_parser"><a class="header" href="#1-c-api--c-abi-interface-meincms_parser">1. C-API &amp; C-ABI Interface (<code>meincms_parser</code>)</a></h2>
 <p>Das Subsystem <code>meincms_parser</code> bietet eine native <strong>C-ABI (Application Binary Interface)</strong>-Schnittstelle, die es erlaubt, den Hochleistungs-Parser in externen C-, C++- oder Fremdsprachen-Projekten (Python, PHP, Go, C#) einzubinden.</p>
@@ -246,9 +246,10 @@ int main() {
 }
 </code></pre>
 <hr />
-<h2 id="2-conan-paketmanager-c--c-integration"><a class="header" href="#2-conan-paketmanager-c--c-integration">2. Conan Paketmanager (C / C++ Integration)</a></h2>
+<h2 id="2-conan-paketmanager--ubuntu-linux-alternativen"><a class="header" href="#2-conan-paketmanager--ubuntu-linux-alternativen">2. Conan Paketmanager &amp; Ubuntu Linux Alternativen</a></h2>
+<h3 id="21-conan-paketmanager"><a class="header" href="#21-conan-paketmanager">2.1 Conan Paketmanager</a></h3>
 <p><a href="https://conan.io/">Conan</a> ist ein verbreiteter, plattformübergreifender C/C++ Paketmanager. Um <code>meincms_parser</code> als wiederverwendbares Paket in C/C++-Projekte (z. B. via CMake) einzubinden, kann ein <code>conanfile.py</code> verwendet werden.</p>
-<h3 id="beispiel-conanfilepy-für-meincms_parser"><a class="header" href="#beispiel-conanfilepy-für-meincms_parser">Beispiel <code>conanfile.py</code> für <code>meincms_parser</code></a></h3>
+<h4 id="beispiel-conanfilepy-für-meincms_parser"><a class="header" href="#beispiel-conanfilepy-für-meincms_parser">Beispiel <code>conanfile.py</code> für <code>meincms_parser</code></a></h4>
 <pre><code class="language-python">from conan import ConanFile
 from conan.tools.files import copy
 import os
@@ -277,8 +278,7 @@ class MeinCmsParserConan(ConanFile):
     def package_info(self):
         self.cpp_info.libs = ["meincms_parser"]
 </code></pre>
-<h3 id="einbindung-in-c-cmake-projekten"><a class="header" href="#einbindung-in-c-cmake-projekten">Einbindung in C++ CMake-Projekten</a></h3>
-<p>Nach dem Erstellen des Conan-Pakets (<code>conan create .</code>) kann ein C++ Projekt <code>meincms_parser</code> in <code>CMakeLists.txt</code> wie folgt nutzen:</p>
+<h4 id="einbindung-in-c-cmake-projekten"><a class="header" href="#einbindung-in-c-cmake-projekten">Einbindung in C++ CMake-Projekten</a></h4>
 <pre><code class="language-cmake">cmake_minimum_required(VERSION 3.15)
 project(MeinApp CXX)
 
@@ -286,6 +286,94 @@ find_package(meincms_parser REQUIRED)
 
 add_executable(mein_app main.cpp)
 target_link_libraries(mein_app PRIVATE meincms_parser::meincms_parser)
+</code></pre>
+<hr />
+<h3 id="22-alternativen-zu-conan-auf-linux-ubuntu"><a class="header" href="#22-alternativen-zu-conan-auf-linux-ubuntu">2.2 Alternativen zu Conan auf Linux Ubuntu</a></h3>
+<p>Falls Conan auf Ubuntu Linux nicht verwendet werden soll, stehen folgende professionelle Alternativen zur Verfügung:</p>
+<h4 id="1-nativer-ubuntu-system-paketmanager-apt--deb-paket-via-cargo-deb"><a class="header" href="#1-nativer-ubuntu-system-paketmanager-apt--deb-paket-via-cargo-deb">1. Nativer Ubuntu System-Paketmanager (APT / <code>.deb</code> Paket via <code>cargo-deb</code>)</a></h4>
+<p>Unter Ubuntu kann aus dem Rust-Projekt direkt ein nativ installierbares Debian/Ubuntu-Paket (<code>.deb</code>) gebaut werden:</p>
+<pre><code class="language-bash"># Cargo DEB Tool installieren
+cargo install cargo-deb
+
+# .deb Paket für meincms_parser bauen
+cargo deb -p meincms_parser
+
+# Unter Ubuntu installieren
+sudo dpkg -i target/debian/meincms_parser_0.1.0_amd64.deb
+</code></pre>
+<p>Dabei wird <code>libmeincms_parser.so</code> nach <code>/usr/lib/</code> und <code>meincms_parser.h</code> nach <code>/usr/include/</code> installiert. Jeder C/C++ Compiler unter Ubuntu (GCC/Clang) findet die Bibliothek nun systemweit ohne Konfiguration.</p>
+<h4 id="2-pkg-config-integration-meincms_parserpc"><a class="header" href="#2-pkg-config-integration-meincms_parserpc">2. <code>pkg-config</code> Integration (<code>meincms_parser.pc</code>)</a></h4>
+<p><code>pkg-config</code> ist der Standard auf Ubuntu Linux, um C/C++-Bibliothekspfade automatisch aufzulösen.</p>
+<p>Erstelle die Datei <code>/usr/lib/pkgconfig/meincms_parser.pc</code>:</p>
+<pre><code class="language-ini">prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: meincms_parser
+Description: High-Performance Rust Markdown &amp; MediaWiki Parser C-FFI
+Version: 0.1.0
+Libs: -L${libdir} -lmeincms_parser
+Cflags: -I${includedir}
+</code></pre>
+<p>Kompilieren unter Ubuntu mit GCC / Clang:</p>
+<pre><code class="language-bash">gcc main.c $(pkg-config --cflags --libs meincms_parser) -o mein_programm
+</code></pre>
+<h4 id="3-vcpkg-microsoft-cc-package-manager-for-linuxubuntu"><a class="header" href="#3-vcpkg-microsoft-cc-package-manager-for-linuxubuntu">3. vcpkg (Microsoft C/C++ Package Manager for Linux/Ubuntu)</a></h4>
+<p><a href="https://vcpkg.io/">vcpkg</a> ist eine weit verbreitete Conan-Alternative für Ubuntu Linux.
+Es lässt sich nahtlos in CMake integrieren:</p>
+<pre><code class="language-bash"># vcpkg unter Ubuntu installieren
+git clone https://github.com/microsoft/vcpkg.git
+./vcpkg/bootstrap-vcpkg.sh
+
+# Einbinden in CMake
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=/pfad/zu/vcpkg/scripts/buildsystems/vcpkg.cmake
+</code></pre>
+<h4 id="4-cmake-externalproject--fetchcontent-ohne-externen-paketmanager"><a class="header" href="#4-cmake-externalproject--fetchcontent-ohne-externen-paketmanager">4. CMake <code>ExternalProject</code> / <code>FetchContent</code> (Ohne externen Paketmanager)</a></h4>
+<p>CMake kann unter Ubuntu direkt beim Konfigurieren den Rust Cargo Build anstoßen:</p>
+<pre><code class="language-cmake">include(ExternalProject)
+ExternalProject_Add(
+    meincms_parser_target
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/path/to/meincms_parser
+    BUILD_COMMAND cargo build --release
+    INSTALL_COMMAND ""
+)
+</code></pre>
+<hr />
+<h3 id="23-ubuntu-security-portal--prüfung-einzelner-cc-pakete"><a class="header" href="#23-ubuntu-security-portal--prüfung-einzelner-cc-pakete">2.3 Ubuntu Security Portal &amp; Prüfung einzelner C/C++ Pakete</a></h3>
+<p>Für die Verifizierung und Prüfung der Sicherheit einzelner C-Bibliotheken und Pakete unter Ubuntu stehen folgende offizielle Ressourcen und Werkzeuge bereit:</p>
+<h4 id="1-offizielle-ubuntu-security-webseiten--cve-datenbanken"><a class="header" href="#1-offizielle-ubuntu-security-webseiten--cve-datenbanken">1. Offizielle Ubuntu Security Webseiten &amp; CVE-Datenbanken</a></h4>
+<ul>
+<li>
+<p><strong>Ubuntu Security Notices (USN):</strong><br />
+🔗 <a href="https://ubuntu.com/security/notices">https://ubuntu.com/security/notices</a><br />
+<em>Hier veröffentlicht Canonical alle offiziellen Sicherheits-Patches, Updates und Warnungen für einzelne C-Pakete und Systembibliotheken.</em></p>
+</li>
+<li>
+<p><strong>Ubuntu CVE Tracker &amp; Paketsuche:</strong><br />
+🔗 <a href="https://ubuntu.com/security/cve">https://ubuntu.com/security/cve</a><br />
+<em>Ermöglicht die gezielte Suche nach Sicherheitslücken (CVEs) für einzelne C-Pakete (z. B. <code>glibc</code>, <code>openssl</code>, <code>zlib</code>, <code>curl</code>, <code>libssl</code>).</em></p>
+</li>
+<li>
+<p><strong>Ubuntu Package Directory:</strong><br />
+🔗 <a href="https://packages.ubuntu.com">https://packages.ubuntu.com</a><br />
+<em>Informationen zu allen Quell- und Binärpaketen und deren Zugehörigkeit zu Repositories (<code>main</code>, <code>universe</code>, <code>security</code>).</em></p>
+</li>
+</ul>
+<h4 id="2-befehle-zur-sicherheitsprüfung-auf-lokalen-ubuntu-systemen"><a class="header" href="#2-befehle-zur-sicherheitsprüfung-auf-lokalen-ubuntu-systemen">2. Befehle zur Sicherheitsprüfung auf lokalen Ubuntu-Systemen</a></h4>
+<pre><code class="language-bash"># 1. Sicherheitsstatus von Ubuntu Pro &amp; ESM (Security Patches) prüfen
+pro status
+
+# 2. Prüfen, aus welchem Security-Repository ein C-Paket bezogen wurde (z.B. noble-security)
+apt-cache policy libssl3 libc6
+
+# 3. Bekannte CVEs auf dem eigenen Ubuntu-System auswerten (benötigt debsecan)
+sudo apt install debsecan
+debsecan
+</code></pre>
+<h4 id="3-compiler-härtung-für-cc-pakete-unter-ubuntu"><a class="header" href="#3-compiler-härtung-für-cc-pakete-unter-ubuntu">3. Compiler-Härtung für C/C++ Pakete unter Ubuntu</a></h4>
+<p>Beim Kompilieren von C/C++ Anwendungen, die <code>libmeincms_parser.so</code> einbinden, sollten unter Ubuntu stets die offiziellen Canonical Hardening Flags verwendet werden:</p>
+<pre><code class="language-bash">gcc -O2 -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE -pie -Wl,-z,relro,-z,now main.c -lmeincms_parser -o main_app
 </code></pre>
 <hr />
 <h2 id="3-npm-paketmanager--scripts"><a class="header" href="#3-npm-paketmanager--scripts">3. NPM Paketmanager &amp; Scripts</a></h2>
@@ -394,7 +482,7 @@ dependencies = []
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="agents.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="ubuntu_security.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -408,7 +496,7 @@ dependencies = []
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="agents.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="ubuntu_security.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
