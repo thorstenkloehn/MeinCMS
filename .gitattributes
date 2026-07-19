@@ -1,0 +1,24 @@
+# ==========================================
+# Git Attributes & Line Ending Rules
+# ==========================================
+
+# Set default behavior to handle line endings automatically
+* text=auto
+
+# Enforce LF (Linux line endings) for Rust, TOML, Markdown & Scripts
+*.rs text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.env.example text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.ico binary
+*.pdf binary

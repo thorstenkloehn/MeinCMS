@@ -1,0 +1,54 @@
+# ==========================================
+# 1. Rust Build-Artefakte
+# ==========================================
+target/
+**/target/
+**/*.rs.bk
+meincms_web/target
+
+# ==========================================
+# 2. Geheimnisse & Umgebungsvariablen
+# ==========================================
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ==========================================
+# 3. Datenbanken, Logs & Backups
+# ==========================================
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.tmp
+*.xml
+meine_sicherung.*
+mein_backup.*
+
+# ==========================================
+# 4. IDE- & Editor-Dateien
+# ==========================================
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+.idea/
+*.iml
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# 5. Generierte Dokumentation & Web-Builds
+# ==========================================
+node_modules/
+dist/
+book/
+Cargo.lock
+docs/book
