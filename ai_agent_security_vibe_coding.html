@@ -1,0 +1,613 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>8. KI-Agenten, Subagenten, Prompt-Sicherheit &amp; Praxis-Handbuch Vibe Coding - MeinCMS Dokumentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="architektur_design_patterns.html"><strong aria-hidden="true">3.</strong> 3. System-Architektur, Bausteine & Design Patterns</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">4.</strong> 4. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">5.</strong> 5. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html"><strong aria-hidden="true">6.</strong> 6. Sicherheits-Handbuch: Ubuntu, Rust & NPM Ökosystem</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">7.</strong> 7. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="ai_agent_security_vibe_coding.html" class="active"><strong aria-hidden="true">8.</strong> 8. KI-Agenten, Subagenten, Prompt-Sicherheit & Praxis-Handbuch Vibe Coding</a></li><li class="chapter-item expanded "><a href="agy_praxis_performance.html"><strong aria-hidden="true">9.</strong> 9. AGY CLI & IDE: Praxis-Workflow, Einstellungen & Token-Optimierung</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="agy_workflow/cli_ide_setup.html"><strong aria-hidden="true">9.1.</strong> Schritt-für-Schritt Setup: AGY CLI & IDE</a></li><li class="chapter-item expanded "><a href="agy_workflow/token_speed_optimization.html"><strong aria-hidden="true">9.2.</strong> Tutorial: KI-Geschwindigkeit & Token-Spar-Optimierung</a></li><li class="chapter-item expanded "><a href="agy_workflow/human_ai_collaboration.html"><strong aria-hidden="true">9.3.</strong> Mensch & KI als Team (Augmented Engineering)</a></li></ol></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">10.</strong> 10. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">10.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">10.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">10.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">10.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">10.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">10.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">11.</strong> 11. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">12.</strong> 12. Datenschutz</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MeinCMS Dokumentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="-ki-agenten-subagenten-prompt-sicherheit--praxis-handbuch-vibe-coding"><a class="header" href="#-ki-agenten-subagenten-prompt-sicherheit--praxis-handbuch-vibe-coding">🤖 KI-Agenten, Subagenten, Prompt-Sicherheit &amp; Praxis-Handbuch Vibe Coding</a></h1>
+<p>Dieses Kapitel beschreibt die Sicherheitsstrategie für <strong>KI-gestützte Entwicklung (Vibe Coding)</strong>, die <strong>menschliche Letztverantwortung bei der Nutzung von KI Agent CLIs und IDEs</strong>, die Tiefenarchitektur von <strong>AGENTS.md, Subagenten und Skills</strong>, maßgebliche <strong>Design Patterns &amp; Softwarearchitekturen</strong> sowie ein <strong>konkretes Praxis-Handbuch</strong> für den täglichen Entwicklungsalltag im MeinCMS Workspace.</p>
+<hr />
+<h2 id="1-menschliche-verantwortung-vs-ki-agent-cli--ide"><a class="header" href="#1-menschliche-verantwortung-vs-ki-agent-cli--ide">1. Menschliche Verantwortung vs. KI-Agent (CLI &amp; IDE)</a></h2>
+<h3 id="-der-mensch-ist-verantwortlich--nicht-die-maschine"><a class="header" href="#-der-mensch-ist-verantwortlich--nicht-die-maschine">👤 Der Mensch ist verantwortlich – nicht die Maschine!</a></h3>
+<p>Ob beim Einsatz von <strong>KI Agent CLIs</strong> (wie Google Antigravity, Claude Code, Aider) oder <strong>KI Agent IDEs</strong> (wie Cursor, Windsurf, VS Code KI-Plugins):</p>
+<ul>
+<li><strong>Die KI ist ein Werkzeug (Assistent), kein Entwickler mit Haftung oder Urteilsfähigkeit.</strong></li>
+<li>Die <strong>rechtliche, funktionale und sicherheitsbezogene Letztverantwortung</strong> liegt ausnahmslos beim <strong>menschlichen Entwickler</strong>!</li>
+<li>Die Maschine halluziniert, übersieht Edge Cases oder wählt veraltete Muster, wenn sie nicht strikt geleitet und überprüft wird.</li>
+</ul>
+<pre><code class="language-mermaid">flowchart LR
+    A["Menschlicher Entwickler\n(Konzeption, Verantwortung &amp; Governance)"] --&gt;|1. Prompting &amp; Regelerteilung| B["KI Agent CLI / IDE\n(Code-Generierung &amp; Vorschläge)"]
+    B --&gt;|2. Entwurf &amp; Diff| C["Menschliches Code Review\n&amp; Verstehen des Codes"]
+    C --&gt;|3. Qualitätsgate| D["Automatische Tests &amp; Audits\n(cargo check, clippy, audit)"]
+    D --&gt;|4. Freigabe| E["Produktions-Codebase"]
+
+    style A fill:#d7ffd9,stroke:#388e3c
+    style B fill:#e1f5fe,stroke:#0288d1
+    style C fill:#fff9c4,stroke:#fbc02d
+    style D fill:#f3e5f5,stroke:#ab47bc
+    style E fill:#e8f5e9,stroke:#2e7d32
+</code></pre>
+<h3 id="-verstehen-was-programmiert-wird--das-vibe-coding-dilemma"><a class="header" href="#-verstehen-was-programmiert-wird--das-vibe-coding-dilemma">🧠 Verstehen, was programmiert wird – Das Vibe-Coding-Dilemma</a></h3>
+<p>Ein zentraler Grundsatz der Softwareentwicklung mit KI lautet:</p>
+<blockquote>
+<p>⚠️ <strong>Wer Code nicht versteht, kann ihn später weder warten, verbessern, refaktorieren noch von Sicherheitslücken befreien!</strong></p>
+</blockquote>
+<p>Blindes <strong>"Vibe Coding"</strong> (einfaches Akzeptieren von KI-Vorschlägen ohne Durchlesen und Verstehen):</p>
+<ol>
+<li><strong>Erzeugt technische Schulden (Technical Debt):</strong> Es entsteht unübersichtlicher "Spaghetticode", der unnötig komplex ist.</li>
+<li><strong>Erschwert spätere Anpassungen:</strong> Wenn ein Bug auftritt oder eine Funktion erweitert werden muss, versteht niemand mehr, warum die KI bestimmte Variablen oder Pfade gewählt hat.</li>
+<li><strong>Führt zu verdeckten Sicherheitslücken:</strong> Unsichere C-ABI Speicherzugriffe, fehlendes HTML-Escaping oder falsche Datenbankschlüssel bleiben unbemerkt.</li>
+</ol>
+<p><strong>Verpflichtende Entwickler-Regel:</strong></p>
+<ul>
+<li>Vor dem Committen muss der Entwickler den von der KI generierten Code <strong>Zeile für Zeile durchlesen</strong>.</li>
+<li>Bei unklaren Abschnitten ist die KI aufzufordern: <em>"Erkläre mir schrittweise, was dieser Codeblock tut und warum dieses Muster gewählt wurde."</em></li>
+</ul>
+<hr />
+<h2 id="2-architektur-der-ki-steuerung-agentsmd-subagenten--skills"><a class="header" href="#2-architektur-der-ki-steuerung-agentsmd-subagenten--skills">2. Architektur der KI-Steuerung: AGENTS.md, Subagenten &amp; Skills</a></h2>
+<p>Um sicherzustellen, dass unterschiedliche KI-Agenten konsistenten, sicheren und architekturkonformen Code schreiben, nutzt das Projekt ein dreistufiges Steuerungssystem:</p>
+<pre><code class="language-mermaid">graph TD
+    A["AGENTS.md\n(Globale Regeln &amp; Workspace-Kontext)"] --&gt; B["Subagenten\n(Spezialisierte Agenten-Instanzen)"]
+    A --&gt; C["Skills (.agents/skills/)\n(Modulares Domänenwissen &amp; Workflows)"]
+    B --&gt;|Nutzt| C
+</code></pre>
+<h3 id="-1-agentsmd-das-zentrale-regelwerk"><a class="header" href="#-1-agentsmd-das-zentrale-regelwerk">📄 1. <code>AGENTS.md</code> (Das zentrale Regelwerk)</a></h3>
+<p><code>AGENTS.md</code> ist die Ankerdatei für jeden KI-Agenten im Workspace. Sie wird bei jedem Agentenstart automatisch in den Systemkontext geladen.</p>
+<ul>
+<li><strong>Inhalt:</strong> Technologie-Stack (Rust, Axum, Maud, PostgreSQL), Sicherheitsregeln (XSS-Schutz, Unix Sockets, <code>.env</code>-Sperren), Befehle für Qualitätssicherung (<code>cargo check</code>, <code>npm run build:docs</code>).</li>
+<li><strong>Zweck:</strong> Stellt sicher, dass kein Agent projektfremde Frameworks (wie TailwindCSS ohne Absprache) oder unsichere Praktiken einführt.</li>
+</ul>
+<h3 id="-2-subagenten-isolierte-spezialisierungen"><a class="header" href="#-2-subagenten-isolierte-spezialisierungen">🤖 2. Subagenten (Isolierte Spezialisierungen)</a></h3>
+<p>Ein <strong>Subagent</strong> ist eine eigenständige KI-Instanz, die für eine spezifische Teilaufgabe (z. B. Recherche, Datenbankabfragen, UI-Building) aufgerufen wird.</p>
+<ul>
+<li><strong>Vorteile:</strong>
+<ul>
+<li><strong>Context Isolation:</strong> Der Hauptagent bleibt übersichtlich und wird nicht mit tausenden Zeilen Analyse-Log überflutet.</li>
+<li><strong>Least Privilege:</strong> Ein Research-Subagent erhält nur Lese-Rechte (<code>view_file</code>, <code>grep_search</code>), während ein Worker-Subagent Schreibrechte besitzt.</li>
+<li><strong>Fokussierte Systemprompts:</strong> Ein <code>db_admin</code>-Subagent kennt primär SQLx- und PostgreSQL-Konventionen.</li>
+</ul>
+</li>
+</ul>
+<h3 id="-3-skills-agentsskills"><a class="header" href="#-3-skills-agentsskills">🛠️ 3. Skills (<code>.agents/skills/</code>)</a></h3>
+<p><strong>Skills</strong> sind modulare Ordner mit detaillierten Handbüchern (<code>SKILL.md</code>), Hilfsskripten und Referenzbeispielen.</p>
+<ul>
+<li><strong>Ordnerstruktur:</strong>
+<pre><code class="language-text">.agents/skills/
+├── admin_manager/   # User-Management CLI Expertenwissen
+├── backup_manager/  # YAML/XML Ex-/Import &amp; Repair Expertenwissen
+├── db_admin/        # SQLx &amp; PostgreSQL Expertenwissen
+├── meincms_worker/  # Rust Workspace &amp; Webserver Entwickler
+├── parser/          # meincms_parser C-FFI &amp; Markdown Compiler
+└── ui_worker/       # Maud Templating, Vanilla JS &amp; CSS
+</code></pre>
+</li>
+<li><strong>Aufbau einer <code>SKILL.md</code>:</strong> Enthält YAML-Frontmatter (<code>name</code>, <code>description</code>) sowie Schritt-für-Schritt-Anleitungen für komplexe Operationen.</li>
+</ul>
+<hr />
+<h2 id="3-llm---kontext-sicherheitslücken-owasp-top-10-for-llms"><a class="header" href="#3-llm---kontext-sicherheitslücken-owasp-top-10-for-llms">3. LLM- &amp; Kontext-Sicherheitslücken (OWASP Top 10 for LLMs)</a></h2>
+<p>Beim Einsatz von Sprachmodellen und autonomen Agenten müssen folgende Hauptschwachstellen abgewehrt werden:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Benutzereingabe / Externe Datei"] --&gt;|1. Prompt Injection / Context Poisoning| B["KI-Agent / Sprachmodell"]
+    B --&gt;|2. Insecure Output / Code Generation| C["Quellcode / Terminal-Befehl"]
+    C --&gt;|3. Automatische Ausführung| D["System &amp; Datenbank"]
+    
+    style A fill:#ffcccc,stroke:#ff0000
+    style B fill:#e1f5fe,stroke:#0288d1
+    style C fill:#fff9c4,stroke:#fbc02d
+    style D fill:#d7ffd9,stroke:#388e3c
+</code></pre>
+<h3 id="1-prompt-injection-direkt--indirekt"><a class="header" href="#1-prompt-injection-direkt--indirekt">1. Prompt Injection (Direkt &amp; Indirekt)</a></h3>
+<ul>
+<li><strong>Direkt:</strong> Ein Angreifer versucht über die Benutzeroberfläche oder Formularingaben den KI-Systemprompt zu überschreiben.</li>
+<li><strong>Indirekt:</strong> Bösartiger Text befindet sich in verarbeiteten Wiki-Artikeln, Markdown-Dateien oder extern abgerufenen Webseiten (<code>read_url_content</code>), um den KI-Agenten während der Analyse zu manipulieren.</li>
+<li><strong>Abwehr:</strong> Strikte Trennung von Systeminstruktionen und Daten-Kontext. Keine Ausführung von Anweisungen aus unvertrauten Inhalten ohne Validierung.</li>
+</ul>
+<h3 id="2-context-poisoning-kontext-vergiftung"><a class="header" href="#2-context-poisoning-kontext-vergiftung">2. Context Poisoning (Kontext-Vergiftung)</a></h3>
+<ul>
+<li>Manipulierte Quelldateien oder Repositories injizieren gefälschte Regeln oder schädlichen Code in den Arbeitskontext des Agenten.</li>
+<li><strong>Abwehr:</strong> Immutable Konfigurationsdateien (<code>AGENTS.md</code>, <code>.env.example</code>) und schreibgeschützte Validierungsregeln.</li>
+</ul>
+<h3 id="3-sensitive-data-exposure-datenabfluss-im-prompt"><a class="header" href="#3-sensitive-data-exposure-datenabfluss-im-prompt">3. Sensitive Data Exposure (Datenabfluss im Prompt)</a></h3>
+<ul>
+<li>Auslesen von Passwörtern, <code>.env</code>-Dateien oder API-Keys in den Modell-Kontext.</li>
+<li><strong>Abwehr:</strong> <code>.env</code> und vertrauliche Dateien sind in <code>.gitignore</code> eingetragen. Webserver blockiert den Zugriff auf Konfigurationspfade mit HTTP 403.</li>
+</ul>
+<hr />
+<h2 id="4-design-patterns--softwarearchitektur-für-multi-agenten-systeme"><a class="header" href="#4-design-patterns--softwarearchitektur-für-multi-agenten-systeme">4. Design Patterns &amp; Softwarearchitektur für Multi-Agenten-Systeme</a></h2>
+<p>Wenn mehrere KI-Agenten oder unterschiedliche Entwickler an einem Projekt arbeiten, muss die Softwarearchitektur <strong>kristallklar, streng typisiert und deterministisch</strong> sein.</p>
+<pre><code class="language-mermaid">graph TD
+    subgraph Architektonische Entwurfsmuster für KI-Systeme
+        DP1["1. Orchestrator-Worker Pattern\n(Klare Aufgabenverteilung)"]
+        DP2["2. Explicit Contract &amp; Strong Typing\n(Rust Traits, C-ABI Header)"]
+        DP3["3. Single Source of Truth (SSOT)\n(Zentrale Schemas &amp; Datentypen)"]
+        DP4["4. Quality Gate &amp; Sandbox Pattern\n(Automatische Linter &amp; Scans)"]
+        DP5["5. Self-Documenting Architecture\n(Modul-Grenzen &amp; Inline-Doku)"]
+    end
+</code></pre>
+<h3 id="-pattern-1-orchestrator-worker-pattern-hierarchische-delegation"><a class="header" href="#-pattern-1-orchestrator-worker-pattern-hierarchische-delegation">🧱 Pattern 1: Orchestrator-Worker Pattern (Hierarchische Delegation)</a></h3>
+<ul>
+<li><strong>Problem:</strong> Ein einzelner Agent verliert bei großen Tasks den Überblick oder überschreitet Kontextgrenzen.</li>
+<li><strong>Lösung:</strong> Der Hauptagent fungiert als Orchestrator (Plant Schritte, verteilt Aufgaben). Subagenten führen klar begrenzte Einzelaufgaben aus und liefern strukturierte Ergebnisse zurück.</li>
+</ul>
+<h3 id="-pattern-2-explicit-contract--strong-typing-pattern"><a class="header" href="#-pattern-2-explicit-contract--strong-typing-pattern">📜 Pattern 2: Explicit Contract &amp; Strong Typing Pattern</a></h3>
+<ul>
+<li><strong>Problem:</strong> KI-Agenten neigen in dynamischen Sprachen (wie JavaScript oder Python) zu Annahmen über Objektstrukturen ("Magic Objects"), was zu Laufzeitfehlern führt.</li>
+<li><strong>Lösung in Rust:</strong> Nutzung von Rusts striktem Typensystem (<code>struct</code>, <code>enum</code>, <code>Option&lt;T&gt;</code>, <code>Result&lt;T, E&gt;</code>). Typfehler werden direkt vom Compiler abgefangen (<code>cargo check</code>), sodass halluzinierter Code gar nicht erst kompilierbar ist. Bei C-FFI Schnittstellen gibt ein C-Header (<code>meincms_parser.h</code>) exakte Verträge vor.</li>
+</ul>
+<h3 id="-pattern-3-single-source-of-truth-ssot"><a class="header" href="#-pattern-3-single-source-of-truth-ssot">📌 Pattern 3: Single Source of Truth (SSOT)</a></h3>
+<ul>
+<li><strong>Problem:</strong> KI-Agenten erstellen doppelte Typdefinitionen oder widersprüchliche Konfigurationslogiken an verschiedenen Orten.</li>
+<li><strong>Lösung:</strong> Zentrale Datenmodelle in vertrauenswürdigen Quelldateien (z. B. <code>WikiArtikel</code> in SQLx/Rust). Konfigurationen ausschließlich in <code>.env.example</code>.</li>
+</ul>
+<h3 id="-pattern-4-quality-gate--defensive-sandbox-pattern"><a class="header" href="#-pattern-4-quality-gate--defensive-sandbox-pattern">🛡️ Pattern 4: Quality Gate &amp; Defensive Sandbox Pattern</a></h3>
+<ul>
+<li><strong>Problem:</strong> KI-generierter Code könnte unbemerkt Sicherheitslücken (wie <code>unsafe</code>-Missbrauch in Rust oder Pufferüberläufe in C) einschleusen.</li>
+<li><strong>Lösung:</strong> Jede Codeänderung muss ein unbestechliches Testgate durchlaufen. CLI-Agenten führen automatisch Linter (<code>cargo clippy</code>), Sicherheitsscans (<code>cargo audit</code>, <code>flawfinder</code>) und Formatter (<code>cargo fmt</code>) aus.</li>
+</ul>
+<h3 id="-pattern-5-self-documenting--explainable-architecture"><a class="header" href="#-pattern-5-self-documenting--explainable-architecture">📖 Pattern 5: Self-Documenting &amp; Explainable Architecture</a></h3>
+<ul>
+<li><strong>Problem:</strong> Zukünftige KI-Agenten verstehen verschachtelte Logik ohne Dokumentation nicht korrekt und generieren fehlerhafte Refactorings.</li>
+<li><strong>Lösung:</strong> Jedes Modul besitzt klare Dokumentationskommentare (<code>///</code> in Rust) und Architekturbeschreibungen in <code>docs/src</code>.</li>
+</ul>
+<hr />
+<h2 id="5-vibe-coding-absichern-in-den-kernsprachen-c-c-rust-javascript"><a class="header" href="#5-vibe-coding-absichern-in-den-kernsprachen-c-c-rust-javascript">5. Vibe Coding Absichern in den Kernsprachen (C, C++, Rust, JavaScript)</a></h2>
+<p>KI-generierter Code wird vor der Übernahme in das Repository sprachspezifischen Sicherheitsprüfungen unterzogen:</p>
+<h3 id="-c--c-speicher---c-abi-sicherheitsbewertung"><a class="header" href="#-c--c-speicher---c-abi-sicherheitsbewertung">🔴 C &amp; C++ (Speicher- &amp; C-ABI-Sicherheitsbewertung)</a></h3>
+<p>Beim Generieren von C-Code oder C-ABI Exporten (<code>meincms_parser.h</code>):</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Risiko bei KI-Code</th><th style="text-align: left">Guardrail / Scanner-Befehl</th><th style="text-align: left">Abwehrmaßnahme</th></tr></thead><tbody>
+<tr><td style="text-align: left">Pufferüberläufe (<code>strcpy</code>, <code>sprintf</code>)</td><td style="text-align: left"><code>flawfinder .</code></td><td style="text-align: left">Ersetzen durch sichere Varianten (<code>strncpy</code>, <code>snprintf</code>)</td></tr>
+<tr><td style="text-align: left">Speicherlecks &amp; Nullpointer</td><td style="text-align: left"><code>cppcheck --enable=all .</code></td><td style="text-align: left">Automatische statische Fehleranalyse</td></tr>
+<tr><td style="text-align: left">C-FFI Heap-Speicherlecks</td><td style="text-align: left"><code>valgrind --leak-check=full ./app</code></td><td style="text-align: left">Pflichtaufruf von <code>meincms_free_string(ptr)</code> nach Nutzung</td></tr>
+<tr><td style="text-align: left">Laufzeit-Speicherfehler</td><td style="text-align: left">GCC Flag <code>-fsanitize=address</code></td><td style="text-align: left">Kompilieren mit AddressSanitizer (ASan)</td></tr>
+</tbody></table>
+</div>
+<h3 id="-rust-typensicherheit--unsafe-analyse"><a class="header" href="#-rust-typensicherheit--unsafe-analyse">🦀 Rust (Typensicherheit &amp; Unsafe-Analyse)</a></h3>
+<p>Rust bietet durch den Ownership-Borrow-Checker von Haus aus höchste Speichersicherheit. Bei KI-Code muss insbesondere die Verwendung von <code>unsafe</code> überwacht werden:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Risiko bei KI-Code</th><th style="text-align: left">Guardrail / Scanner-Befehl</th><th style="text-align: left">Abwehrmaßnahme</th></tr></thead><tbody>
+<tr><td style="text-align: left">Halluzinierte <code>unsafe</code>-Blöcke</td><td style="text-align: left"><code>cargo geiger</code></td><td style="text-align: left">Misst den Sicherheitswert und verweigert unnötige <code>unsafe</code>-Blöcke</td></tr>
+<tr><td style="text-align: left">Undefined Behavior in <code>unsafe</code></td><td style="text-align: left"><code>cargo miri test</code></td><td style="text-align: left">Erkennt Speichermodell-Verletzungen zur Compile-/Testzeit</td></tr>
+<tr><td style="text-align: left">Skript-Endlosschleifen (DoS)</td><td style="text-align: left">Rhai Sandbox Limit</td><td style="text-align: left">Eingebettete Rhai-Makros sind auf max. Operationstiefe beschränkt</td></tr>
+<tr><td style="text-align: left">Veraltete Crates</td><td style="text-align: left"><code>cargo audit</code> &amp; <code>cargo deny</code></td><td style="text-align: left">Abgleich mit RustSec Datenbank &amp; Lizenzprüfung</td></tr>
+</tbody></table>
+</div>
+<h3 id="-javascript--nodejs-web---dependency-sicherheit"><a class="header" href="#-javascript--nodejs-web---dependency-sicherheit">💛 JavaScript &amp; Node.js (Web- &amp; Dependency-Sicherheit)</a></h3>
+<p>Bei KI-generiertem Frontend-Code oder Node.js-Skripten:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Risiko bei KI-Code</th><th style="text-align: left">Guardrail / Scanner-Befehl</th><th style="text-align: left">Abwehrmaßnahme</th></tr></thead><tbody>
+<tr><td style="text-align: left">Cross-Site Scripting (XSS)</td><td style="text-align: left">Maud Templating &amp; <code>html-escape</code></td><td style="text-align: left">Automatisches HTML-Escaping, Verbot von <code>innerHTML</code></td></tr>
+<tr><td style="text-align: left">Unsichere JS-APIs (<code>eval</code>)</td><td style="text-align: left"><code>npx eslint --plugin security .</code></td><td style="text-align: left">Statische Code-Analyse mit <code>eslint-plugin-security</code></td></tr>
+<tr><td style="text-align: left">Verwundbare JS-Bibliotheken</td><td style="text-align: left"><code>retire --path .</code></td><td style="text-align: left">Scannt JS-Dateien auf bekannte Sicherheitslücken</td></tr>
+<tr><td style="text-align: left">Supply-Chain-Risiken</td><td style="text-align: left"><a href="https://socket.dev">Socket.dev</a> &amp; <code>snyk test</code></td><td style="text-align: left">Prüft NPM-Pakete auf bösartige Skripte &amp; Telemetrie</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="6-automatisiertes-test---review-gate-für-ki-code"><a class="header" href="#6-automatisiertes-test---review-gate-für-ki-code">6. Automatisiertes Test- &amp; Review-Gate für KI-Code</a></h2>
+<p>Jeder durch KI-Agenten generierte oder modifizierte Code muss folgendes Prüfgate durchlaufen:</p>
+<pre><code class="language-bash"># 1. Rust Workspace &amp; Typenprüfung
+cargo check
+cargo test --workspace
+
+# 2. Linter &amp; Formatierung
+cargo clippy
+cargo fmt --check
+
+# 3. Sicherheits- &amp; Abhängigkeits-Audits
+cargo audit
+npm audit
+osv-scanner -r .
+
+# 4. Dokumentation bauen &amp; mdBook aktualisieren
+npm run build:docs
+</code></pre>
+<hr />
+<h2 id="7--praxis-handbuch-vibe-coding-im-entwickler-alltag"><a class="header" href="#7--praxis-handbuch-vibe-coding-im-entwickler-alltag">7. 📘 Praxis-Handbuch: Vibe Coding im Entwickler-Alltag</a></h2>
+<p>Vibe Coding bedeutet nicht, die Kontrolle abzugeben, sondern <strong>menschliche Intuition, Produktstrategie und Qualitätskontrolle mit der rasenden Geschwindigkeit generativer KI zu verschmelzen</strong>.</p>
+<h3 id="71-der-5-stufen-workflow-für-sicheres-vibe-coding"><a class="header" href="#71-der-5-stufen-workflow-für-sicheres-vibe-coding">7.1 Der 5-Stufen-Workflow für sicheres Vibe Coding</a></h3>
+<pre><code class="language-mermaid">flowchart TD
+    S1["1. Task &amp; Context Prep\n(AGENTS.md &amp; Ziel definieren)"] --&gt; S2["2. Spec-First &amp; Micro-Prompting\n(Kleine Schritte, klare Constraints)"]
+    S2 --&gt; S3["3. Interactive Diff-Review\n(Zeile-für-Zeile Code verstehen)"]
+    S3 --&gt; S4["4. Local Quality Gate\n(cargo check / test / clippy)"]
+    S4 --&gt; S5["5. Doc-Sync &amp; Commit\n(npm run build:docs &amp; Git)"]
+</code></pre>
+<h4 id="stufe-1-kontext--vorbereitung-context-prep"><a class="header" href="#stufe-1-kontext--vorbereitung-context-prep">Stufe 1: Kontext &amp; Vorbereitung (Context Prep)</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Die KI mit den notwendigen Informationen versorgen, ohne ihren Kontextfenster mit unnötigem Code zu überladen.</li>
+<li><strong>Praxis-Aktion:</strong> Verweise explizit auf bestehende Moduldateien oder nutze Subagenten-Skills (z. B. <code>.agents/skills/ui_worker/SKILL.md</code>), statt der KI freie Hand zu lassen.</li>
+<li><strong>Beispiel:</strong> <em>"Lies <code>meincms_web/src/routes/wiki.rs</code> bevor du eine neue Route hinzufügst."</em></li>
+</ul>
+<h4 id="stufe-2-spec-first--micro-iteratives-prompting"><a class="header" href="#stufe-2-spec-first--micro-iteratives-prompting">Stufe 2: Spec-First &amp; Micro-Iteratives Prompting</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Halluzinationen und gigantische, unüberschaubare Diffs vermeiden.</li>
+<li><strong>Praxis-Aktion:</strong> Zerlege komplexe Features in atomare Schritte (Interface/Struct -&gt; Datenbankschicht -&gt; Web-Handler -&gt; Maud UI -&gt; Frontend JS).</li>
+<li><strong>Regel:</strong> Lass die KI erst Datenstrukturen (<code>struct</code>, <code>enum</code>) oder Methodensignaturen vorschlagen und bestätige diese, bevor der Rumpf implementiert wird.</li>
+</ul>
+<h4 id="stufe-3-interaktives-code-review-pair-programming-modus"><a class="header" href="#stufe-3-interaktives-code-review-pair-programming-modus">Stufe 3: Interaktives Code-Review (Pair-Programming-Modus)</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Vollständiges Verständnis des geschriebenen Codes sichern.</li>
+<li><strong>Praxis-Aktion:</strong> Akzeptiere NIEMALS blind Code, den du nicht verstehst. Nutze Rückfragen an die KI:
+<ul>
+<li><em>"Warum verwendest du hier <code>tokio::spawn</code> statt eines direkten Async-Calls?"</em></li>
+<li><em>"Welche Edge Cases entstehen, wenn <code>tenant_id</code> leer ist?"</em></li>
+<li><em>"Stelle sicher, dass kein <code>unsafe</code>-Block ohne explizite Begründung eingefügt wird."</em></li>
+</ul>
+</li>
+</ul>
+<h4 id="stufe-4-lokales-quality-gate--verifikation"><a class="header" href="#stufe-4-lokales-quality-gate--verifikation">Stufe 4: Lokales Quality Gate &amp; Verifikation</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Sofortige Rückmeldung über Syntax-, Typ- oder Linter-Fehler.</li>
+<li><strong>Praxis-Aktion:</strong> Lass das automatische Qualitätssicherungs-Gate im Terminal ausführen:
+<ul>
+<li><code>cargo check</code> (Prüft Rust-Typen &amp; Kompilierbarkeit)</li>
+<li><code>cargo test --workspace</code> (Führt alle Unit- &amp; Integrationstests aus)</li>
+<li><code>cargo clippy</code> (Prüft Idiomatik &amp; Performancelücken)</li>
+</ul>
+</li>
+</ul>
+<h4 id="stufe-5-dokumentation--commit"><a class="header" href="#stufe-5-dokumentation--commit">Stufe 5: Dokumentation &amp; Commit</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Nachhaltigkeit des Quellcodes und Synchronität des Handbuchs.</li>
+<li><strong>Praxis-Aktion:</strong> Führe <code>npm run build:docs</code> aus, um die mdBook-Dokumentation zu aktualisieren, und erstelle einen aussagekräftigen Git-Commit.</li>
+</ul>
+<hr />
+<h2 id="8--konkrete-praxisbeispiele-im-meincms-workspace"><a class="header" href="#8--konkrete-praxisbeispiele-im-meincms-workspace">8. 💻 Konkrete Praxisbeispiele im MeinCMS Workspace</a></h2>
+<p>Im Folgenden werden vier praxisnahe Szenarien aus dem MeinCMS Entwicklungsalltag Schritt für Schritt demonstriert.</p>
+<h3 id="81-praxisbeispiel-a-neue-web-funktion-im-axummaud-stack"><a class="header" href="#81-praxisbeispiel-a-neue-web-funktion-im-axummaud-stack">8.1 Praxisbeispiel A: Neue Web-Funktion im Axum/Maud-Stack</a></h3>
+<p><strong>Aufgabenstellung:</strong> Hinzufügen einer Revisions-Vergleichsansicht (Diff-View) in <code>meincms_web</code>.</p>
+<h4 id="1-praxis-prompt-an-den-ki-agenten"><a class="header" href="#1-praxis-prompt-an-den-ki-agenten">1. Praxis-Prompt an den KI-Agenten:</a></h4>
+<pre><code class="language-text">Wir möchten in 'meincms_web' eine neue Route 'GET /wiki/:title/diff' hinzufügen.
+- Nutze Axum 0.7 und Maud Templating.
+- Filtere strikt nach TenantId über den Hostname-Extractor (Multi-Tenancy).
+- Die HTML-Ausgabe muss den XSS-Regeln entsprechen (Maud escapt Variablen automatisch, nutze kein PreEscaped für User-Inhalte).
+- Erstelle dazu das Maud-Template in 'meincms_web/src/views/diff.rs' und binde es in 'routes.rs' ein.
+- Gib mir zuerst die Signatur des Handlers und das Datenmodell für den Revisions-Vergleich zur Freigabe.
+</code></pre>
+<h4 id="2-interaktives-code-review-des-entwicklers"><a class="header" href="#2-interaktives-code-review-des-entwicklers">2. Interaktives Code-Review des Entwicklers:</a></h4>
+<p>Der Entwickler prüft den von der KI generierten Handler-Code:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// MEINCMS SAFETY REVIEW: TenantId muss zwingend in der SQL-Query vorkommen!
+pub async fn wiki_diff_handler(
+    Host(host): Host,
+    State(pool): State&lt;PgPool&gt;,
+    Path(title): Path&lt;String&gt;,
+) -&gt; Result&lt;Markup, WebError&gt; {
+    let tenant_id = extract_tenant_id(&amp;host);
+    let artikel = sqlx::query_as!(
+        WikiArtikel,
+        "SELECT * FROM wiki_artikel WHERE title = $1 AND tenant_id = $2",
+        title,
+        tenant_id
+    )
+    .fetch_one(&amp;pool)
+    .await?;
+
+    Ok(views::diff::render_diff(&amp;artikel))
+}
+<span class="boring">}</span></code></pre></pre>
+<ul>
+<li><strong>Review-Urteil:</strong> ✅ Tenant-Filter vorhanden, Maud-Rückgabetyp korrekt, SQLx Compile-Time Query Safety genutzt.</li>
+</ul>
+<hr />
+<h3 id="82-praxisbeispiel-b-parser-erweiterung-meincms_parser--c-ffi-sync"><a class="header" href="#82-praxisbeispiel-b-parser-erweiterung-meincms_parser--c-ffi-sync">8.2 Praxisbeispiel B: Parser-Erweiterung (<code>meincms_parser</code>) &amp; C-FFI Sync</a></h3>
+<p><strong>Aufgabenstellung:</strong> Hinzufügen einer neuen Hinweisbox-Syntax (<code>:::info ... :::</code>) im Markdown-Compiler mit C-FFI Export.</p>
+<h4 id="1-praxis-prompt-an-den-ki-agenten-1"><a class="header" href="#1-praxis-prompt-an-den-ki-agenten-1">1. Praxis-Prompt an den KI-Agenten:</a></h4>
+<pre><code class="language-text">Erweitere das Crate 'meincms_parser' um die Unterstuetzung von Info-Boxen (':::info').
+- Passe den Rust-AST und den Markdown-Parser an.
+- Stelle sicher, dass die C-FFI Schnittstelle 'meincms_parse_markdown' in 'meincms_parser.h' weiterhin ABI-kompatibel bleibt.
+- Speicher muss durch den Aufrufer zwingend über 'meincms_free_string()' freigegeben werden.
+- Schreibe einen Rust Unit-Test in 'meincms_parser/tests/parser_tests.rs'.
+</code></pre>
+<h4 id="2-verifikation-im-terminal"><a class="header" href="#2-verifikation-im-terminal">2. Verifikation im Terminal:</a></h4>
+<pre><code class="language-bash">cargo test -p meincms_parser
+flawfinder meincms_parser/
+</code></pre>
+<hr />
+<h3 id="83-praxisbeispiel-c-gezieltes-bugfixing--fehlerdiagnostik"><a class="header" href="#83-praxisbeispiel-c-gezieltes-bugfixing--fehlerdiagnostik">8.3 Praxisbeispiel C: Gezieltes Bugfixing &amp; Fehlerdiagnostik</a></h3>
+<p><strong>Aufgabenstellung:</strong> Behebung eines Fehlers, bei dem Sonderzeichen im Artikelnamen zu 404-Fehlern führen.</p>
+<h4 id="1-analytischer-bugfix-prompt-keine-voreilige-code-generierung"><a class="header" href="#1-analytischer-bugfix-prompt-keine-voreilige-code-generierung">1. Analytischer Bugfix-Prompt (Keine voreilige Code-Generierung):</a></h4>
+<pre><code class="language-text">Symptom: Artikel mit Umlauten (z. B. 'Über uns') erzeugen beim Aufruf in 'meincms_web' einen HTTP 404 Fehler.
+Eingrenzung: Siehe 'meincms_web/src/routes/wiki.rs' und 'meincms_parser/src/slug.rs'.
+Aufgabe: Analysiere den URL-Decoding-Schritt und das Slug-Building. 
+Nenne mir die 2 wahrscheinlichsten Ursachen und zeige mir den exakten Diff, der das Problem behebt. Ändere vorerst keine anderen Dateien.
+</code></pre>
+<h4 id="2-nachvollziehen-der-ursache"><a class="header" href="#2-nachvollziehen-der-ursache">2. Nachvollziehen der Ursache:</a></h4>
+<p>Die KI identifiziert, dass <code>percent_encoding::percent_decode_str</code> gefehlt hat, bevor der Title-Lookup an PostgreSQL übergeben wurde. Der Entwickler bestätigt die Änderung nach Durchsicht des Diffs.</p>
+<hr />
+<h3 id="84-praxisbeispiel-d-datenbank-migration--multi-tenancy-audit"><a class="header" href="#84-praxisbeispiel-d-datenbank-migration--multi-tenancy-audit">8.4 Praxisbeispiel D: Datenbank-Migration &amp; Multi-Tenancy Audit</a></h3>
+<p><strong>Aufgabenstellung:</strong> Hinzufügen eines Feldes <code>read_count</code> zu Artikeln.</p>
+<h4 id="1-praxis-prompt"><a class="header" href="#1-praxis-prompt">1. Praxis-Prompt:</a></h4>
+<pre><code class="language-text">Erstelle eine neue SQLx Migration: 'ALTER TABLE wiki_artikel ADD COLUMN read_count BIGINT NOT NULL DEFAULT 0;'.
+Aktualisiere die Struct 'WikiArtikel' im Web-Crate und im Backup-Tool ('meincms_backup').
+Stelle sicher, dass 'cargo run -p meincms_backup -- repair' ohne Fehler durchläuft.
+</code></pre>
+<h4 id="2-ausführung-des-repair-tests"><a class="header" href="#2-ausführung-des-repair-tests">2. Ausführung des Repair-Tests:</a></h4>
+<pre><code class="language-bash">cargo run -p meincms_backup -- repair
+</code></pre>
+<hr />
+<h2 id="9--praxis-checkliste-für-entwickler-dos-and-donts"><a class="header" href="#9--praxis-checkliste-für-entwickler-dos-and-donts">9. 📋 Praxis-Checkliste für Entwickler (Do's and Don'ts)</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Thema</th><th style="text-align: left">✅ Do (Best Practice)</th><th style="text-align: left">❌ Don't (Vibe Coding Fallen)</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Prompting</strong></td><td style="text-align: left">Präzise, fokussierte Prompts mit klaren Randbedingungen schreiben.</td><td style="text-align: left">"Baue mir ein neues Wiki-CMS" in einem einzigen Monster-Prompt verlangen.</td></tr>
+<tr><td style="text-align: left"><strong>Code Review</strong></td><td style="text-align: left">Jeden Diff Zeile für Zeile lesen und logisch nachvollziehen.</td><td style="text-align: left">Blind "Accept All" im Agenten/IDE klicken ohne den Code zu lesen.</td></tr>
+<tr><td style="text-align: left"><strong>Typen &amp; Schnittstellen</strong></td><td style="text-align: left">Rust Strikte Typen (<code>Option</code>, <code>Result</code>, <code>Enum</code>) und C-ABI Header nutzen.</td><td style="text-align: left">Dynamische Magic-Objects oder untypisierte Dictionaries durchreichen.</td></tr>
+<tr><td style="text-align: left"><strong>Sicherheit</strong></td><td style="text-align: left">Eingaben über Escaping/Maud absichern, Multi-Tenancy per <code>tenant_id</code> filtern.</td><td style="text-align: left">Vertrauliche <code>.env</code>-Keys oder Zugangsdaten im Chat-Prompt eingeben.</td></tr>
+<tr><td style="text-align: left"><strong>Qualitätssicherung</strong></td><td style="text-align: left">Vor jedem Commit <code>cargo check</code>, <code>cargo test</code> und <code>cargo clippy</code> ausführen.</td><td style="text-align: left">Ungetesteten KI-Code direkt auf Git push/master branch committen.</td></tr>
+<tr><td style="text-align: left"><strong>Dokumentation</strong></td><td style="text-align: left">Nach jeder Architekturänderung <code>npm run build:docs</code> ausführen.</td><td style="text-align: left">Handbuch und <code>AGENTS.md</code> veralten lassen.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="10--praxis-prompt-templates-für-den-täglichen-einsatz"><a class="header" href="#10--praxis-prompt-templates-für-den-täglichen-einsatz">10. 📝 Praxis-Prompt-Templates für den täglichen Einsatz</a></h2>
+<p>Nutze diese Vorlagen direkt in deiner KI Agent CLI oder IDE:</p>
+<h3 id="-template-1-neues-feature-entwickeln-rust--axum--maud"><a class="header" href="#-template-1-neues-feature-entwickeln-rust--axum--maud">🎯 Template 1: Neues Feature entwickeln (Rust / Axum / Maud)</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: FEATURE-ENTWICKLUNG
+Rolle: Du bist ein senior Rust-Entwickler für das MeinCMS Workspace.
+Aufgabe: Implementiere [FEATURE BESCHREIBUNG].
+Randbedingungen:
+- Crate: [meincms_web / meincms_parser / meincms_backup]
+- Web/UI: Axum 0.7, Maud Templating, Vanilla JS (keine Inline-Skripte), kein TailwindCSS.
+- Sicherheit: XSS-Schutz durch Maud, Multi-Tenancy Filterung auf tenant_id.
+Vorgehen:
+1. Zeige mir zuerst die geplante Modulstruktur und Struct-Definitionen.
+2. Nach meiner Freigabe erstelle den Code in kleinen, verständlichen Blöcken.
+</code></pre>
+<h3 id="-template-2-code-review--security-audit-prompt"><a class="header" href="#-template-2-code-review--security-audit-prompt">🔍 Template 2: Code-Review &amp; Security Audit Prompt</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: CODE REVIEW &amp; SECURITY AUDIT
+Rolle: Du bist ein Security &amp; Rust Audit Expert.
+Aufgabe: Überprüfe folgenden Code-Abschnitt in [DATEINAME]:
+[CODE SNIPPET ODER DATEIPFAD]
+Prüfpunkte:
+1. Gibt es potenzielle Speichersicherheits-Lücken oder unbegründete 'unsafe'-Blöcke?
+2. Ist Multi-Tenancy (TenantId Isolation) in allen Datenbankschritten garantiert?
+3. Werden Benutzereingaben korrekt geescapet?
+4. Gibt es unbehandelte Errors (Panics / unwraps)?
+Gib dein Feedback strukturiert mit konkreten Verbesserungsvorschlägen aus.
+</code></pre>
+<h3 id="-template-3-bugfix--root-cause-analysis-prompt"><a class="header" href="#-template-3-bugfix--root-cause-analysis-prompt">🛠️ Template 3: Bugfix &amp; Root-Cause-Analysis Prompt</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: BUGFIXING &amp; DIAGNOSE
+Symptom: [FEHLERBESCHREIBUNG UND LOG-AUSZUG]
+Betroffene Dateien: [DATEIPFADE]
+Aufgabe:
+1. Analysiere das Problem und nenne mir die Ursache (Root Cause).
+2. Schlage maximal 2 Lösungswege vor und vergleiche Vor- und Nachteile.
+3. Ändere noch KEINEN Code, sondern warte auf meine Entscheidung.
+</code></pre>
+<h3 id="-template-4-refactoring--architecture-cleanup-prompt"><a class="header" href="#-template-4-refactoring--architecture-cleanup-prompt">🧹 Template 4: Refactoring &amp; Architecture Cleanup Prompt</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: REFACTORING
+Ziel: Refaktoriere den Code in [DATEINAME], um die Lesbarkeit und Wartbarkeit zu erhöhen.
+Regeln:
+- Ändere KEINE externen Funktionssignaturen oder Verhalten (No Breaking Changes).
+- Halte dich strikt an die Design Patterns in 'docs/src/architektur_design_patterns.md'.
+- Optimiere Fehlerbehandlung (verwende Result/Option statt unwrap).
+- Erstelle nach dem Refactoring Unit Tests zur Absicherung.
+</code></pre>
+<p>tierung
+cargo clippy
+cargo fmt --check</p>
+<h1 id="3-sicherheits---abhängigkeits-audits"><a class="header" href="#3-sicherheits---abhängigkeits-audits">3. Sicherheits- &amp; Abhängigkeits-Audits</a></h1>
+<p>cargo audit
+npm audit
+osv-scanner -r .</p>
+<h1 id="4-dokumentation-bauen--mdbook-aktualisieren"><a class="header" href="#4-dokumentation-bauen--mdbook-aktualisieren">4. Dokumentation bauen &amp; mdBook aktualisieren</a></h1>
+<p>npm run build:docs</p>
+<pre><code></code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="agents.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="agy_praxis_performance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="agents.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="agy_praxis_performance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+
+    </div>
+    </body>
+</html>

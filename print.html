@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html"><strong aria-hidden="true">5.</strong> 5. Sicherheits-Handbuch: Ubuntu, Rust & NPM Ökosystem</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">6.</strong> 6. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">7.</strong> 7. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">7.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">7.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">7.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">7.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">7.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">7.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">8.</strong> 8. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">9.</strong> 9. Datenschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="architektur_design_patterns.html"><strong aria-hidden="true">3.</strong> 3. System-Architektur, Bausteine & Design Patterns</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">4.</strong> 4. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">5.</strong> 5. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html"><strong aria-hidden="true">6.</strong> 6. Sicherheits-Handbuch: Ubuntu, Rust & NPM Ökosystem</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">7.</strong> 7. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="ai_agent_security_vibe_coding.html"><strong aria-hidden="true">8.</strong> 8. KI-Agenten, Subagenten, Prompt-Sicherheit & Praxis-Handbuch Vibe Coding</a></li><li class="chapter-item expanded "><a href="agy_praxis_performance.html"><strong aria-hidden="true">9.</strong> 9. AGY CLI & IDE: Praxis-Workflow, Einstellungen & Token-Optimierung</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="agy_workflow/cli_ide_setup.html"><strong aria-hidden="true">9.1.</strong> Schritt-für-Schritt Setup: AGY CLI & IDE</a></li><li class="chapter-item expanded "><a href="agy_workflow/token_speed_optimization.html"><strong aria-hidden="true">9.2.</strong> Tutorial: KI-Geschwindigkeit & Token-Spar-Optimierung</a></li><li class="chapter-item expanded "><a href="agy_workflow/human_ai_collaboration.html"><strong aria-hidden="true">9.3.</strong> Mensch & KI als Team (Augmented Engineering)</a></li></ol></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">10.</strong> 10. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">10.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">10.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">10.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">10.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">10.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">10.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">11.</strong> 11. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">12.</strong> 12. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -509,6 +509,161 @@ cargo run -p meincms_backup -- export full_backup.yaml --full
 </code></pre>
 <hr />
 <p><em>Stand: Juli 2026 • Lizenz: AGPL-3.0 • MeinCMS Rust Workspace</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-system-architektur-bausteine--design-patterns"><a class="header" href="#-system-architektur-bausteine--design-patterns">📐 System-Architektur, Bausteine &amp; Design Patterns</a></h1>
+<p>Dieses Kapitel erklärt den gesamten Aufbau von <strong>wissen-ahrensburg.de (MeinCMS)</strong> so, dass ihn <strong>jeder</strong> – vom Entwickler über den Systemadministrator bis hin zu KI-Agenten – schnell und mühelos verstehen kann.</p>
+<hr />
+<h2 id="1-Übersicht-was-ist-meincms"><a class="header" href="#1-Übersicht-was-ist-meincms">1. Übersicht: Was ist MeinCMS?</a></h2>
+<p><strong>MeinCMS</strong> ist ein modernes, hochperformantes Wiki- und Content-Management-System (CMS) mit <strong>Multi-Tenancy</strong> (Mandantenfähigkeit), das vollständig in <strong>Rust</strong> entwickelt wurde und <strong>PostgreSQL</strong> als Datenbank nutzt.</p>
+<pre><code class="language-mermaid">flowchart TD
+    Client["🌐 Webbrowser / Client"] --&gt;|HTTP Request| WebServer["meincms_web\n(Axum 0.7 Webserver)"]
+    WebServer --&gt;|1. Mandanten-Erkennung| Tenant["tenant.rs\n(Hostname Filter)"]
+    WebServer --&gt;|2. Datenabfrage| DB["PostgreSQL Datenbank\n(SQLx &amp; Async Pool)"]
+    WebServer --&gt;|3. Wiki-Parsing| Parser["meincms_parser\n(Markdown &amp; MediaWiki)"]
+    WebServer --&gt;|4. HTML Rendering| Views["views/\n(Maud Typsichere Templates)"]
+    Views --&gt;|HTTP HTML Response| Client
+
+    style Client fill:#e1f5fe,stroke:#0288d1
+    style WebServer fill:#d7ffd9,stroke:#388e3c
+    style Tenant fill:#fff9c4,stroke:#fbc02d
+    style DB fill:#f3e5f5,stroke:#ab47bc
+    style Parser fill:#ffe0b2,stroke:#f57c00
+    style Views fill:#e8f5e9,stroke:#2e7d32
+</code></pre>
+<h3 id="die-wichtigsten-eigenschaften-auf-einen-blick"><a class="header" href="#die-wichtigsten-eigenschaften-auf-einen-blick">Die wichtigsten Eigenschaften auf einen Blick:</a></h3>
+<ol>
+<li><strong>100% Speichersicher &amp; Schnell:</strong> Entworfen als Rust-Workspace ohne schwerfällige Runtimes.</li>
+<li><strong>Multi-Tenancy (Mandantenfähigkeit):</strong> Ein einziger Server kann mehrere unabhängige Wikis betreiben (z. B. Haupt-Wiki vs. Technik-Dokumentation), getrennt nach Mandanten-IDs (<code>tenant_id</code>).</li>
+<li><strong>Zwei Wiki-Syntaxen:</strong> Unterstützt klassisches <strong>Markdown</strong> und <strong>MediaWiki-Wikitext</strong>.</li>
+<li><strong>Keine Inline-Skripte / XSS-Schutz:</strong> Höchste Sicherheit durch automatisches HTML-Escaping in Maud und No-Cache-Middleware.</li>
+</ol>
+<hr />
+<h2 id="2-die-4-kernbausteine-rust-crates"><a class="header" href="#2-die-4-kernbausteine-rust-crates">2. Die 4 Kernbausteine (Rust Crates)</a></h2>
+<p>Das Projekt ist in <strong>4 spezialisierte Pakete (Crates)</strong> unterteilt, die zusammen den Rust Workspace bilden:</p>
+<pre><code class="language-mermaid">graph TD
+    subgraph Rust Workspace (Cargo.toml)
+        WEB["meincms_web\n(Axum Webanwendung &amp; Maud UI)"]
+        PARSER["meincms_parser\n(Markdown, MediaWiki &amp; C-FFI Export)"]
+        BACKUP["meincms_backup\n(CLI: Export, Import &amp; Repair)"]
+        ADMIN["meincms_admin\n(CLI: User- &amp; Passwort-Verwaltung)"]
+    end
+
+    WEB --&gt;|Nutzt als Dependency| PARSER
+    BACKUP --&gt;|Nutzt als Dependency| PARSER
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Crate</th><th style="text-align: left">Aufgabe &amp; Zweck</th><th style="text-align: left">Wichtige Dateien</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong><code>meincms_web</code></strong></td><td style="text-align: left">Das zentrale Web-Backend. Verwaltet HTTP-Routen, Authentifizierung, Mandanten und Rendern der Benutzeroberfläche.</td><td style="text-align: left"><code>main.rs</code>, <code>handlers.rs</code>, <code>db.rs</code>, <code>tenant.rs</code>, <code>views/</code></td></tr>
+<tr><td style="text-align: left"><strong><code>meincms_parser</code></strong></td><td style="text-align: left">Die Parsing-Engine. Wandelt Markdown und MediaWiki-Syntax in sicheres HTML um. Exportiert auch eine C-Bibliothek (<code>meincms_parser.h</code>) und Rhai-Skripte.</td><td style="text-align: left"><code>markdown.rs</code>, <code>wikitext.rs</code>, <code>scripting.rs</code>, <code>ffi.rs</code></td></tr>
+<tr><td style="text-align: left"><strong><code>meincms_backup</code></strong></td><td style="text-align: left">Ein eigenständiges CLI-Werkzeug für Datensicherungen (YAML/XML), Datenwiederherstellung und Reparatur von Wiki-Artikeln.</td><td style="text-align: left"><code>main.rs</code></td></tr>
+<tr><td style="text-align: left"><strong><code>meincms_admin</code></strong></td><td style="text-align: left">Ein CLI-Werkzeug für Administratoren zur Benutzerverwaltung und zum sicheren Hashen von Passwörtern mit Argon2id.</td><td style="text-align: left"><code>main.rs</code></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="3-datenfluss-wie-verarbeitet-das-system-eine-anfrage"><a class="header" href="#3-datenfluss-wie-verarbeitet-das-system-eine-anfrage">3. Datenfluss: Wie verarbeitet das System eine Anfrage?</a></h2>
+<p>Wenn ein Benutzer eine Wiki-Seite aufruft (z. B. <code>https://wissen-ahrensburg.de/wiki/Hauptseite</code>), passiert Folgendes:</p>
+<ol>
+<li><strong>Routing &amp; Middleware (<code>meincms_web</code>):</strong>
+Der <strong>Axum Webserver</strong> nimmt den HTTP-Request entgegen. Die <strong>Tenant-Middleware</strong> liest den Hostnamen aus und bestimmt den aktuellen Mandanten (<code>main</code> oder <code>doc</code>).</li>
+<li><strong>Datenbankabfrage (<code>db.rs</code>):</strong>
+Über <strong>SQLx</strong> wird der gewünschte Artikel für diesen Mandanten aus der PostgreSQL-Datenbank geladen.</li>
+<li><strong>Text-Transformation (<code>meincms_parser</code>):</strong>
+Der gespeicherte Rohtext (Markdown oder MediaWiki) wird an <code>meincms_parser</code> übergeben und blitzsicher in HTML konvertiert.</li>
+<li><strong>HTML-Generierung (<code>views/</code>):</strong>
+<strong>Maud</strong> (ein typsicheres Rust-Makro) baut das vollständige HTML-Dokument zusammen (Navigation, Artikelinhalt, Footer).</li>
+<li><strong>Antwort senden:</strong>
+Der Server sendet das fertige HTML mit <strong>No-Cache-Sicherheitsheadern</strong> an den Browser zurück.</li>
+</ol>
+<hr />
+<h2 id="4-software-entwurfsmuster-design-patterns-im-projekt"><a class="header" href="#4-software-entwurfsmuster-design-patterns-im-projekt">4. Software-Entwurfsmuster (Design Patterns) im Projekt</a></h2>
+<p>Um den Code sauber, wartbar und erweiterbar zu halten, werden bewährte Entwurfsmuster eingesetzt:</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph Design Patterns
+        P1["1. Repository Pattern\n(db.rs)"]
+        P2["2. Strategy Pattern\n(Parser Pipeline)"]
+        P3["3. Middleware Chain\n(Axum / Tower)"]
+        P4["4. Component Pattern\n(Maud Views)"]
+        P5["5. FFI Adapter Pattern\n(C-ABI Export)"]
+    end
+</code></pre>
+<h3 id="-1-repository-pattern-datenzugriffsschicht-in-dbrs"><a class="header" href="#-1-repository-pattern-datenzugriffsschicht-in-dbrs">🗄️ 1. Repository Pattern (Datenzugriffsschicht in <code>db.rs</code>)</a></h3>
+<ul>
+<li><strong>Konzept:</strong> Die Webanwendung greift nicht direkt mit rohen SQL-Strings in Handlern auf die Datenbank zu, sondern nutzt Datenzugriffsfunktionen in <code>db.rs</code>.</li>
+<li><strong>Vorteil:</strong> SQL-Abfragen sind zentral gebündelt. Bei Datenbankänderungen muss nur <code>db.rs</code> angepasst werden.</li>
+</ul>
+<h3 id="-2-strategy-pattern-parser-auswahl-in-meincms_parser"><a class="header" href="#-2-strategy-pattern-parser-auswahl-in-meincms_parser">🔄 2. Strategy Pattern (Parser-Auswahl in <code>meincms_parser</code>)</a></h3>
+<ul>
+<li><strong>Konzept:</strong> Artikel können in Markdown oder MediaWiki-Syntax vorliegen. Das System wählt je nach Artikeltyp dynamisch die passende Parser-Strategie (<code>markdown::render</code> oder <code>wikitext::render</code>).</li>
+<li><strong>Vorteil:</strong> Neue Formate (z. B. Org-Mode oder AsciiDoc) können als neue Strategie hinzugefügt werden, ohne die Webanwendung zu verändern.</li>
+</ul>
+<h3 id="-3-middleware-chain-pattern-axum--tower-services-in-tenantrs--authrs"><a class="header" href="#-3-middleware-chain-pattern-axum--tower-services-in-tenantrs--authrs">⛓️ 3. Middleware Chain Pattern (Axum / Tower Services in <code>tenant.rs</code> &amp; <code>auth.rs</code>)</a></h3>
+<ul>
+<li><strong>Konzept:</strong> Jede Anfrage durchläuft eine Kette von Filtern:
+<ol>
+<li><em>Multi-Tenancy Filter:</em> Welcher Mandant ruft auf?</li>
+<li><em>Authentication Filter:</em> Ist der Admin eingeloggt?</li>
+<li><em>Security Header Filter:</em> Werden <code>No-Cache</code> und <code>X-Content-Type-Options</code> erzwungen?</li>
+</ol>
+</li>
+<li><strong>Vorteil:</strong> Klare Trennung von Sicherheits- und Geschäftslogik (Separation of Concerns).</li>
+</ul>
+<h3 id="-4-component-based-ui-pattern-maud-templates-in-views"><a class="header" href="#-4-component-based-ui-pattern-maud-templates-in-views">🧩 4. Component-Based UI Pattern (Maud Templates in <code>views/</code>)</a></h3>
+<ul>
+<li><strong>Konzept:</strong> Statt schwerfälliger Template-Dateien (wie Jinja2 oder HTML-Dateien) wird die Benutzeroberfläche in kleinen, wiederverwendbaren Rust-Funktionen aufgebaut.</li>
+<li><strong>Vorteil:</strong> Kompilierzeit-Prüfung aller HTML-Strukturen, kein Tippfehler bei Variablen und automatisches XSS-Escaping.</li>
+</ul>
+<h3 id="-5-ffi-adapter-pattern-c-abi-hülle-in-ffirs"><a class="header" href="#-5-ffi-adapter-pattern-c-abi-hülle-in-ffirs">🔌 5. FFI Adapter Pattern (C-ABI Hülle in <code>ffi.rs</code>)</a></h3>
+<ul>
+<li><strong>Konzept:</strong> Der Rust-Parser stellt über C-kompatible Funktionsaufrufe (<code>extern "C"</code>) und eine Header-Datei (<code>meincms_parser.h</code>) eine Schnittstelle für externe Sprachen (C, C++, Node.js, Python) bereit.</li>
+<li><strong>Vorteil:</strong> Das Parser-Crate kann außerhalb des Rust-Ökosystems als native Shared Library (<code>.so</code> / <code>.dll</code>) wiederverwendet werden.</li>
+</ul>
+<hr />
+<h2 id="5-datenbank-schema--datenmodell-postgresql"><a class="header" href="#5-datenbank-schema--datenmodell-postgresql">5. Datenbank-Schema &amp; Datenmodell (PostgreSQL)</a></h2>
+<p>Die Datenbank verwendet ein klares, relationales Schema mit strikter Mandantentrennung:</p>
+<pre><code class="language-mermaid">erDiagram
+    WIKI_ARTIKEL ||--o{ WIKI_ARTIKEL_VERSION : "hat Historie"
+    WIKI_NAMESPACE ||--o{ WIKI_ARTIKEL : "gruppiert"
+    WIKI_CATEGORY ||--o{ WIKI_ARTIKEL : "kategorisiert"
+
+    WIKI_ARTIKEL {
+        uuid id PK
+        string tenant_id FK "Mandanten-ID (main / doc)"
+        string slug "Eindeutiger URL-Pfad"
+        string title "Titel des Artikels"
+        string content_markdown "Markdown Inhalt"
+        string content_mediawiki "MediaWiki Inhalt"
+        uuid namespace_id FK
+    }
+
+    WIKI_ARTIKEL_VERSION {
+        uuid id PK
+        uuid artikel_id FK
+        integer version_number
+        string content
+        timestamp created_at
+    }
+</code></pre>
+<ul>
+<li><strong>Mandantentrennung:</strong> Alle Tabellen filtern standardmäßig über <code>tenant_id</code>. Datensätze verschiedener Mandanten können sich niemals vermischen.</li>
+<li><strong>Historisierung:</strong> Bei jeder Artikeländerung wird eine neue <code>WIKI_ARTIKEL_VERSION</code> angelegt, wodurch Änderungen rückgängig gemacht werden können.</li>
+</ul>
+<hr />
+<h2 id="-zusammenfassung-für-entwickler--ki-agenten"><a class="header" href="#-zusammenfassung-für-entwickler--ki-agenten">💡 Zusammenfassung für Entwickler &amp; KI-Agenten</a></h2>
+<ol>
+<li><strong>Wo erstelle ich neue Funktionen?</strong>
+<ul>
+<li>Neue HTTP-Endpunkte -&gt; <code>meincms_web/src/handlers.rs</code></li>
+<li>Neue UI-Komponenten -&gt; <code>meincms_web/src/views/</code></li>
+<li>Datenbank-Abfragen -&gt; <code>meincms_web/src/db.rs</code></li>
+<li>Parser-Erweiterungen -&gt; <code>meincms_parser/src/</code></li>
+</ul>
+</li>
+<li><strong>Wie teste und baue ich das Projekt?</strong>
+<ul>
+<li>Prüfen: <code>cargo check</code> &amp; <code>cargo test --workspace</code></li>
+<li>Linter: <code>cargo clippy</code></li>
+<li>Doku bauen: <code>npm run build:docs</code></li>
+</ul>
+</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-externe-bibliotheken--crates"><a class="header" href="#-externe-bibliotheken--crates">📚 Externe Bibliotheken &amp; Crates</a></h1>
 <p>Diese Dokumentation bietet einen vollständigen und detaillierten Überblick über alle externen Rust-Crates und Bibliotheken, die im Projekt <strong>MeinCMS (wissen-ahrensburg.de)</strong> verwendet werden.</p>
 <p>MeinCMS ist als modularer <strong>Rust Workspace</strong> aufgebaut. Jedes Subsystem (<code>meincms_parser</code>, <code>meincms_web</code>, <code>meincms_backup</code>, <code>meincms_admin</code>) nutzt spezialisierte, hochperformante Open-Source-Bibliotheken für seine jeweiligen Aufgaben.</p>
@@ -674,7 +829,39 @@ cargo run -p meincms_backup -- export full_backup.yaml --full
 <h2 id="-sicherheits---wartungshinweise"><a class="header" href="#-sicherheits---wartungshinweise">🔒 Sicherheits- &amp; Wartungshinweise</a></h2>
 <ol>
 <li>
-<p><strong>Keine veralteten Abhängigkeiten (Security Audits):</strong>
+<p><strong>Abhängigkeits-Analyse mit <code>deps</code> &amp; <code>cargo tree</code>:</strong>
+Ein Tool zur Analyse der Abhängigkeiten eines Projekts. Es hilft dabei, transitive Abhängigkeiten zu verstehen und doppelte Crates aufzuspüren:</p>
+<pre><code class="language-bash">cargo tree
+</code></pre>
+<p>Ebenfalls steht über <a href="https://deps.dev">https://deps.dev</a> (Google Open Source Insights) eine tiefgehende Analyse der Abhängigkeiten bereit.</p>
+</li>
+<li>
+<p><strong>Sicherheits-Audits mit <code>osv</code> (Open Source Vulnerabilities):</strong>
+<code>osv</code> ist eine verteilte Schwachstellendatenbank für Open Source (<code>osv.dev</code>). Das CLI-Tool <code>osv-scanner</code> ermöglicht sprachübergreifende Audits:</p>
+<pre><code class="language-bash">go install github.com/google/osv-scanner/v2/cmd/osv-scanner@v2
+osv-scanner -r path/to/your/project
+</code></pre>
+</li>
+<li>
+<p><strong>Alternative Scanner zu OSV-Scanner (Trivy, Grype, Semgrep):</strong></p>
+<ul>
+<li><strong>Trivy (Aqua Security):</strong> Open-Source Scanner für Dateisysteme &amp; Abhängigkeiten (<code>trivy fs /pfad/zum/projekt</code>).</li>
+<li><strong>Grype (Anchore):</strong> Schneller Schwachstellenscanner für Verzeichnisse &amp; SBOMs (<code>grype dir:/pfad/zum/projekt</code>).</li>
+<li><strong>Semgrep:</strong> Regelbasierte statische Code-Analyse / SAST (<code>semgrep scan</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Statische Code-Analyse &amp; Vulnerability Scanning mit Snyk:</strong>
+Snyk ermöglicht statische Quellcode-Analysen (SAST) sowie Scans von Projektschnittstellen:</p>
+<pre><code class="language-bash">npm install -g snyk
+snyk auth
+snyk code test
+# Oder spezifischer Pfad:
+snyk code test /pfad/zum/code
+</code></pre>
+</li>
+<li>
+<p><strong>RustSec Security Audits (<code>cargo audit</code>):</strong>
 Um Sicherheitslücken in externen Crates frühzeitig zu erkennen, sollte regelmäßig <code>cargo audit</code> ausgeführt werden:</p>
 <pre><code class="language-bash">cargo install cargo-audit
 cargo audit
@@ -1020,6 +1207,41 @@ dependencies = []
 <li><strong><code>apt-cache policy &lt;paketname&gt;</code></strong>: Zeigt Paketversion und Security-Repository-Herkunft (z.B. <code>noble-security</code>).</li>
 <li><strong><code>debsecan</code></strong>: Analysiert installierte Pakete auf bekannte CVEs (<code>sudo apt install debsecan &amp;&amp; debsecan</code>).</li>
 </ul>
+<h3 id="c--c-statische--dynamische-sicherheits-scanner-sast--memory-safety"><a class="header" href="#c--c-statische--dynamische-sicherheits-scanner-sast--memory-safety">C / C++ Statische &amp; Dynamische Sicherheits-Scanner (SAST &amp; Memory Safety)</a></h3>
+<p>Für C-Pakete und C/C++-Schnittstellen (wie den C-ABI Export <code>meincms_parser.h</code>) kommen spezialisierte SAST- und Laufzeit-Scanner zum Einsatz:</p>
+<ul>
+<li>
+<p><strong>Flawfinder (SAST für C/C++):</strong><br />
+Scannt C/C++-Quellcode auf bekannte Sicherheitsrisiken und unsichere API-Funktionen (z.B. <code>strcpy</code>, <code>sprintf</code>):</p>
+<pre><code class="language-bash">sudo apt install flawfinder
+flawfinder .
+</code></pre>
+</li>
+<li>
+<p><strong>Cppcheck (Statische C/C++ Analyse):</strong><br />
+Spürt Buffer Overflows, Speicherlecks, Nullpointer-Dereferenzierungen und uninitialisierte Variablen auf:</p>
+<pre><code class="language-bash">sudo apt install cppcheck
+cppcheck --enable=all --suppress=missingIncludeSystem .
+</code></pre>
+</li>
+<li>
+<p><strong>Clang-Tidy &amp; Clang Static Analyzer:</strong><br />
+LLVM-basierte statische Code-Analyse zur Überprüfung von C/C++ Sicherheitsregeln (CERT / MISRA):</p>
+<pre><code class="language-bash">clang-tidy --checks='clang-analyzer-*,cert-*' main.c
+</code></pre>
+</li>
+<li>
+<p><strong>AddressSanitizer (ASan) &amp; Valgrind (Dynamische Speicherprüfung):</strong><br />
+Erkennt Speicherzugriffsfehler (Use-After-Free, Out-of-Bounds, Memory Leaks) zur Laufzeit:</p>
+<pre><code class="language-bash"># Valgrind Laufzeitanalyse
+sudo apt install valgrind
+valgrind --leak-check=full ./mein_c_programm
+
+# AddressSanitizer beim GCC/Clang Kompilieren aktivieren
+gcc -fsanitize=address -g main.c -lmeincms_parser -o main_app
+</code></pre>
+</li>
+</ul>
 <hr />
 <h2 id="2-rust-Ökosystem-sicherheitsportale--audit-tools"><a class="header" href="#2-rust-Ökosystem-sicherheitsportale--audit-tools">2. Rust Ökosystem Sicherheitsportale &amp; Audit Tools</a></h2>
 <p>Das Rust-Ökosystem verfügt über eine hochmoderne, automatisierte Sicherheitsinfrastruktur zur Überprüfung aller Cargo-Abhängigkeiten (<code>crates.io</code>).</p>
@@ -1060,6 +1282,33 @@ Prüft den Workspace nicht nur auf Sicherheitslücken, sondern auch auf unerwün
 cargo deny check
 </code></pre>
 </li>
+<li>
+<p><strong><code>cargo-geiger</code> (Rust Speicher-Sicherheitswert &amp; <code>unsafe</code> Rating):</strong><br />
+Analysiert das Projekt und alle Abhängigkeiten auf die Verwendung von <code>unsafe</code> Rust-Code und berechnet den relativen Sicherheitswert:</p>
+<pre><code class="language-bash">cargo install cargo-geiger
+cargo geiger
+</code></pre>
+</li>
+<li>
+<p><strong>Miri (Undefined Behavior Detection in Rust):</strong><br />
+Offizieller Rust Mid-level IR (MIR) Interpreter zur Feststellung von undefiniertem Verhalten (Undefined Behavior, Memory Leaks, Data Races) in <code>unsafe</code>-Rust-Code:</p>
+<pre><code class="language-bash">rustup component add miri
+cargo miri test
+</code></pre>
+</li>
+<li>
+<p><strong><code>deps</code> (<code>cargo-deps</code>, <code>cargo tree</code> &amp; <code>deps.dev</code>)</strong>:<br />
+Ein Tool zur Analyse der Abhängigkeiten eines Projekts. Es verarbeitet Abhängigkeitsbäume, identifiziert veraltete oder doppelte Crates und visualisiert Abhängigkeitsgraphen:</p>
+<pre><code class="language-bash"># Visualisierung des Abhängigkeitsbaums im Terminal
+cargo tree
+
+# Erstellung eines visuellen Abhängigkeitsgraphen via cargo-deps
+cargo install cargo-deps
+cargo deps | dot -Tpng &gt; deps_graph.png
+
+# Online-Analyse über Google Open Source Insights: https://deps.dev
+</code></pre>
+</li>
 </ul>
 <hr />
 <h2 id="3-npm--nodejs-Ökosystem-sicherheitsportale--audit-tools"><a class="header" href="#3-npm--nodejs-Ökosystem-sicherheitsportale--audit-tools">3. NPM &amp; Node.js Ökosystem Sicherheitsportale &amp; Audit Tools</a></h2>
@@ -1089,24 +1338,178 @@ Vergleicht <code>package.json</code> und <code>package-lock.json</code> automati
 <p><strong><code>npm audit fix</code></strong>:<br />
 Aktualisiert verwundbare Pakete automatisch auf die nächstsichere Version (ohne Breaking Changes).</p>
 </li>
+<li>
+<p><strong>ESLint Security Plugin (<code>eslint-plugin-security</code> - SAST für JS/TS):</strong><br />
+Statische Code-Analyse speziell für JavaScript &amp; Node.js zur Erkennung unsicherer Befehle (<code>eval()</code>, ReDoS-Regex, Unsanitized Inputs, Child Processes):</p>
+<pre><code class="language-bash"># Installation des Security Plugins
+npm install --save-dev eslint eslint-plugin-security
+
+# Ausführung des Security-Linter-Scans
+npx eslint --plugin security --rule 'security/detect-object-injection: error' .
+</code></pre>
+</li>
+<li>
+<p><strong>Retire.js (Vulnerability Scanner für JS-Bibliotheken):</strong><br />
+Spezialisierter Scanner zur Erkennung bekannter Sicherheitslücken in JavaScript-Dateien und NPM-Paketen:</p>
+<pre><code class="language-bash"># Globale Installation
+npm install -g retire
+
+# Scan des Projekt-Ordners
+retire --path .
+</code></pre>
+</li>
+<li>
+<p><strong><code>npm ls</code> &amp; <code>npm outdated</code> (Abhängigkeits-Analyse):</strong><br />
+Analysiert die Baumstruktur aller NPM-Pakete und hebt veraltete Bibliotheken hervor:</p>
+<pre><code class="language-bash"># Abhängigkeitsbaum anzeigen
+npm ls --all
+
+# Veraltete Pakete prüfen
+npm outdated
+</code></pre>
+</li>
+</ul>
+<h3 id="npm-security--package-rating-paket-sicherheitsbewertung"><a class="header" href="#npm-security--package-rating-paket-sicherheitsbewertung">NPM Security &amp; Package Rating (Paket-Sicherheitsbewertung)</a></h3>
+<ul>
+<li>
+<p><strong>Socket.dev (Supply-Chain-Security Rating):</strong><br />
+🔗 <a href="https://socket.dev">https://socket.dev</a><br />
+<em>Analysiert NPM-Pakete auf Verhaltensrisiken wie versteckte Telemetrie, Install-Skripte, Typosquatting und Berechtigungen (Netzwerk, Dateisystem).</em></p>
+</li>
+<li>
+<p><strong>npms.io (NPM Package Quality &amp; Health Score):</strong><br />
+🔗 <a href="https://npms.io">https://npms.io</a><br />
+<em>Berechnet einen kombinierten Score (Quality, Maintenance, Popularity) für jedes NPM-Paket.</em></p>
+</li>
 </ul>
 <hr />
-<h2 id="4-plattformübergreifende-vulnerability-datenbanken-osv"><a class="header" href="#4-plattformübergreifende-vulnerability-datenbanken-osv">4. Plattformübergreifende Vulnerability Datenbanken (OSV)</a></h2>
+<h2 id="4-snyk-security-scanner-sast--open-source-security"><a class="header" href="#4-snyk-security-scanner-sast--open-source-security">4. Snyk Security Scanner (SAST &amp; Open Source Security)</a></h2>
+<p><strong>Snyk</strong> ist eine führende Sicherheitsplattform zur statischen Code-Analyse (SAST - Static Application Security Testing) und zur Überprüfung von Abhängigkeiten über mehrere Programmiersprachen hinweg.</p>
+<h3 id="snyk-cli-installation--authentifizierung"><a class="header" href="#snyk-cli-installation--authentifizierung">Snyk CLI Installation &amp; Authentifizierung</a></h3>
+<pre><code class="language-bash"># Globale Installation des Snyk CLI via NPM
+npm install -g snyk
+
+# Authentifizierung des CLI-Tools mit dem Snyk-Account
+snyk auth
+</code></pre>
+<h3 id="quellcode---abhängigkeitsscans-mit-snyk"><a class="header" href="#quellcode---abhängigkeitsscans-mit-snyk">Quellcode- &amp; Abhängigkeitsscans mit Snyk</a></h3>
+<pre><code class="language-bash"># Quellcode-Analyse (SAST) im aktuellen Projektverzeichnis ausführen
+snyk code test
+
+# Quellcode-Analyse für einen spezifischen Pfad ausführen
+snyk code test /pfad/zum/code
+
+# Prüfung aller Projekt-Abhängigkeiten (Open Source Vulnerabilities)
+snyk test
+</code></pre>
+<hr />
+<h2 id="5-plattformübergreifende-vulnerability-datenbanken--scanner-osv"><a class="header" href="#5-plattformübergreifende-vulnerability-datenbanken--scanner-osv">5. Plattformübergreifende Vulnerability Datenbanken &amp; Scanner (OSV)</a></h2>
 <ul>
-<li><strong>Google OSV (Open Source Vulnerabilities):</strong><br />
+<li>
+<p><strong>Google OSV (Open Source Vulnerabilities):</strong><br />
 🔗 <a href="https://osv.dev">https://osv.dev</a><br />
-<em>Eine universelle, Open-Source-Datenbank von Google, die Sicherheitslücken über Sprachgrenzen hinweg (Rust/Cargo, NPM, PyPI, Linux/Ubuntu, Go, C/C++) aggregiert.</em></li>
+<em>Eine verteilte Schwachstellendatenbank für Open Source, die Sicherheitslücken über Sprachgrenzen hinweg (Rust/Cargo, NPM, PyPI, Linux/Ubuntu, Go, C/C++) aggregiert.</em></p>
+</li>
+<li>
+<p><strong><code>osv-scanner</code> CLI Tool:</strong><br />
+Ein von Google bereitgestellter universeller Vulnerability Scanner, der Projekt-Abhängigkeiten direkt gegen die verteilte OSV-Datenbank prüft:</p>
+<pre><code class="language-bash"># Installation des OSV-Scanners (v2)
+go install github.com/google/osv-scanner/v2/cmd/osv-scanner@v2
+
+# Rekursiver Scan aller Projekt-Abhängigkeiten im aktuellen Verzeichnis
+osv-scanner -r .
+
+# Oder rekursiver Scan für einen spezifischen Projektpfad
+osv-scanner -r path/to/your/project
+</code></pre>
+</li>
 </ul>
+<h3 id="weitere-alternative-security-scanner-zu-osv-scanner"><a class="header" href="#weitere-alternative-security-scanner-zu-osv-scanner">Weitere alternative Security Scanner zu OSV-Scanner</a></h3>
+<p>Neben OSV-Scanner und Snyk stehen weitere professionelle, plattformübergreifende Open-Source-Scanner bereit:</p>
+<ul>
+<li>
+<p><strong>Trivy (Aqua Security):</strong><br />
+Ein umfassender Open-Source Scanner für Dateisysteme, Code-Abhängigkeiten (Cargo, NPM, PIP) und Container:</p>
+<pre><code class="language-bash"># Installation unter Ubuntu
+sudo apt install trivy
+
+# Scan des Projektverzeichnisses auf Schwachstellen
+trivy fs /pfad/zum/projekt
+</code></pre>
+</li>
+<li>
+<p><strong>Grype (Anchore):</strong><br />
+Ein extrem schneller Vulnerability-Scanner für Quellcode-Verzeichnisse und Software-Stücklisten (SBOMs):</p>
+<pre><code class="language-bash"># Installation via Install-Skript
+curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+
+# Scan eines Projektverzeichnisses
+grype dir:/pfad/zum/projekt
+</code></pre>
+</li>
+<li>
+<p><strong>Semgrep (SAST Code Scanner):</strong><br />
+Ein leichter, regelbasierter SAST-Scanner für statische Code-Analysen auf Sicherheitslücken:</p>
+<pre><code class="language-bash"># Installation via PIP
+pip install semgrep
+
+# Statischen Code-Scan im Projekt ausführen
+semgrep scan
+</code></pre>
+</li>
+</ul>
+<h3 id="sicherheitswert-bewertungsstandards-severity-rating-vs-osv"><a class="header" href="#sicherheitswert-bewertungsstandards-severity-rating-vs-osv">Sicherheitswert-Bewertungsstandards (Severity Rating) vs. OSV</a></h3>
+<blockquote>
+<p>💡 <strong>Wichtige Unterscheidung:</strong><br />
+<strong>Google OSV</strong> ist eine <em>Schwachstellendatenbank</em> und ein <em>Vergleichs-Scanner</em>, jedoch <strong>kein eigenständiges Sicherheitswert-Bewertungssystem</strong>. OSV aggregiert Daten aus Quellen wie NVD (National Vulnerability Database), RustSec und GitHub Security Advisories.</p>
+<p>Der eigentliche <strong>Sicherheitswert (Severity Score)</strong> einer Schwachstelle in OSV, Rust, C oder C++ wird nach internationalen Standards berechnet:</p>
+<ol>
+<li>
+<p><strong>CVSS (Common Vulnerability Scoring System, v3.1 / v4.0):</strong><br />
+Quantitativer Sicherheitswert von <strong>0.0 bis 10.0</strong>:</p>
+<ul>
+<li><code>0.0</code> - <code>3.9</code>: <strong>Low</strong> (Geringes Risiko)</li>
+<li><code>4.0</code> - <code>6.9</code>: <strong>Medium</strong> (Mittleres Risiko)</li>
+<li><code>7.0</code> - <code>8.9</code>: <strong>High</strong> (Hohes Risiko)</li>
+<li><code>9.0</code> - <code>10.0</code>: <strong>Critical</strong> (Kritisches Risiko)</li>
+</ul>
+</li>
+<li>
+<p><strong>CWE (Common Weakness Enumeration):</strong><br />
+Standardisierte Kategorisierung von Sicherheitsfehler-Klassen (z. B. <code>CWE-119</code> für Buffer Overflow, <code>CWE-79</code> für XSS, <code>CWE-416</code> für Use-After-Free).</p>
+</li>
+<li>
+<p><strong>EPSS (Exploit Prediction Scoring System):</strong><br />
+Prozentuale Wahrscheinlichkeit (0% bis 100%), dass eine Schwachstelle in den nächsten 30 Tagen tatsächlich in freier Wildbahn ausgenutzt wird.</p>
+</li>
+</ol>
+</blockquote>
 <hr />
 <h2 id="-zusammenfassende-befehlsübersicht-für-dieses-projekt"><a class="header" href="#-zusammenfassende-befehlsübersicht-für-dieses-projekt">📑 Zusammenfassende Befehlsübersicht für dieses Projekt</a></h2>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: left">Ökosystem</th><th style="text-align: left">Befehl</th><th style="text-align: left">Zweck</th></tr></thead><tbody>
 <tr><td style="text-align: left"><strong>Ubuntu C/System</strong></td><td style="text-align: left"><code>apt-cache policy libc6</code></td><td style="text-align: left">Prüft Security-Patch-Stand von C-Bibliotheken</td></tr>
 <tr><td style="text-align: left"><strong>Ubuntu C/System</strong></td><td style="text-align: left"><code>debsecan</code></td><td style="text-align: left">Analysiert lokale Ubuntu-Pakete auf CVEs</td></tr>
+<tr><td style="text-align: left"><strong>C / C++ SAST</strong></td><td style="text-align: left"><code>flawfinder .</code></td><td style="text-align: left">Scannt C/C++ Quellcode auf unsichere API-Funktionen</td></tr>
+<tr><td style="text-align: left"><strong>C / C++ SAST</strong></td><td style="text-align: left"><code>cppcheck --enable=all .</code></td><td style="text-align: left">Analysiert C/C++ Quellcode auf Speicherlecks &amp; Nullpointer</td></tr>
+<tr><td style="text-align: left"><strong>C / C++ Runtime</strong></td><td style="text-align: left"><code>valgrind --leak-check=full ./app</code></td><td style="text-align: left">Laufzeit-Speicherfehler-Analyse (Memory Leaks, Buffer Overflows)</td></tr>
+<tr><td style="text-align: left"><strong>Projekt / Cargo</strong></td><td style="text-align: left"><code>deps</code> (<code>cargo tree</code> / <code>cargo-deps</code>)</td><td style="text-align: left">Ein Tool zur Analyse der Abhängigkeiten eines Projekts</td></tr>
 <tr><td style="text-align: left"><strong>Rust</strong></td><td style="text-align: left"><code>cargo audit</code></td><td style="text-align: left">Scannt alle Rust-Crates (<code>Cargo.lock</code>) gegen RustSec DB</td></tr>
 <tr><td style="text-align: left"><strong>Rust</strong></td><td style="text-align: left"><code>cargo deny check</code></td><td style="text-align: left">Prüft Sicherheitslücken &amp; Lizenzkonformität</td></tr>
+<tr><td style="text-align: left"><strong>Rust Safety</strong></td><td style="text-align: left"><code>cargo geiger</code></td><td style="text-align: left">Misst den Speicher-Sicherheitswert &amp; <code>unsafe</code>-Rust-Anteil</td></tr>
+<tr><td style="text-align: left"><strong>Rust UB Check</strong></td><td style="text-align: left"><code>cargo miri test</code></td><td style="text-align: left">Erkennt undefiniertes Verhalten (Undefined Behavior) in <code>unsafe</code> Rust</td></tr>
 <tr><td style="text-align: left"><strong>NPM</strong></td><td style="text-align: left"><code>npm audit</code></td><td style="text-align: left">Scannt alle NPM-Pakete (<code>package-lock.json</code>) gegen GitHub Advisory DB</td></tr>
+<tr><td style="text-align: left"><strong>NPM SAST</strong></td><td style="text-align: left"><code>npx eslint --plugin security .</code></td><td style="text-align: left">Statische Analyse von JS/TS-Code auf Sicherheitsfehler</td></tr>
+<tr><td style="text-align: left"><strong>NPM Security</strong></td><td style="text-align: left"><code>retire --path .</code></td><td style="text-align: left">Scannt JS-Bibliotheken &amp; Pakete auf bekannte Sicherheitslücken</td></tr>
+<tr><td style="text-align: left"><strong>NPM Rating</strong></td><td style="text-align: left">Socket.dev / npms.io</td><td style="text-align: left">Bewertet Paket-Sicherheit, Supply-Chain-Risiko &amp; Wartungs-Score</td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="wissen-ahrensburgde-meincms"><a class="header" href="#wissen-ahrensburgde-meincms">wissen-ahrensburg.de (MeinCMS)</a></h1>
+</div>
+<p>| <strong>Multi-Language</strong> | <code>snyk code test [pfad]</code> | Statische Quellcode-Analyse (SAST) auf Sicherheitslücken |
+| <strong>Multi-Language</strong> | <code>snyk test</code> | Scannt Projekt-Abhängigkeiten via Snyk Platform |
+| <strong>Multi-Language</strong> | <code>osv-scanner -r .</code> | Scannt Projekt-Abhängigkeiten gegen die verteilte OSV-Schwachstellendatenbank |
+| <strong>Multi-Language</strong> | <code>trivy fs /pfad/zum/projekt</code> | Alternative: Open-Source Scanner für Dateisysteme &amp; Abhängigkeiten |
+| <strong>Multi-Language</strong> | <code>grype dir:/pfad/zum/projekt</code> | Alternative: Schneller Vulnerability Scanner von Anchore |
+| <strong>Multi-Language</strong> | <code>semgrep scan</code> | Alternative: Regelbasierte statische Code-Analyse (SAST) |</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wissen-ahrensburgde-meincms"><a class="header" href="#wissen-ahrensburgde-meincms">wissen-ahrensburg.de (MeinCMS)</a></h1>
 <p>CMS mit Wiki-Funktion &amp; Multi-Tenancy (100% Rust Workspace Edition, PostgreSQL).</p>
 <h2 id="architektur--tech-rust-workspace"><a class="header" href="#architektur--tech-rust-workspace">Architektur &amp; Tech (Rust Workspace)</a></h2>
 <ul>
@@ -1133,12 +1536,754 @@ Aktualisiert verwundbare Pakete automatisch auf die nächstsichere Version (ohne
 <li><strong>Produktion / Unix Socket:</strong> PostgreSQL-Verbindung bevorzugt über Unix Domain Socket (<code>DATABASE_URL="postgres://user:pass@/var/run/postgresql/meincms"</code>). Webserver via <code>UNIX_SOCKET</code>.</li>
 <li><strong>Mandanten:</strong> Multi-Tenancy mit Filterung nach <code>TenantId</code> ("main" = Standard, "doc" = Technik).</li>
 <li><strong>Sicherheit:</strong> Markdown &amp; MediaWiki strikt gegen XSS/CSRF sichern, keine Inline-Skripte. No-Cache-Header erzwingen.</li>
+<li><strong>Menschliche Verantwortung &amp; Code-Review:</strong> KI-Agenten (CLI &amp; IDE) sind Assistenzwerkzeuge. Die Verantwortung für Code-Sicherheit, Funktion und Wartbarkeit liegt stets beim Menschen. Code muss verständlich strukturiert und dokumentiert werden, damit er nachvollziehbar und optimierbar bleibt.</li>
 <li><strong>Frontend / Maud:</strong> Editor-Toggling via Vanilla JS (<code>DOMContentLoaded</code> &amp; <code>style.display</code>), nicht rein über CSS-Klassen.</li>
 <li><strong>Backend:</strong> Beim Speichern von Wiki-Artikeln das jeweils nicht genutzte Inhaltsfeld (Markdown/MediaWiki) explizit leeren.</li>
 <li><strong>DB-Modell:</strong> <code>WikiArtikel</code>, <code>WikiArtikelVersion</code>, <code>WikiNamespace</code>, <code>WikiCategory</code>.</li>
 <li><strong>Backup &amp; Repair:</strong> Nach Import oder Parser-Änderungen stets <code>repair</code> über <code>meincms_backup</code> ausführen.</li>
-<li><strong>Dokumentation &amp; mdBook:</strong> Bei Konfigurations- oder Architekturänderungen stets die Doku in <code>docs/</code> aktualisieren und danach <code>mdbook build docs</code> ausführen.</li>
+<li><strong>Dokumentation &amp; mdBook:</strong> Bei Konfigurations- oder Architekturänderungen stets die Doku in <code>docs/</code> aktualisieren und danach <code>npm run build:docs</code> bzw. <code>mdbook build docs</code> ausführen.</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-ki-agenten-subagenten-prompt-sicherheit--praxis-handbuch-vibe-coding"><a class="header" href="#-ki-agenten-subagenten-prompt-sicherheit--praxis-handbuch-vibe-coding">🤖 KI-Agenten, Subagenten, Prompt-Sicherheit &amp; Praxis-Handbuch Vibe Coding</a></h1>
+<p>Dieses Kapitel beschreibt die Sicherheitsstrategie für <strong>KI-gestützte Entwicklung (Vibe Coding)</strong>, die <strong>menschliche Letztverantwortung bei der Nutzung von KI Agent CLIs und IDEs</strong>, die Tiefenarchitektur von <strong>AGENTS.md, Subagenten und Skills</strong>, maßgebliche <strong>Design Patterns &amp; Softwarearchitekturen</strong> sowie ein <strong>konkretes Praxis-Handbuch</strong> für den täglichen Entwicklungsalltag im MeinCMS Workspace.</p>
+<hr />
+<h2 id="1-menschliche-verantwortung-vs-ki-agent-cli--ide"><a class="header" href="#1-menschliche-verantwortung-vs-ki-agent-cli--ide">1. Menschliche Verantwortung vs. KI-Agent (CLI &amp; IDE)</a></h2>
+<h3 id="-der-mensch-ist-verantwortlich--nicht-die-maschine"><a class="header" href="#-der-mensch-ist-verantwortlich--nicht-die-maschine">👤 Der Mensch ist verantwortlich – nicht die Maschine!</a></h3>
+<p>Ob beim Einsatz von <strong>KI Agent CLIs</strong> (wie Google Antigravity, Claude Code, Aider) oder <strong>KI Agent IDEs</strong> (wie Cursor, Windsurf, VS Code KI-Plugins):</p>
+<ul>
+<li><strong>Die KI ist ein Werkzeug (Assistent), kein Entwickler mit Haftung oder Urteilsfähigkeit.</strong></li>
+<li>Die <strong>rechtliche, funktionale und sicherheitsbezogene Letztverantwortung</strong> liegt ausnahmslos beim <strong>menschlichen Entwickler</strong>!</li>
+<li>Die Maschine halluziniert, übersieht Edge Cases oder wählt veraltete Muster, wenn sie nicht strikt geleitet und überprüft wird.</li>
+</ul>
+<pre><code class="language-mermaid">flowchart LR
+    A["Menschlicher Entwickler\n(Konzeption, Verantwortung &amp; Governance)"] --&gt;|1. Prompting &amp; Regelerteilung| B["KI Agent CLI / IDE\n(Code-Generierung &amp; Vorschläge)"]
+    B --&gt;|2. Entwurf &amp; Diff| C["Menschliches Code Review\n&amp; Verstehen des Codes"]
+    C --&gt;|3. Qualitätsgate| D["Automatische Tests &amp; Audits\n(cargo check, clippy, audit)"]
+    D --&gt;|4. Freigabe| E["Produktions-Codebase"]
+
+    style A fill:#d7ffd9,stroke:#388e3c
+    style B fill:#e1f5fe,stroke:#0288d1
+    style C fill:#fff9c4,stroke:#fbc02d
+    style D fill:#f3e5f5,stroke:#ab47bc
+    style E fill:#e8f5e9,stroke:#2e7d32
+</code></pre>
+<h3 id="-verstehen-was-programmiert-wird--das-vibe-coding-dilemma"><a class="header" href="#-verstehen-was-programmiert-wird--das-vibe-coding-dilemma">🧠 Verstehen, was programmiert wird – Das Vibe-Coding-Dilemma</a></h3>
+<p>Ein zentraler Grundsatz der Softwareentwicklung mit KI lautet:</p>
+<blockquote>
+<p>⚠️ <strong>Wer Code nicht versteht, kann ihn später weder warten, verbessern, refaktorieren noch von Sicherheitslücken befreien!</strong></p>
+</blockquote>
+<p>Blindes <strong>"Vibe Coding"</strong> (einfaches Akzeptieren von KI-Vorschlägen ohne Durchlesen und Verstehen):</p>
+<ol>
+<li><strong>Erzeugt technische Schulden (Technical Debt):</strong> Es entsteht unübersichtlicher "Spaghetticode", der unnötig komplex ist.</li>
+<li><strong>Erschwert spätere Anpassungen:</strong> Wenn ein Bug auftritt oder eine Funktion erweitert werden muss, versteht niemand mehr, warum die KI bestimmte Variablen oder Pfade gewählt hat.</li>
+<li><strong>Führt zu verdeckten Sicherheitslücken:</strong> Unsichere C-ABI Speicherzugriffe, fehlendes HTML-Escaping oder falsche Datenbankschlüssel bleiben unbemerkt.</li>
+</ol>
+<p><strong>Verpflichtende Entwickler-Regel:</strong></p>
+<ul>
+<li>Vor dem Committen muss der Entwickler den von der KI generierten Code <strong>Zeile für Zeile durchlesen</strong>.</li>
+<li>Bei unklaren Abschnitten ist die KI aufzufordern: <em>"Erkläre mir schrittweise, was dieser Codeblock tut und warum dieses Muster gewählt wurde."</em></li>
+</ul>
+<hr />
+<h2 id="2-architektur-der-ki-steuerung-agentsmd-subagenten--skills"><a class="header" href="#2-architektur-der-ki-steuerung-agentsmd-subagenten--skills">2. Architektur der KI-Steuerung: AGENTS.md, Subagenten &amp; Skills</a></h2>
+<p>Um sicherzustellen, dass unterschiedliche KI-Agenten konsistenten, sicheren und architekturkonformen Code schreiben, nutzt das Projekt ein dreistufiges Steuerungssystem:</p>
+<pre><code class="language-mermaid">graph TD
+    A["AGENTS.md\n(Globale Regeln &amp; Workspace-Kontext)"] --&gt; B["Subagenten\n(Spezialisierte Agenten-Instanzen)"]
+    A --&gt; C["Skills (.agents/skills/)\n(Modulares Domänenwissen &amp; Workflows)"]
+    B --&gt;|Nutzt| C
+</code></pre>
+<h3 id="-1-agentsmd-das-zentrale-regelwerk"><a class="header" href="#-1-agentsmd-das-zentrale-regelwerk">📄 1. <code>AGENTS.md</code> (Das zentrale Regelwerk)</a></h3>
+<p><code>AGENTS.md</code> ist die Ankerdatei für jeden KI-Agenten im Workspace. Sie wird bei jedem Agentenstart automatisch in den Systemkontext geladen.</p>
+<ul>
+<li><strong>Inhalt:</strong> Technologie-Stack (Rust, Axum, Maud, PostgreSQL), Sicherheitsregeln (XSS-Schutz, Unix Sockets, <code>.env</code>-Sperren), Befehle für Qualitätssicherung (<code>cargo check</code>, <code>npm run build:docs</code>).</li>
+<li><strong>Zweck:</strong> Stellt sicher, dass kein Agent projektfremde Frameworks (wie TailwindCSS ohne Absprache) oder unsichere Praktiken einführt.</li>
+</ul>
+<h3 id="-2-subagenten-isolierte-spezialisierungen"><a class="header" href="#-2-subagenten-isolierte-spezialisierungen">🤖 2. Subagenten (Isolierte Spezialisierungen)</a></h3>
+<p>Ein <strong>Subagent</strong> ist eine eigenständige KI-Instanz, die für eine spezifische Teilaufgabe (z. B. Recherche, Datenbankabfragen, UI-Building) aufgerufen wird.</p>
+<ul>
+<li><strong>Vorteile:</strong>
+<ul>
+<li><strong>Context Isolation:</strong> Der Hauptagent bleibt übersichtlich und wird nicht mit tausenden Zeilen Analyse-Log überflutet.</li>
+<li><strong>Least Privilege:</strong> Ein Research-Subagent erhält nur Lese-Rechte (<code>view_file</code>, <code>grep_search</code>), während ein Worker-Subagent Schreibrechte besitzt.</li>
+<li><strong>Fokussierte Systemprompts:</strong> Ein <code>db_admin</code>-Subagent kennt primär SQLx- und PostgreSQL-Konventionen.</li>
+</ul>
+</li>
+</ul>
+<h3 id="-3-skills-agentsskills"><a class="header" href="#-3-skills-agentsskills">🛠️ 3. Skills (<code>.agents/skills/</code>)</a></h3>
+<p><strong>Skills</strong> sind modulare Ordner mit detaillierten Handbüchern (<code>SKILL.md</code>), Hilfsskripten und Referenzbeispielen.</p>
+<ul>
+<li><strong>Ordnerstruktur:</strong>
+<pre><code class="language-text">.agents/skills/
+├── admin_manager/   # User-Management CLI Expertenwissen
+├── backup_manager/  # YAML/XML Ex-/Import &amp; Repair Expertenwissen
+├── db_admin/        # SQLx &amp; PostgreSQL Expertenwissen
+├── meincms_worker/  # Rust Workspace &amp; Webserver Entwickler
+├── parser/          # meincms_parser C-FFI &amp; Markdown Compiler
+└── ui_worker/       # Maud Templating, Vanilla JS &amp; CSS
+</code></pre>
+</li>
+<li><strong>Aufbau einer <code>SKILL.md</code>:</strong> Enthält YAML-Frontmatter (<code>name</code>, <code>description</code>) sowie Schritt-für-Schritt-Anleitungen für komplexe Operationen.</li>
+</ul>
+<hr />
+<h2 id="3-llm---kontext-sicherheitslücken-owasp-top-10-for-llms"><a class="header" href="#3-llm---kontext-sicherheitslücken-owasp-top-10-for-llms">3. LLM- &amp; Kontext-Sicherheitslücken (OWASP Top 10 for LLMs)</a></h2>
+<p>Beim Einsatz von Sprachmodellen und autonomen Agenten müssen folgende Hauptschwachstellen abgewehrt werden:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Benutzereingabe / Externe Datei"] --&gt;|1. Prompt Injection / Context Poisoning| B["KI-Agent / Sprachmodell"]
+    B --&gt;|2. Insecure Output / Code Generation| C["Quellcode / Terminal-Befehl"]
+    C --&gt;|3. Automatische Ausführung| D["System &amp; Datenbank"]
+    
+    style A fill:#ffcccc,stroke:#ff0000
+    style B fill:#e1f5fe,stroke:#0288d1
+    style C fill:#fff9c4,stroke:#fbc02d
+    style D fill:#d7ffd9,stroke:#388e3c
+</code></pre>
+<h3 id="1-prompt-injection-direkt--indirekt"><a class="header" href="#1-prompt-injection-direkt--indirekt">1. Prompt Injection (Direkt &amp; Indirekt)</a></h3>
+<ul>
+<li><strong>Direkt:</strong> Ein Angreifer versucht über die Benutzeroberfläche oder Formularingaben den KI-Systemprompt zu überschreiben.</li>
+<li><strong>Indirekt:</strong> Bösartiger Text befindet sich in verarbeiteten Wiki-Artikeln, Markdown-Dateien oder extern abgerufenen Webseiten (<code>read_url_content</code>), um den KI-Agenten während der Analyse zu manipulieren.</li>
+<li><strong>Abwehr:</strong> Strikte Trennung von Systeminstruktionen und Daten-Kontext. Keine Ausführung von Anweisungen aus unvertrauten Inhalten ohne Validierung.</li>
+</ul>
+<h3 id="2-context-poisoning-kontext-vergiftung"><a class="header" href="#2-context-poisoning-kontext-vergiftung">2. Context Poisoning (Kontext-Vergiftung)</a></h3>
+<ul>
+<li>Manipulierte Quelldateien oder Repositories injizieren gefälschte Regeln oder schädlichen Code in den Arbeitskontext des Agenten.</li>
+<li><strong>Abwehr:</strong> Immutable Konfigurationsdateien (<code>AGENTS.md</code>, <code>.env.example</code>) und schreibgeschützte Validierungsregeln.</li>
+</ul>
+<h3 id="3-sensitive-data-exposure-datenabfluss-im-prompt"><a class="header" href="#3-sensitive-data-exposure-datenabfluss-im-prompt">3. Sensitive Data Exposure (Datenabfluss im Prompt)</a></h3>
+<ul>
+<li>Auslesen von Passwörtern, <code>.env</code>-Dateien oder API-Keys in den Modell-Kontext.</li>
+<li><strong>Abwehr:</strong> <code>.env</code> und vertrauliche Dateien sind in <code>.gitignore</code> eingetragen. Webserver blockiert den Zugriff auf Konfigurationspfade mit HTTP 403.</li>
+</ul>
+<hr />
+<h2 id="4-design-patterns--softwarearchitektur-für-multi-agenten-systeme"><a class="header" href="#4-design-patterns--softwarearchitektur-für-multi-agenten-systeme">4. Design Patterns &amp; Softwarearchitektur für Multi-Agenten-Systeme</a></h2>
+<p>Wenn mehrere KI-Agenten oder unterschiedliche Entwickler an einem Projekt arbeiten, muss die Softwarearchitektur <strong>kristallklar, streng typisiert und deterministisch</strong> sein.</p>
+<pre><code class="language-mermaid">graph TD
+    subgraph Architektonische Entwurfsmuster für KI-Systeme
+        DP1["1. Orchestrator-Worker Pattern\n(Klare Aufgabenverteilung)"]
+        DP2["2. Explicit Contract &amp; Strong Typing\n(Rust Traits, C-ABI Header)"]
+        DP3["3. Single Source of Truth (SSOT)\n(Zentrale Schemas &amp; Datentypen)"]
+        DP4["4. Quality Gate &amp; Sandbox Pattern\n(Automatische Linter &amp; Scans)"]
+        DP5["5. Self-Documenting Architecture\n(Modul-Grenzen &amp; Inline-Doku)"]
+    end
+</code></pre>
+<h3 id="-pattern-1-orchestrator-worker-pattern-hierarchische-delegation"><a class="header" href="#-pattern-1-orchestrator-worker-pattern-hierarchische-delegation">🧱 Pattern 1: Orchestrator-Worker Pattern (Hierarchische Delegation)</a></h3>
+<ul>
+<li><strong>Problem:</strong> Ein einzelner Agent verliert bei großen Tasks den Überblick oder überschreitet Kontextgrenzen.</li>
+<li><strong>Lösung:</strong> Der Hauptagent fungiert als Orchestrator (Plant Schritte, verteilt Aufgaben). Subagenten führen klar begrenzte Einzelaufgaben aus und liefern strukturierte Ergebnisse zurück.</li>
+</ul>
+<h3 id="-pattern-2-explicit-contract--strong-typing-pattern"><a class="header" href="#-pattern-2-explicit-contract--strong-typing-pattern">📜 Pattern 2: Explicit Contract &amp; Strong Typing Pattern</a></h3>
+<ul>
+<li><strong>Problem:</strong> KI-Agenten neigen in dynamischen Sprachen (wie JavaScript oder Python) zu Annahmen über Objektstrukturen ("Magic Objects"), was zu Laufzeitfehlern führt.</li>
+<li><strong>Lösung in Rust:</strong> Nutzung von Rusts striktem Typensystem (<code>struct</code>, <code>enum</code>, <code>Option&lt;T&gt;</code>, <code>Result&lt;T, E&gt;</code>). Typfehler werden direkt vom Compiler abgefangen (<code>cargo check</code>), sodass halluzinierter Code gar nicht erst kompilierbar ist. Bei C-FFI Schnittstellen gibt ein C-Header (<code>meincms_parser.h</code>) exakte Verträge vor.</li>
+</ul>
+<h3 id="-pattern-3-single-source-of-truth-ssot"><a class="header" href="#-pattern-3-single-source-of-truth-ssot">📌 Pattern 3: Single Source of Truth (SSOT)</a></h3>
+<ul>
+<li><strong>Problem:</strong> KI-Agenten erstellen doppelte Typdefinitionen oder widersprüchliche Konfigurationslogiken an verschiedenen Orten.</li>
+<li><strong>Lösung:</strong> Zentrale Datenmodelle in vertrauenswürdigen Quelldateien (z. B. <code>WikiArtikel</code> in SQLx/Rust). Konfigurationen ausschließlich in <code>.env.example</code>.</li>
+</ul>
+<h3 id="-pattern-4-quality-gate--defensive-sandbox-pattern"><a class="header" href="#-pattern-4-quality-gate--defensive-sandbox-pattern">🛡️ Pattern 4: Quality Gate &amp; Defensive Sandbox Pattern</a></h3>
+<ul>
+<li><strong>Problem:</strong> KI-generierter Code könnte unbemerkt Sicherheitslücken (wie <code>unsafe</code>-Missbrauch in Rust oder Pufferüberläufe in C) einschleusen.</li>
+<li><strong>Lösung:</strong> Jede Codeänderung muss ein unbestechliches Testgate durchlaufen. CLI-Agenten führen automatisch Linter (<code>cargo clippy</code>), Sicherheitsscans (<code>cargo audit</code>, <code>flawfinder</code>) und Formatter (<code>cargo fmt</code>) aus.</li>
+</ul>
+<h3 id="-pattern-5-self-documenting--explainable-architecture"><a class="header" href="#-pattern-5-self-documenting--explainable-architecture">📖 Pattern 5: Self-Documenting &amp; Explainable Architecture</a></h3>
+<ul>
+<li><strong>Problem:</strong> Zukünftige KI-Agenten verstehen verschachtelte Logik ohne Dokumentation nicht korrekt und generieren fehlerhafte Refactorings.</li>
+<li><strong>Lösung:</strong> Jedes Modul besitzt klare Dokumentationskommentare (<code>///</code> in Rust) und Architekturbeschreibungen in <code>docs/src</code>.</li>
+</ul>
+<hr />
+<h2 id="5-vibe-coding-absichern-in-den-kernsprachen-c-c-rust-javascript"><a class="header" href="#5-vibe-coding-absichern-in-den-kernsprachen-c-c-rust-javascript">5. Vibe Coding Absichern in den Kernsprachen (C, C++, Rust, JavaScript)</a></h2>
+<p>KI-generierter Code wird vor der Übernahme in das Repository sprachspezifischen Sicherheitsprüfungen unterzogen:</p>
+<h3 id="-c--c-speicher---c-abi-sicherheitsbewertung"><a class="header" href="#-c--c-speicher---c-abi-sicherheitsbewertung">🔴 C &amp; C++ (Speicher- &amp; C-ABI-Sicherheitsbewertung)</a></h3>
+<p>Beim Generieren von C-Code oder C-ABI Exporten (<code>meincms_parser.h</code>):</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Risiko bei KI-Code</th><th style="text-align: left">Guardrail / Scanner-Befehl</th><th style="text-align: left">Abwehrmaßnahme</th></tr></thead><tbody>
+<tr><td style="text-align: left">Pufferüberläufe (<code>strcpy</code>, <code>sprintf</code>)</td><td style="text-align: left"><code>flawfinder .</code></td><td style="text-align: left">Ersetzen durch sichere Varianten (<code>strncpy</code>, <code>snprintf</code>)</td></tr>
+<tr><td style="text-align: left">Speicherlecks &amp; Nullpointer</td><td style="text-align: left"><code>cppcheck --enable=all .</code></td><td style="text-align: left">Automatische statische Fehleranalyse</td></tr>
+<tr><td style="text-align: left">C-FFI Heap-Speicherlecks</td><td style="text-align: left"><code>valgrind --leak-check=full ./app</code></td><td style="text-align: left">Pflichtaufruf von <code>meincms_free_string(ptr)</code> nach Nutzung</td></tr>
+<tr><td style="text-align: left">Laufzeit-Speicherfehler</td><td style="text-align: left">GCC Flag <code>-fsanitize=address</code></td><td style="text-align: left">Kompilieren mit AddressSanitizer (ASan)</td></tr>
+</tbody></table>
+</div>
+<h3 id="-rust-typensicherheit--unsafe-analyse"><a class="header" href="#-rust-typensicherheit--unsafe-analyse">🦀 Rust (Typensicherheit &amp; Unsafe-Analyse)</a></h3>
+<p>Rust bietet durch den Ownership-Borrow-Checker von Haus aus höchste Speichersicherheit. Bei KI-Code muss insbesondere die Verwendung von <code>unsafe</code> überwacht werden:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Risiko bei KI-Code</th><th style="text-align: left">Guardrail / Scanner-Befehl</th><th style="text-align: left">Abwehrmaßnahme</th></tr></thead><tbody>
+<tr><td style="text-align: left">Halluzinierte <code>unsafe</code>-Blöcke</td><td style="text-align: left"><code>cargo geiger</code></td><td style="text-align: left">Misst den Sicherheitswert und verweigert unnötige <code>unsafe</code>-Blöcke</td></tr>
+<tr><td style="text-align: left">Undefined Behavior in <code>unsafe</code></td><td style="text-align: left"><code>cargo miri test</code></td><td style="text-align: left">Erkennt Speichermodell-Verletzungen zur Compile-/Testzeit</td></tr>
+<tr><td style="text-align: left">Skript-Endlosschleifen (DoS)</td><td style="text-align: left">Rhai Sandbox Limit</td><td style="text-align: left">Eingebettete Rhai-Makros sind auf max. Operationstiefe beschränkt</td></tr>
+<tr><td style="text-align: left">Veraltete Crates</td><td style="text-align: left"><code>cargo audit</code> &amp; <code>cargo deny</code></td><td style="text-align: left">Abgleich mit RustSec Datenbank &amp; Lizenzprüfung</td></tr>
+</tbody></table>
+</div>
+<h3 id="-javascript--nodejs-web---dependency-sicherheit"><a class="header" href="#-javascript--nodejs-web---dependency-sicherheit">💛 JavaScript &amp; Node.js (Web- &amp; Dependency-Sicherheit)</a></h3>
+<p>Bei KI-generiertem Frontend-Code oder Node.js-Skripten:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Risiko bei KI-Code</th><th style="text-align: left">Guardrail / Scanner-Befehl</th><th style="text-align: left">Abwehrmaßnahme</th></tr></thead><tbody>
+<tr><td style="text-align: left">Cross-Site Scripting (XSS)</td><td style="text-align: left">Maud Templating &amp; <code>html-escape</code></td><td style="text-align: left">Automatisches HTML-Escaping, Verbot von <code>innerHTML</code></td></tr>
+<tr><td style="text-align: left">Unsichere JS-APIs (<code>eval</code>)</td><td style="text-align: left"><code>npx eslint --plugin security .</code></td><td style="text-align: left">Statische Code-Analyse mit <code>eslint-plugin-security</code></td></tr>
+<tr><td style="text-align: left">Verwundbare JS-Bibliotheken</td><td style="text-align: left"><code>retire --path .</code></td><td style="text-align: left">Scannt JS-Dateien auf bekannte Sicherheitslücken</td></tr>
+<tr><td style="text-align: left">Supply-Chain-Risiken</td><td style="text-align: left"><a href="https://socket.dev">Socket.dev</a> &amp; <code>snyk test</code></td><td style="text-align: left">Prüft NPM-Pakete auf bösartige Skripte &amp; Telemetrie</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="6-automatisiertes-test---review-gate-für-ki-code"><a class="header" href="#6-automatisiertes-test---review-gate-für-ki-code">6. Automatisiertes Test- &amp; Review-Gate für KI-Code</a></h2>
+<p>Jeder durch KI-Agenten generierte oder modifizierte Code muss folgendes Prüfgate durchlaufen:</p>
+<pre><code class="language-bash"># 1. Rust Workspace &amp; Typenprüfung
+cargo check
+cargo test --workspace
+
+# 2. Linter &amp; Formatierung
+cargo clippy
+cargo fmt --check
+
+# 3. Sicherheits- &amp; Abhängigkeits-Audits
+cargo audit
+npm audit
+osv-scanner -r .
+
+# 4. Dokumentation bauen &amp; mdBook aktualisieren
+npm run build:docs
+</code></pre>
+<hr />
+<h2 id="7--praxis-handbuch-vibe-coding-im-entwickler-alltag"><a class="header" href="#7--praxis-handbuch-vibe-coding-im-entwickler-alltag">7. 📘 Praxis-Handbuch: Vibe Coding im Entwickler-Alltag</a></h2>
+<p>Vibe Coding bedeutet nicht, die Kontrolle abzugeben, sondern <strong>menschliche Intuition, Produktstrategie und Qualitätskontrolle mit der rasenden Geschwindigkeit generativer KI zu verschmelzen</strong>.</p>
+<h3 id="71-der-5-stufen-workflow-für-sicheres-vibe-coding"><a class="header" href="#71-der-5-stufen-workflow-für-sicheres-vibe-coding">7.1 Der 5-Stufen-Workflow für sicheres Vibe Coding</a></h3>
+<pre><code class="language-mermaid">flowchart TD
+    S1["1. Task &amp; Context Prep\n(AGENTS.md &amp; Ziel definieren)"] --&gt; S2["2. Spec-First &amp; Micro-Prompting\n(Kleine Schritte, klare Constraints)"]
+    S2 --&gt; S3["3. Interactive Diff-Review\n(Zeile-für-Zeile Code verstehen)"]
+    S3 --&gt; S4["4. Local Quality Gate\n(cargo check / test / clippy)"]
+    S4 --&gt; S5["5. Doc-Sync &amp; Commit\n(npm run build:docs &amp; Git)"]
+</code></pre>
+<h4 id="stufe-1-kontext--vorbereitung-context-prep"><a class="header" href="#stufe-1-kontext--vorbereitung-context-prep">Stufe 1: Kontext &amp; Vorbereitung (Context Prep)</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Die KI mit den notwendigen Informationen versorgen, ohne ihren Kontextfenster mit unnötigem Code zu überladen.</li>
+<li><strong>Praxis-Aktion:</strong> Verweise explizit auf bestehende Moduldateien oder nutze Subagenten-Skills (z. B. <code>.agents/skills/ui_worker/SKILL.md</code>), statt der KI freie Hand zu lassen.</li>
+<li><strong>Beispiel:</strong> <em>"Lies <code>meincms_web/src/routes/wiki.rs</code> bevor du eine neue Route hinzufügst."</em></li>
+</ul>
+<h4 id="stufe-2-spec-first--micro-iteratives-prompting"><a class="header" href="#stufe-2-spec-first--micro-iteratives-prompting">Stufe 2: Spec-First &amp; Micro-Iteratives Prompting</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Halluzinationen und gigantische, unüberschaubare Diffs vermeiden.</li>
+<li><strong>Praxis-Aktion:</strong> Zerlege komplexe Features in atomare Schritte (Interface/Struct -&gt; Datenbankschicht -&gt; Web-Handler -&gt; Maud UI -&gt; Frontend JS).</li>
+<li><strong>Regel:</strong> Lass die KI erst Datenstrukturen (<code>struct</code>, <code>enum</code>) oder Methodensignaturen vorschlagen und bestätige diese, bevor der Rumpf implementiert wird.</li>
+</ul>
+<h4 id="stufe-3-interaktives-code-review-pair-programming-modus"><a class="header" href="#stufe-3-interaktives-code-review-pair-programming-modus">Stufe 3: Interaktives Code-Review (Pair-Programming-Modus)</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Vollständiges Verständnis des geschriebenen Codes sichern.</li>
+<li><strong>Praxis-Aktion:</strong> Akzeptiere NIEMALS blind Code, den du nicht verstehst. Nutze Rückfragen an die KI:
+<ul>
+<li><em>"Warum verwendest du hier <code>tokio::spawn</code> statt eines direkten Async-Calls?"</em></li>
+<li><em>"Welche Edge Cases entstehen, wenn <code>tenant_id</code> leer ist?"</em></li>
+<li><em>"Stelle sicher, dass kein <code>unsafe</code>-Block ohne explizite Begründung eingefügt wird."</em></li>
+</ul>
+</li>
+</ul>
+<h4 id="stufe-4-lokales-quality-gate--verifikation"><a class="header" href="#stufe-4-lokales-quality-gate--verifikation">Stufe 4: Lokales Quality Gate &amp; Verifikation</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Sofortige Rückmeldung über Syntax-, Typ- oder Linter-Fehler.</li>
+<li><strong>Praxis-Aktion:</strong> Lass das automatische Qualitätssicherungs-Gate im Terminal ausführen:
+<ul>
+<li><code>cargo check</code> (Prüft Rust-Typen &amp; Kompilierbarkeit)</li>
+<li><code>cargo test --workspace</code> (Führt alle Unit- &amp; Integrationstests aus)</li>
+<li><code>cargo clippy</code> (Prüft Idiomatik &amp; Performancelücken)</li>
+</ul>
+</li>
+</ul>
+<h4 id="stufe-5-dokumentation--commit"><a class="header" href="#stufe-5-dokumentation--commit">Stufe 5: Dokumentation &amp; Commit</a></h4>
+<ul>
+<li><strong>Ziel:</strong> Nachhaltigkeit des Quellcodes und Synchronität des Handbuchs.</li>
+<li><strong>Praxis-Aktion:</strong> Führe <code>npm run build:docs</code> aus, um die mdBook-Dokumentation zu aktualisieren, und erstelle einen aussagekräftigen Git-Commit.</li>
+</ul>
+<hr />
+<h2 id="8--konkrete-praxisbeispiele-im-meincms-workspace"><a class="header" href="#8--konkrete-praxisbeispiele-im-meincms-workspace">8. 💻 Konkrete Praxisbeispiele im MeinCMS Workspace</a></h2>
+<p>Im Folgenden werden vier praxisnahe Szenarien aus dem MeinCMS Entwicklungsalltag Schritt für Schritt demonstriert.</p>
+<h3 id="81-praxisbeispiel-a-neue-web-funktion-im-axummaud-stack"><a class="header" href="#81-praxisbeispiel-a-neue-web-funktion-im-axummaud-stack">8.1 Praxisbeispiel A: Neue Web-Funktion im Axum/Maud-Stack</a></h3>
+<p><strong>Aufgabenstellung:</strong> Hinzufügen einer Revisions-Vergleichsansicht (Diff-View) in <code>meincms_web</code>.</p>
+<h4 id="1-praxis-prompt-an-den-ki-agenten"><a class="header" href="#1-praxis-prompt-an-den-ki-agenten">1. Praxis-Prompt an den KI-Agenten:</a></h4>
+<pre><code class="language-text">Wir möchten in 'meincms_web' eine neue Route 'GET /wiki/:title/diff' hinzufügen.
+- Nutze Axum 0.7 und Maud Templating.
+- Filtere strikt nach TenantId über den Hostname-Extractor (Multi-Tenancy).
+- Die HTML-Ausgabe muss den XSS-Regeln entsprechen (Maud escapt Variablen automatisch, nutze kein PreEscaped für User-Inhalte).
+- Erstelle dazu das Maud-Template in 'meincms_web/src/views/diff.rs' und binde es in 'routes.rs' ein.
+- Gib mir zuerst die Signatur des Handlers und das Datenmodell für den Revisions-Vergleich zur Freigabe.
+</code></pre>
+<h4 id="2-interaktives-code-review-des-entwicklers"><a class="header" href="#2-interaktives-code-review-des-entwicklers">2. Interaktives Code-Review des Entwicklers:</a></h4>
+<p>Der Entwickler prüft den von der KI generierten Handler-Code:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// MEINCMS SAFETY REVIEW: TenantId muss zwingend in der SQL-Query vorkommen!
+pub async fn wiki_diff_handler(
+    Host(host): Host,
+    State(pool): State&lt;PgPool&gt;,
+    Path(title): Path&lt;String&gt;,
+) -&gt; Result&lt;Markup, WebError&gt; {
+    let tenant_id = extract_tenant_id(&amp;host);
+    let artikel = sqlx::query_as!(
+        WikiArtikel,
+        "SELECT * FROM wiki_artikel WHERE title = $1 AND tenant_id = $2",
+        title,
+        tenant_id
+    )
+    .fetch_one(&amp;pool)
+    .await?;
+
+    Ok(views::diff::render_diff(&amp;artikel))
+}
+<span class="boring">}</span></code></pre></pre>
+<ul>
+<li><strong>Review-Urteil:</strong> ✅ Tenant-Filter vorhanden, Maud-Rückgabetyp korrekt, SQLx Compile-Time Query Safety genutzt.</li>
+</ul>
+<hr />
+<h3 id="82-praxisbeispiel-b-parser-erweiterung-meincms_parser--c-ffi-sync"><a class="header" href="#82-praxisbeispiel-b-parser-erweiterung-meincms_parser--c-ffi-sync">8.2 Praxisbeispiel B: Parser-Erweiterung (<code>meincms_parser</code>) &amp; C-FFI Sync</a></h3>
+<p><strong>Aufgabenstellung:</strong> Hinzufügen einer neuen Hinweisbox-Syntax (<code>:::info ... :::</code>) im Markdown-Compiler mit C-FFI Export.</p>
+<h4 id="1-praxis-prompt-an-den-ki-agenten-1"><a class="header" href="#1-praxis-prompt-an-den-ki-agenten-1">1. Praxis-Prompt an den KI-Agenten:</a></h4>
+<pre><code class="language-text">Erweitere das Crate 'meincms_parser' um die Unterstuetzung von Info-Boxen (':::info').
+- Passe den Rust-AST und den Markdown-Parser an.
+- Stelle sicher, dass die C-FFI Schnittstelle 'meincms_parse_markdown' in 'meincms_parser.h' weiterhin ABI-kompatibel bleibt.
+- Speicher muss durch den Aufrufer zwingend über 'meincms_free_string()' freigegeben werden.
+- Schreibe einen Rust Unit-Test in 'meincms_parser/tests/parser_tests.rs'.
+</code></pre>
+<h4 id="2-verifikation-im-terminal"><a class="header" href="#2-verifikation-im-terminal">2. Verifikation im Terminal:</a></h4>
+<pre><code class="language-bash">cargo test -p meincms_parser
+flawfinder meincms_parser/
+</code></pre>
+<hr />
+<h3 id="83-praxisbeispiel-c-gezieltes-bugfixing--fehlerdiagnostik"><a class="header" href="#83-praxisbeispiel-c-gezieltes-bugfixing--fehlerdiagnostik">8.3 Praxisbeispiel C: Gezieltes Bugfixing &amp; Fehlerdiagnostik</a></h3>
+<p><strong>Aufgabenstellung:</strong> Behebung eines Fehlers, bei dem Sonderzeichen im Artikelnamen zu 404-Fehlern führen.</p>
+<h4 id="1-analytischer-bugfix-prompt-keine-voreilige-code-generierung"><a class="header" href="#1-analytischer-bugfix-prompt-keine-voreilige-code-generierung">1. Analytischer Bugfix-Prompt (Keine voreilige Code-Generierung):</a></h4>
+<pre><code class="language-text">Symptom: Artikel mit Umlauten (z. B. 'Über uns') erzeugen beim Aufruf in 'meincms_web' einen HTTP 404 Fehler.
+Eingrenzung: Siehe 'meincms_web/src/routes/wiki.rs' und 'meincms_parser/src/slug.rs'.
+Aufgabe: Analysiere den URL-Decoding-Schritt und das Slug-Building. 
+Nenne mir die 2 wahrscheinlichsten Ursachen und zeige mir den exakten Diff, der das Problem behebt. Ändere vorerst keine anderen Dateien.
+</code></pre>
+<h4 id="2-nachvollziehen-der-ursache"><a class="header" href="#2-nachvollziehen-der-ursache">2. Nachvollziehen der Ursache:</a></h4>
+<p>Die KI identifiziert, dass <code>percent_encoding::percent_decode_str</code> gefehlt hat, bevor der Title-Lookup an PostgreSQL übergeben wurde. Der Entwickler bestätigt die Änderung nach Durchsicht des Diffs.</p>
+<hr />
+<h3 id="84-praxisbeispiel-d-datenbank-migration--multi-tenancy-audit"><a class="header" href="#84-praxisbeispiel-d-datenbank-migration--multi-tenancy-audit">8.4 Praxisbeispiel D: Datenbank-Migration &amp; Multi-Tenancy Audit</a></h3>
+<p><strong>Aufgabenstellung:</strong> Hinzufügen eines Feldes <code>read_count</code> zu Artikeln.</p>
+<h4 id="1-praxis-prompt"><a class="header" href="#1-praxis-prompt">1. Praxis-Prompt:</a></h4>
+<pre><code class="language-text">Erstelle eine neue SQLx Migration: 'ALTER TABLE wiki_artikel ADD COLUMN read_count BIGINT NOT NULL DEFAULT 0;'.
+Aktualisiere die Struct 'WikiArtikel' im Web-Crate und im Backup-Tool ('meincms_backup').
+Stelle sicher, dass 'cargo run -p meincms_backup -- repair' ohne Fehler durchläuft.
+</code></pre>
+<h4 id="2-ausführung-des-repair-tests"><a class="header" href="#2-ausführung-des-repair-tests">2. Ausführung des Repair-Tests:</a></h4>
+<pre><code class="language-bash">cargo run -p meincms_backup -- repair
+</code></pre>
+<hr />
+<h2 id="9--praxis-checkliste-für-entwickler-dos-and-donts"><a class="header" href="#9--praxis-checkliste-für-entwickler-dos-and-donts">9. 📋 Praxis-Checkliste für Entwickler (Do's and Don'ts)</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Thema</th><th style="text-align: left">✅ Do (Best Practice)</th><th style="text-align: left">❌ Don't (Vibe Coding Fallen)</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Prompting</strong></td><td style="text-align: left">Präzise, fokussierte Prompts mit klaren Randbedingungen schreiben.</td><td style="text-align: left">"Baue mir ein neues Wiki-CMS" in einem einzigen Monster-Prompt verlangen.</td></tr>
+<tr><td style="text-align: left"><strong>Code Review</strong></td><td style="text-align: left">Jeden Diff Zeile für Zeile lesen und logisch nachvollziehen.</td><td style="text-align: left">Blind "Accept All" im Agenten/IDE klicken ohne den Code zu lesen.</td></tr>
+<tr><td style="text-align: left"><strong>Typen &amp; Schnittstellen</strong></td><td style="text-align: left">Rust Strikte Typen (<code>Option</code>, <code>Result</code>, <code>Enum</code>) und C-ABI Header nutzen.</td><td style="text-align: left">Dynamische Magic-Objects oder untypisierte Dictionaries durchreichen.</td></tr>
+<tr><td style="text-align: left"><strong>Sicherheit</strong></td><td style="text-align: left">Eingaben über Escaping/Maud absichern, Multi-Tenancy per <code>tenant_id</code> filtern.</td><td style="text-align: left">Vertrauliche <code>.env</code>-Keys oder Zugangsdaten im Chat-Prompt eingeben.</td></tr>
+<tr><td style="text-align: left"><strong>Qualitätssicherung</strong></td><td style="text-align: left">Vor jedem Commit <code>cargo check</code>, <code>cargo test</code> und <code>cargo clippy</code> ausführen.</td><td style="text-align: left">Ungetesteten KI-Code direkt auf Git push/master branch committen.</td></tr>
+<tr><td style="text-align: left"><strong>Dokumentation</strong></td><td style="text-align: left">Nach jeder Architekturänderung <code>npm run build:docs</code> ausführen.</td><td style="text-align: left">Handbuch und <code>AGENTS.md</code> veralten lassen.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="10--praxis-prompt-templates-für-den-täglichen-einsatz"><a class="header" href="#10--praxis-prompt-templates-für-den-täglichen-einsatz">10. 📝 Praxis-Prompt-Templates für den täglichen Einsatz</a></h2>
+<p>Nutze diese Vorlagen direkt in deiner KI Agent CLI oder IDE:</p>
+<h3 id="-template-1-neues-feature-entwickeln-rust--axum--maud"><a class="header" href="#-template-1-neues-feature-entwickeln-rust--axum--maud">🎯 Template 1: Neues Feature entwickeln (Rust / Axum / Maud)</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: FEATURE-ENTWICKLUNG
+Rolle: Du bist ein senior Rust-Entwickler für das MeinCMS Workspace.
+Aufgabe: Implementiere [FEATURE BESCHREIBUNG].
+Randbedingungen:
+- Crate: [meincms_web / meincms_parser / meincms_backup]
+- Web/UI: Axum 0.7, Maud Templating, Vanilla JS (keine Inline-Skripte), kein TailwindCSS.
+- Sicherheit: XSS-Schutz durch Maud, Multi-Tenancy Filterung auf tenant_id.
+Vorgehen:
+1. Zeige mir zuerst die geplante Modulstruktur und Struct-Definitionen.
+2. Nach meiner Freigabe erstelle den Code in kleinen, verständlichen Blöcken.
+</code></pre>
+<h3 id="-template-2-code-review--security-audit-prompt"><a class="header" href="#-template-2-code-review--security-audit-prompt">🔍 Template 2: Code-Review &amp; Security Audit Prompt</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: CODE REVIEW &amp; SECURITY AUDIT
+Rolle: Du bist ein Security &amp; Rust Audit Expert.
+Aufgabe: Überprüfe folgenden Code-Abschnitt in [DATEINAME]:
+[CODE SNIPPET ODER DATEIPFAD]
+Prüfpunkte:
+1. Gibt es potenzielle Speichersicherheits-Lücken oder unbegründete 'unsafe'-Blöcke?
+2. Ist Multi-Tenancy (TenantId Isolation) in allen Datenbankschritten garantiert?
+3. Werden Benutzereingaben korrekt geescapet?
+4. Gibt es unbehandelte Errors (Panics / unwraps)?
+Gib dein Feedback strukturiert mit konkreten Verbesserungsvorschlägen aus.
+</code></pre>
+<h3 id="-template-3-bugfix--root-cause-analysis-prompt"><a class="header" href="#-template-3-bugfix--root-cause-analysis-prompt">🛠️ Template 3: Bugfix &amp; Root-Cause-Analysis Prompt</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: BUGFIXING &amp; DIAGNOSE
+Symptom: [FEHLERBESCHREIBUNG UND LOG-AUSZUG]
+Betroffene Dateien: [DATEIPFADE]
+Aufgabe:
+1. Analysiere das Problem und nenne mir die Ursache (Root Cause).
+2. Schlage maximal 2 Lösungswege vor und vergleiche Vor- und Nachteile.
+3. Ändere noch KEINEN Code, sondern warte auf meine Entscheidung.
+</code></pre>
+<h3 id="-template-4-refactoring--architecture-cleanup-prompt"><a class="header" href="#-template-4-refactoring--architecture-cleanup-prompt">🧹 Template 4: Refactoring &amp; Architecture Cleanup Prompt</a></h3>
+<pre><code class="language-text">PROMPT TEMPLATE: REFACTORING
+Ziel: Refaktoriere den Code in [DATEINAME], um die Lesbarkeit und Wartbarkeit zu erhöhen.
+Regeln:
+- Ändere KEINE externen Funktionssignaturen oder Verhalten (No Breaking Changes).
+- Halte dich strikt an die Design Patterns in 'docs/src/architektur_design_patterns.md'.
+- Optimiere Fehlerbehandlung (verwende Result/Option statt unwrap).
+- Erstelle nach dem Refactoring Unit Tests zur Absicherung.
+</code></pre>
+<p>tierung
+cargo clippy
+cargo fmt --check</p>
+<h1 id="3-sicherheits---abhängigkeits-audits"><a class="header" href="#3-sicherheits---abhängigkeits-audits">3. Sicherheits- &amp; Abhängigkeits-Audits</a></h1>
+<p>cargo audit
+npm audit
+osv-scanner -r .</p>
+<h1 id="4-dokumentation-bauen--mdbook-aktualisieren"><a class="header" href="#4-dokumentation-bauen--mdbook-aktualisieren">4. Dokumentation bauen &amp; mdBook aktualisieren</a></h1>
+<p>npm run build:docs</p>
+<pre><code></code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-agy-cli--agy-ide-praxis-workflow-einstellungen--token-optimierung"><a class="header" href="#-agy-cli--agy-ide-praxis-workflow-einstellungen--token-optimierung">🚀 AGY CLI &amp; AGY IDE: Praxis-Workflow, Einstellungen &amp; Token-Optimierung</a></h1>
+<p>Herzlich willkommen im Praxis-Handbuch für die Arbeit mit <strong>Google Antigravity (AGY)</strong> im <strong>MeinCMS Workspace</strong>. Dieses Kapitel zeigt dir, wie du die <strong>AGY CLI (<code>agy</code>)</strong>, die <strong>AGY IDE</strong> und <strong>Antigravity 2.0</strong> optimal konfigurierst, deinen Entwicklungs-Workflow beschleunigst und den <strong>Token-Verbrauch drastisch reduzierst</strong>.</p>
+<hr />
+<h2 id="-Übersicht--unterkapitel"><a class="header" href="#-Übersicht--unterkapitel">🧭 Übersicht &amp; Unterkapitel</a></h2>
+<p>Um die Dokumentation übersichtlich zu halten, ist dieses Thema in drei vertiefende Praxis-Guides unterteilt:</p>
+<pre><code class="language-mermaid">graph TD
+    A["AGY Praxis- &amp; Performance-Handbuch"] --&gt; B["⚙️ 1. AGY CLI &amp; IDE Setup\n(docs/src/agy_workflow/cli_ide_setup.md)"]
+    A --&gt; C["⚡ 2. Token- &amp; Speed-Tutorial\n(docs/src/agy_workflow/token_speed_optimization.md)"]
+    A --&gt; D["🤝 3. Mensch &amp; KI Teamwork\n(docs/src/agy_workflow/human_ai_collaboration.md)"]
+
+    style A fill:#e1f5fe,stroke:#0288d1
+    style B fill:#d7ffd9,stroke:#388e3c
+    style C fill:#fff9c4,stroke:#fbc02d
+    style D fill:#f3e5f5,stroke:#ab47bc
+</code></pre>
+<h3 id="-1-schritt-für-schritt-setup--konfiguration-agy-cli--ide"><a class="header" href="#-1-schritt-für-schritt-setup--konfiguration-agy-cli--ide">📄 1. <a href="./agy_workflow/cli_ide_setup.html">Schritt-für-Schritt Setup &amp; Konfiguration: AGY CLI &amp; IDE</a></a></h3>
+<ul>
+<li><strong>Inhalt:</strong> Installation, <code>settings.json</code>, Terminal-Sandbox, Berechtigungen (Allowlists), die 3 Interaktionsmodi der IDE (Tab Autocomplete, Inline <code>Ctrl+I</code>, Sidebar Agent Mode) sowie Antigravity 2.0 Workspace-Rechte.</li>
+</ul>
+<h3 id="-2-tutorial-ki-geschwindigkeit-maximieren--token-verbrauch-senken"><a class="header" href="#-2-tutorial-ki-geschwindigkeit-maximieren--token-verbrauch-senken">⚡ 2. <a href="./agy_workflow/token_speed_optimization.html">Tutorial: KI-Geschwindigkeit maximieren &amp; Token-Verbrauch senken</a></a></h3>
+<ul>
+<li><strong>Inhalt:</strong> Vermeidung von Context Flooding, <code>.aiignore</code> &amp; <code>.geminiignore</code> Konfiguration, gezieltes <code>@</code>-Mentioning, Subagenten-Isolation, Modellwahl (Flash vs. Pro) und konkrete Tricks für minimale Antwortzeiten und minimale Token-Kosten.</li>
+</ul>
+<h3 id="-3-mensch--ki-als-team-augmented-engineering-statt-weg-rationalisierung"><a class="header" href="#-3-mensch--ki-als-team-augmented-engineering-statt-weg-rationalisierung">🤝 3. <a href="./agy_workflow/human_ai_collaboration.html">Mensch &amp; KI als Team: Augmented Engineering statt Weg-Rationalisierung</a></a></h3>
+<ul>
+<li><strong>Inhalt:</strong> Warum das Ersetzen von Entwicklern durch reine KI zu Systemkollaps führt, die Symbiose aus Mensch (Architekt/Pilot) und KI (Co-Pilot), Human-in-the-Loop Prinzipien, Verantwortungskultur und Argumentationshilfen für Entwickler gegenüber dem Management.</li>
+</ul>
+<hr />
+<h2 id="-warum-ist-workflow---token-optimierung-wichtig"><a class="header" href="#-warum-ist-workflow---token-optimierung-wichtig">🎯 Warum ist Workflow- &amp; Token-Optimierung wichtig?</a></h2>
+<p>Ein unkonfigurierter KI-Agent kann schnell träge werden, wenn er bei jeder Frage das gesamte Repository scannen muss oder gigantische Log-Dateien in den Kontext lädt.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Problem bei fehlender Optimierung</th><th style="text-align: left">Lösung durch das AGY Praxis-Handbuch</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Hohe Latenz (30+ Sekunden Warten)</strong></td><td style="text-align: left">Gezielte Modellwahl (Flash/Lite) &amp; fokussierte Prompting-Techniken (3-5 Sek. Latenz).</td></tr>
+<tr><td style="text-align: left"><strong>Hoher Token-Verbrauch / hohe Kosten</strong></td><td style="text-align: left">Kontext-Hygiene mit <code>.aiignore</code>, Subagenten-Isolation &amp; exaktes <code>@</code>-Mentioning.</td></tr>
+<tr><td style="text-align: left"><strong>Ungewollte Code-Änderungen</strong></td><td style="text-align: left">Strikte Tool Execution Policies, Terminal Sandbox &amp; Command Allowlists.</td></tr>
+<tr><td style="text-align: left"><strong>Halluzinierte Code-Vorschläge</strong></td><td style="text-align: left">Einbinden von <a href="file:///home/thorsten/wissen-ahrensburg.de/.agents/AGENTS.md">AGENTS.md</a> und Domänen-Skills (<code>.agents/skills/</code>).</td></tr>
+<tr><td style="text-align: left"><strong>Vorschnelles 'Weg-Rationalisieren'</strong></td><td style="text-align: left">Etablieren des Augmented Engineering Paradigmas (Entwickler-Verstärkung statt Entlassung).</td></tr>
+</tbody></table>
+</div>
+<hr />
+<blockquote>
+<p>🔗 <strong>Direkt zu den Anleitungen:</strong></p>
+<ul>
+<li><a href="./agy_workflow/cli_ide_setup.html">👉 Weiter zu Kapitel 9.1: AGY CLI &amp; IDE Setup &amp; Konfiguration</a></li>
+<li><a href="./agy_workflow/token_speed_optimization.html">👉 Weiter zu Kapitel 9.2: Tutorial für maximale KI-Geschwindigkeit &amp; Token-Sparsamkeit</a></li>
+<li><a href="./agy_workflow/human_ai_collaboration.html">👉 Weiter zu Kapitel 9.3: Mensch &amp; KI als Team (Augmented Engineering)</a></li>
+</ul>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-schritt-für-schritt-setup--konfiguration-agy-cli--agy-ide"><a class="header" href="#-schritt-für-schritt-setup--konfiguration-agy-cli--agy-ide">⚙️ Schritt-für-Schritt Setup &amp; Konfiguration: AGY CLI &amp; AGY IDE</a></h1>
+<p>Dieses Kapitel führt dich schrittweise durch die optimale Einrichtung von <strong>Google Antigravity (AGY)</strong> in der Konsole (<strong>AGY CLI <code>agy</code></strong>), der <strong>AGY IDE</strong> (VS Code-basiert) und der <strong>Antigravity 2.0 Desktop-App</strong>.</p>
+<hr />
+<h2 id="1-agy-cli-agy--terminal-setup--einstellungen"><a class="header" href="#1-agy-cli-agy--terminal-setup--einstellungen">1. AGY CLI (<code>agy</code>) – Terminal Setup &amp; Einstellungen</a></h2>
+<p>Die <strong>AGY CLI</strong> ist das schnelle, leichtgewichtige Terminal-Interface für Entwickler.</p>
+<h3 id="-starten--beenden"><a class="header" href="#-starten--beenden">🚀 Starten &amp; Beenden</a></h3>
+<ul>
+<li><strong>Starten:</strong> Befehl <code>agy</code> im Projekt-Stammverzeichnis ausführen.</li>
+<li><strong>Beenden:</strong> Tastenkombination <code>Ctrl+D Ctrl+D</code> drücken oder <code>/exit</code> eingeben.</li>
+<li><strong>Hilfe aufrufen:</strong> <code>/help</code> im TUI-Chat eingeben oder <code>agy --help</code> im Terminal.</li>
+</ul>
+<h3 id="-konfigurationsdatei-geminiantigravity-clisettingsjson"><a class="header" href="#-konfigurationsdatei-geminiantigravity-clisettingsjson">⚙️ Konfigurationsdatei <code>~/.gemini/antigravity-cli/settings.json</code></a></h3>
+<p>Die Einstellungen für die CLI werden zentral in der Datei <code>~/.gemini/antigravity-cli/settings.json</code> verwaltet. Hier ist eine optimierte Praxis-Konfiguration für den MeinCMS Workspace:</p>
+<pre><code class="language-json">{
+  "model": "gemini-3.5-flash",
+  "terminalSandbox": true,
+  "toolExecutionPolicy": "request-review",
+  "permissionGrants": {
+    "command": [
+      "cargo check",
+      "cargo test",
+      "cargo clippy",
+      "npm run build:docs"
+    ],
+    "read_file": [
+      "/home/thorsten/wissen-ahrensburg.de"
+    ]
+  },
+  "browserAllowlist": [
+    "localhost",
+    "127.0.0.1",
+    "github.com",
+    "docs.rs"
+  ]
+}
+</code></pre>
+<h4 id="erläuterung-der-wichtigsten-einstellungen"><a class="header" href="#erläuterung-der-wichtigsten-einstellungen">Erläuterung der wichtigsten Einstellungen:</a></h4>
+<ul>
+<li><code>model</code>: Standard-Modell für schnelle Antworten (<code>gemini-3.5-flash</code> für Tempo, <code>pro</code> für komplexe Refactorings).</li>
+<li><code>terminalSandbox</code>: Ausführung aller Terminal-Befehle in einer isolierten Sandbox (Schutz vor ungewollten Systemänderungen).</li>
+<li><code>toolExecutionPolicy</code>: <code>"request-review"</code> erfordert Entwickler-Bestätigung bei schreibenden/ausführenden Befehlen.</li>
+<li><code>permissionGrants</code>: Erlaubt häufig genutzte Lese- und Test-Befehle ohne wiederholte Bestätigungsaufforderungen.</li>
+</ul>
+<hr />
+<h2 id="2-agy-ide--die-3-interaktionsmodi-im-Überblick"><a class="header" href="#2-agy-ide--die-3-interaktionsmodi-im-Überblick">2. AGY IDE – Die 3 Interaktionsmodi im Überblick</a></h2>
+<p>Die <strong>AGY IDE</strong> integriert Agenten-Workflows direkt in den Editor. Je nach Aufgabe wählst du den passenden Interaktionsmodus:</p>
+<pre><code class="language-mermaid">graph LR
+    A["AGY IDE Modaliäten"] --&gt; B["1. Passive Mode\n(Tab Autocomplete)"]
+    A --&gt; C["2. Instruktiver Mode\n(Inline Ctrl+I)"]
+    A --&gt; D["3. Kollaborativer Mode\n(Sidebar Agent Chat)"]
+</code></pre>
+<h3 id="a-passiver-modus-tab-autocomplete--supercomplete"><a class="header" href="#a-passiver-modus-tab-autocomplete--supercomplete">A. Passiver Modus: Tab Autocomplete &amp; Supercomplete</a></h3>
+<p>Ideal für schnelles Tippen, automatische Importe und Navigation.</p>
+<ul>
+<li><strong>Autocomplete:</strong> Schlägt Code direkt an der Cursor-Position vor.</li>
+<li><strong>Supercomplete:</strong> Schlägt größere Diffs (inkl. Löschungen und Refactorings) in schwebenden Fenstern vor.</li>
+<li><strong>Tab-to-Jump:</strong> Antizipiert die nächste Navigationsstelle im Code – drücke <code>&lt;tab&gt;</code>, um dorthin zu springen.</li>
+<li><strong>Tab-to-Import:</strong> Fügt fehlende <code>use</code>-Statements in Rust oder <code>require/import</code> in JS automatisch am Dateianfang ein.</li>
+<li><strong>Steuerung:</strong>
+<ul>
+<li><code>&lt;tab&gt;</code>: Vorschlag akzeptieren.</li>
+<li><code>&lt;esc&gt;</code>: Vorschlag verwerfen.</li>
+<li><code>Ctrl</code> + <code>-&gt;</code> (Linux/Windows) / <code>Cmd</code> + <code>-&gt;</code> (macOS): Vorschlag wortweise akzeptieren.</li>
+</ul>
+</li>
+</ul>
+<h3 id="b-instruktiver-modus-inline-command-ctrli--cmdi"><a class="header" href="#b-instruktiver-modus-inline-command-ctrli--cmdi">B. Instruktiver Modus: Inline Command (<code>Ctrl+I</code> / <code>Cmd+I</code>)</a></h3>
+<p>Ideal für punktuelle Änderungen an bestehendem Code, ohne den Kontext des Haupt-Chats zu belasten!</p>
+<ol>
+<li>Markiere einen Codeblock im Editor.</li>
+<li>Drücke <code>Ctrl+I</code> (bzw. <code>Cmd+I</code>).</li>
+<li>Gib eine gezielte Anweisung ein (z. B. <em>"Füge Dokumentationskommentare hinzu"</em> oder <em>"Refaktoriere dieses match-Statement"</em>).</li>
+<li><strong>Vorteil:</strong> Verbraucht extrem wenige Token, da nur der markierte Block verarbeitet wird.</li>
+</ol>
+<h3 id="c-kollaborativer-modus-sidebar-chat--agent-mode"><a class="header" href="#c-kollaborativer-modus-sidebar-chat--agent-mode">C. Kollaborativer Modus: Sidebar Chat &amp; Agent Mode</a></h3>
+<p>Ideal für komplexe, mehrstufige Aufgaben, Feature-Entwicklung und Architekturfragen.</p>
+<ul>
+<li><strong>Sidebar Chat:</strong> Diskussion, Planung und Fragen zum Codebase.</li>
+<li><strong>Agent Mode:</strong> Autonomer Pair-Programmer, der Dateien liest/schreibt, Terminal-Befehle ausführt und Tests validiert.</li>
+<li><strong>Inline Code Lenses:</strong> Buttons über Funktionen/Structs (z. B. <em>"Refactor"</em>, <em>"Write Tests"</em>), um Agenten-Aktionen direkt an Symbolen auszulösen.</li>
+<li><strong>Diagnostic Auto-Fix:</strong> Klicke bei Compiler-Warnungen oder Clippy-Fehlern auf <em>"Auto-Fix with Agent"</em>.</li>
+</ul>
+<hr />
+<h2 id="3-antigravity-20--rechteverwaltung-permissions"><a class="header" href="#3-antigravity-20--rechteverwaltung-permissions">3. Antigravity 2.0 &amp; Rechteverwaltung (Permissions)</a></h2>
+<p>In <strong>Antigravity 2.0</strong> kannst du globale und projektbezogene Sicherheitseinstellungen konfigurieren:</p>
+<h3 id="-tool-execution-policies"><a class="header" href="#-tool-execution-policies">🛡️ Tool Execution Policies</a></h3>
+<ul>
+<li><strong><code>always-proceed</code>:</strong> Befehle werden automatisch ohne Rückfrage ausgeführt (nur in sicheren Test-Umgebungen empfohlen).</li>
+<li><strong><code>request-review</code>:</strong> Der Entwickler muss jeden Terminal-Befehl vor Ausführung manuell freigeben (Standard &amp; Empfohlen).</li>
+<li><strong><code>proceed-in-sandbox</code>:</strong> Befehle laufen automatisch in einer isolierten Linux-Unshare/Docker-Sandbox.</li>
+<li><strong><code>strict</code>:</strong> Schreibende Operationen sind deaktiviert.</li>
+</ul>
+<h3 id="-datei---netzwerk-zugriffsregeln"><a class="header" href="#-datei---netzwerk-zugriffsregeln">📁 Datei- &amp; Netzwerk-Zugriffsregeln</a></h3>
+<ul>
+<li><strong>Non-Workspace File Access:</strong> Blockiert den Zugriff auf Dateien außerhalb von <code>/home/thorsten/wissen-ahrensburg.de</code> (<code>deny</code>).</li>
+<li><strong>Internet Access Policy:</strong> Beschränkt Web-Suchen und URL-Retrieval (<code>read_url_content</code>) auf freigegebene Doku-Domains.</li>
+<li><strong>Command Denylist:</strong> Befehle wie <code>rm -rf /</code> oder <code>git push --force</code> sind strikt verboten.</li>
+</ul>
+<hr />
+<blockquote>
+<p>➡️ <strong>Nächster Schritt:</strong> <a href="agy_workflow/./token_speed_optimization.html">Weiter zum Token- &amp; Speed-Optimierungs-Tutorial (Kapitel 9.2)</a></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-tutorial-ki-geschwindigkeit-maximieren--token-verbrauch-drastisch-senken"><a class="header" href="#-tutorial-ki-geschwindigkeit-maximieren--token-verbrauch-drastisch-senken">⚡ Tutorial: KI-Geschwindigkeit maximieren &amp; Token-Verbrauch drastisch senken</a></h1>
+<p>Dieses Tutorial zeigt dir Schritt für Schritt, wie du <strong>Google Antigravity (AGY)</strong> extrem schnell machen kannst (<strong>Antwortzeiten von 3–5 Sekunden</strong>) und gleichzeitig den <strong>Token-Verbrauch um bis zu 85% reduzierst</strong>.</p>
+<hr />
+<h2 id="-1-das-problem-warum-wird-die-ki-langsam-und-teuer"><a class="header" href="#-1-das-problem-warum-wird-die-ki-langsam-und-teuer">🛑 1. Das Problem: Warum wird die KI langsam und teuer?</a></h2>
+<p>Wenn KI-Agenten in großen Repositories arbeiten, tritt häufig <strong>Context Flooding (Kontext-Überflutung)</strong> auf:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Riesiges Repository / Ungefilterter Chat"] --&gt; B["Agent liest ungewollt target/, node_modules/ &amp; Logdateien"]
+    B --&gt; C["Kontextfenster überfüllt (100k+ Token pro Prompt)"]
+    C --&gt; D["🔴 Hohe Latenz (30s+ Warten) &amp; Hohe Token-Kosten"]
+    C --&gt; E["🔴 KI verliert den Faden &amp; halluziniert"]
+</code></pre>
+<p><strong>Hauptursachen für hohen Token-Verbrauch:</strong></p>
+<ol>
+<li><strong>Ungefiltertes Dateilisten:</strong> Die KI durchsucht kompilierte Ordner (<code>target/</code>, <code>node_modules/</code>, <code>docs/book/</code>).</li>
+<li><strong>Riesige Terminal-Outputs:</strong> Kompilier-Logs mit 50.000 Zeilen werden ungeschnitten in den Chat gepostet.</li>
+<li><strong>Schwammige Prompts:</strong> <em>"Überprüfe das Projekt"</em> zwingt die KI, das ganze Repository einzulesen.</li>
+<li><strong>Falsche Modellwahl:</strong> Nutzung von Großmodellen (<code>Pro</code>) für triviale Syntax-Prüfungen.</li>
+</ol>
+<hr />
+<h2 id="-2-schritt-für-schritt-anleitung-zur-performance-optimierung"><a class="header" href="#-2-schritt-für-schritt-anleitung-zur-performance-optimierung">🛠️ 2. Schritt-für-Schritt Anleitung zur Performance-Optimierung</a></h2>
+<p>Mit den folgenden 6 Schritten optimierst du die Geschwindigkeit und Effizienz deines Entwicklungs-Workflows:</p>
+<h3 id="schritt-1-das-ausschlussdateien-triplett-konfigurieren-aiignore-geminiignore-gitignore"><a class="header" href="#schritt-1-das-ausschlussdateien-triplett-konfigurieren-aiignore-geminiignore-gitignore">Schritt 1: Das Ausschlussdateien-Triplett konfigurieren (<code>.aiignore</code>, <code>.geminiignore</code>, <code>.gitignore</code>)</a></h3>
+<p>Erstelle oder aktualisiere die <code>.aiignore</code> und <code>.geminiignore</code> Dateien im Projektstammverzeichnis, um schwere Build-Artefakte und temporäre Ordner vom Agenten-Kontext auszuschließen:</p>
+<pre><code class="language-gitignore"># .aiignore &amp; .geminiignore für MeinCMS
+target/
+node_modules/
+docs/book/
+.git/
+*.log
+*.tmp
+.env
+</code></pre>
+<ul>
+<li><strong>Effekt:</strong> Die KI ignoriert Binärdateien und Abhängigkeiten komplett. <strong>Token-Ersparnis: ~60%</strong>.</li>
+</ul>
+<hr />
+<h3 id="schritt-2-gezieltes--mentioning-statt-allgemeiner-fragen"><a class="header" href="#schritt-2-gezieltes--mentioning-statt-allgemeiner-fragen">Schritt 2: Gezieltes <code>@</code>-Mentioning statt allgemeiner Fragen</a></h3>
+<p>Nutze in der AGY IDE oder Antigravity 2.0 das <code>@</code>-Symbol, um exakt die benötigten Dateien an die Nachricht anzuhängen:</p>
+<ul>
+<li>
+<p>❌ <strong>Schlecht:</strong> <em>"Wo werden die Artikel-Routen verarbeitet?"</em> (Agent durchsucht den gesamten Ordner).</p>
+</li>
+<li>
+<p>✅ <strong>Gut:</strong> <em>"Analysiere <code>@file:meincms_web/src/routes/wiki.rs</code> und erkläre mir die Handler-Funktion."</em></p>
+</li>
+<li>
+<p><strong>Effekt:</strong> Der Agent liest nur diese eine Datei ein. <strong>Token-Ersparnis: ~80%</strong>.</p>
+</li>
+</ul>
+<hr />
+<h3 id="schritt-3-subagenten-zur-kontext-isolation-einsetzen-invoke_subagent"><a class="header" href="#schritt-3-subagenten-zur-kontext-isolation-einsetzen-invoke_subagent">Schritt 3: Subagenten zur Kontext-Isolation einsetzen (<code>invoke_subagent</code>)</a></h3>
+<p>Nutze Subagenten für lange Recherche- oder Diagnoseaufgaben. Ein Subagent arbeitet in einer separaten Konversation und liefert nur das Ergebnis zurück:</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Hauptagent as Hauptagent (Schlanker Kontext)
+    participant Subagent as Subagent (Research)
+    Hauptagent-&gt;&gt;Subagent: Durchsuche DB-Schemata &amp; erstelle Zusammenfassung
+    Note over Subagent: Liest 50 Dateien (100k Token)
+    Subagent--&gt;&gt;Hauptagent: Einzeiliges Ergebnis: "Nutze tenant_id Feld in Table X"
+    Note over Hauptagent: Kontext bleibt sauber!
+</code></pre>
+<ul>
+<li><strong>Praxis-Tipp:</strong> Delegiere mit <code>/invoke_subagent</code> oder nutze den <code>research</code> Subagenten für Code-Analysen.</li>
+</ul>
+<hr />
+<h3 id="schritt-4-das-richtige-modell-für-die-aufgabe-wählen"><a class="header" href="#schritt-4-das-richtige-modell-für-die-aufgabe-wählen">Schritt 4: Das richtige Modell für die Aufgabe wählen</a></h3>
+<p>Wechsle das Modell in den Einstellungen (<code>settings.json</code> oder Dropdown in Antigravity 2.0):</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Modus / Aufgabe</th><th style="text-align: left">Empfohlenes Modell</th><th style="text-align: left">Geschwindigkeit</th><th style="text-align: left">Token-Effizienz</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Inline Edit (<code>Ctrl+I</code>), Tab Autocomplete, Linter Fixes</strong></td><td style="text-align: left"><code>Gemini 3.5 Flash</code> / <code>Flash-Lite</code></td><td style="text-align: left">⚡ Blitzschnell (1-3s)</td><td style="text-align: left">🟢 Extrem sparsam</td></tr>
+<tr><td style="text-align: left"><strong>Normaler Chat, Feature-Entwicklung, Code Reviews</strong></td><td style="text-align: left"><code>Gemini 3.5 Flash</code> (Medium)</td><td style="text-align: left">🚀 Sehr schnell (3-5s)</td><td style="text-align: left">🟢 Sehr sparsam</td></tr>
+<tr><td style="text-align: left"><strong>Komplexe Architektur-Refactorings, Miri-Debugging</strong></td><td style="text-align: left"><code>Gemini Pro</code></td><td style="text-align: left">🐢 Langsam (10-25s)</td><td style="text-align: left">🟡 Hohe Token-Tiefe</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="schritt-5-terminal-output-im-prompt-begrenzen"><a class="header" href="#schritt-5-terminal-output-im-prompt-begrenzen">Schritt 5: Terminal-Output im Prompt begrenzen</a></h3>
+<p>Achte darauf, dass Terminal-Ausgaben nicht den Kontext überfluten:</p>
+<ul>
+<li>❌ <strong>Schlecht:</strong> <code>cat debug.log</code> (Gibt 10.000 Zeilen im Terminal aus).</li>
+<li>✅ <strong>Gut:</strong> <code>cargo check -p meincms_web</code> oder <code>git log -n 5</code>.</li>
+</ul>
+<hr />
+<h3 id="schritt-6-slash-commands-nutzen-plan-goal-schedule"><a class="header" href="#schritt-6-slash-commands-nutzen-plan-goal-schedule">Schritt 6: Slash Commands nutzen (<code>/plan</code>, <code>/goal</code>, <code>/schedule</code>)</a></h3>
+<p>Verwende integrierte Slash-Commands für strukturierte Arbeitsabläufe:</p>
+<ul>
+<li><code>/plan</code>: Stoppt die KI vor der Code-Generierung und zwingt sie, zuerst einen knappen Schritt-für-Schritt-Plan zu erstellen.</li>
+<li><code>/goal</code>: Für autonome, tiefe Tasks über Nacht oder längere Zeiträume.</li>
+<li><code>/schedule</code>: Erstellt getimerte Hintergrundeinheiten, ohne die Entwickler-Session zu blockieren.</li>
+</ul>
+<hr />
+<h2 id="-3-vorher-nachher-vergleich"><a class="header" href="#-3-vorher-nachher-vergleich">📊 3. Vorher-/Nachher-Vergleich</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Metrik</th><th style="text-align: left">Ungematchter Workflow</th><th style="text-align: left">Optimierter AGY Workflow</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Durchschnittliche Antwortzeit</strong></td><td style="text-align: left">25 – 45 Sekunden</td><td style="text-align: left"><strong>2 – 5 Sekunden</strong></td></tr>
+<tr><td style="text-align: left"><strong>Token-Verbrauch pro Prompt</strong></td><td style="text-align: left">80.000 – 150.000 Token</td><td style="text-align: left"><strong>4.000 – 12.000 Token</strong></td></tr>
+<tr><td style="text-align: left"><strong>Präzision der Antworten</strong></td><td style="text-align: left">Mittel (Halluzinationsgefahr)</td><td style="text-align: left"><strong>Sehr hoch (Fokussiert)</strong></td></tr>
+<tr><td style="text-align: left"><strong>Entwickler-Wartezeit pro Tag</strong></td><td style="text-align: left">~45 Minuten</td><td style="text-align: left"><strong>~5 Minuten</strong></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="-4-entwickler-schnell-checkliste-für-maximales-tempo"><a class="header" href="#-4-entwickler-schnell-checkliste-für-maximales-tempo">📋 4. Entwickler-Schnell-Checkliste für maximales Tempo</a></h2>
+<p>Vergewissere dich vor jedem großen Task:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Ist <code>.aiignore</code> vorhanden und schließt <code>target/</code> sowie <code>node_modules/</code> aus?</li>
+<li><input disabled="" type="checkbox"/>
+Habe ich konkrete Dateien per <code>@file:</code> referenziert?</li>
+<li><input disabled="" type="checkbox"/>
+Nutze ich <code>Gemini Flash</code> für Standard-Aufgaben?</li>
+<li><input disabled="" type="checkbox"/>
+Ist für punktuelle Änderungen Inline <code>Ctrl+I</code> statt des Haupt-Chats gewählt?</li>
+<li><input disabled="" type="checkbox"/>
+Habe ich bei großen Recherchen einen Subagenten eingesetzt?</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-mensch--ki-agenten-als-team-augmented-engineering-statt-weg-rationalisierung"><a class="header" href="#-mensch--ki-agenten-als-team-augmented-engineering-statt-weg-rationalisierung">🤝 Mensch &amp; KI-Agenten als Team: Augmented Engineering statt Weg-Rationalisierung</a></h1>
+<p>Dieses Kapitel behandelt den <strong>Kultur- und Paradigmenwechsel</strong> bei der Arbeit mit KI-Agenten wie <strong>Google Antigravity (AGY CLI &amp; AGY IDE)</strong>. Es zeigt auf, warum der Versuch von Unternehmen, Entwickler durch KI zu "weg-zurationalisieren", scheitern muss und wie eine echte <strong>Symbiose aus Mensch und KI (Augmented Engineering)</strong> zu nachhaltigem Erfolg führt.</p>
+<hr />
+<h2 id="-1-das-industrie-missverständnis-weg-rationalisierung-von-entwicklern"><a class="header" href="#-1-das-industrie-missverständnis-weg-rationalisierung-von-entwicklern">🛑 1. Das Industrie-Missverständnis: "Weg-Rationalisierung" von Entwicklern</a></h2>
+<p>In vielen Unternehmen und Chefetagen herrscht die irrige Annahme, KI-Agenten dienten primär dazu, <strong>Entwickler-Personal einzusparen oder komplett zu ersetzen</strong>. Diese Denkweise führt in der Praxis zu verheerenden Konsequenzen:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Unternehmen versucht Entwickler durch reine KI zu ersetzen"] --&gt; B["Blindes Akzeptieren von KI-Code ohne menschliches Review"]
+    B --&gt; C1["🔴 Massive Technische Schulden (Technical Debt)"]
+    B --&gt; C2["🔴 Schwerwiegende Sicherheitslücken &amp; Datenabfluss"]
+    B --&gt; C3["🔴 Verlust von Domänenwissen im Unternehmen"]
+    B --&gt; C4["🔴 Unwartbarer Spaghetticode ohne Architektur"]
+    C1 &amp; C2 &amp; C3 &amp; C4 --&gt; D["💥 Projekt-Kollaps &amp; Extrem hohe Nachbesserungskosten"]
+</code></pre>
+<h3 id="die-risiken-rein-automatisierter-code-generierung-ohne-mensch"><a class="header" href="#die-risiken-rein-automatisierter-code-generierung-ohne-mensch">Die Risiken rein automatisierter Code-Generierung ohne Mensch:</a></h3>
+<ol>
+<li><strong>Kein tiefes Architekturverständnis:</strong> Eine KI hat kein Bewusstsein für langfristige Produktstrategien, Domänenlogik oder Business-Zusammenhänge.</li>
+<li><strong>Qualitäts- und Sicherheitsverlust:</strong> Ohne menschliches Security-Review schleichen sich XSS-Lücken, Multi-Tenancy-Datenlecks oder Heap-Speicherfehler ein.</li>
+<li><strong>Verlust von Know-how:</strong> Wenn niemanden mehr den Code liest und versteht, ist bei Systemausfällen kein Entwickler mehr in der Lage, Notfall-Debugging zu betreiben.</li>
+</ol>
+<hr />
+<h2 id="-2-das-richtige-paradigma-symbiose--augmented-engineering"><a class="header" href="#-2-das-richtige-paradigma-symbiose--augmented-engineering">🧠 2. Das richtige Paradigma: Symbiose &amp; Augmented Engineering</a></h2>
+<p>Die Zukunft erfolgreicher Softwareentwicklung liegt nicht in der Ersetzung des Menschen, sondern in der <strong>Verstärkung des Entwicklers (Augmented Engineering)</strong>:</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph Symbiose: Das Entwickler-Agenten-Team
+        A["👤 Menschlicher Entwickler\n(Pilot / Architekt)\n- Strategie &amp; Vision\n- Domänen-Wissen\n- Verantwortung &amp; Security Audit\n- Ethik &amp; Governance"] &lt;--&gt;|Verstärkung &amp; Schneller Feedback-Loop| B["🤖 AGY KI-Agent\n(Co-Pilot / Kraftverstärker)\n- Boilerplate-Generierung\n- Schnelle Doku-Recherche\n- Automatisierte Test-Fixes\n- Linter- &amp; Typenprüfungen"]
+    end
+</code></pre>
+<h3 id="rollenverteilung-im-entwickler-team"><a class="header" href="#rollenverteilung-im-entwickler-team">Rollenverteilung im Entwickler-Team:</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Bereich</th><th style="text-align: left">👤 Menschlicher Entwickler (Der Pilot)</th><th style="text-align: left">🤖 AGY KI-Agent (Der Co-Pilot)</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Verantwortung</strong></td><td style="text-align: left"><strong>100% Letztverantwortung</strong> für Funktion, Sicherheit &amp; Recht.</td><td style="text-align: left">Keine Haftung, rein assistierendes Werkzeug.</td></tr>
+<tr><td style="text-align: left"><strong>Architektur</strong></td><td style="text-align: left">Plant Module, Datenmodelle &amp; Systemgrenzen.</td><td style="text-align: left">Setzt vorgeschlagene Schemata in Code um.</td></tr>
+<tr><td style="text-align: left"><strong>Code Review</strong></td><td style="text-align: left">Liest den Diff Zeile für Zeile und hinterfragt Entscheide.</td><td style="text-align: left">Schlägt Optimierungen &amp; Refactorings vor.</td></tr>
+<tr><td style="text-align: left"><strong>Routineaufgabe</strong></td><td style="text-align: left">Konzentriert sich auf komplexe Problemstellungen.</td><td style="text-align: left">Übernimmt repetitive Schreibarbeit &amp; Boilerplate.</td></tr>
+<tr><td style="text-align: left"><strong>Wissen &amp; Lernen</strong></td><td style="text-align: left">Erweitert eigenes Verständnis durch Rückfragen an die KI.</td><td style="text-align: left">Erklärt Codeabschnitte &amp; Dokumentation.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="-3-praxis-guidelines-für-entwickler-teams-im-agy-workspace"><a class="header" href="#-3-praxis-guidelines-für-entwickler-teams-im-agy-workspace">🛠️ 3. Praxis-Guidelines für Entwickler-Teams im AGY Workspace</a></h2>
+<p>Um eine gesunde, hochproduktive Teamkultur mit KI-Agenten im Unternehmen zu etablieren, gelten folgende Grundsätze:</p>
+<h3 id="1-human-in-the-loop-hitl-als-unverrückbarer-standard"><a class="header" href="#1-human-in-the-loop-hitl-als-unverrückbarer-standard">1. Human-in-the-Loop (HITL) als unverrückbarer Standard</a></h3>
+<ul>
+<li>Kein KI-generierter Code wird ohne explizites menschliches Code-Review gemergt.</li>
+<li>Die AGY IDE Tool Execution Policy bleibt stets auf <code>request-review</code> oder <code>proceed-in-sandbox</code>.</li>
+</ul>
+<h3 id="2-die-ki-als-junior-entwickler-betrachten"><a class="header" href="#2-die-ki-als-junior-entwickler-betrachten">2. Die KI als Junior-Entwickler betrachten</a></h3>
+<ul>
+<li>Behandle den AGY Agenten wie einen extrem schnellen, aber unerfahrenen Junior-Entwickler.</li>
+<li>Prüfe seine Vorschläge kritisch, korrigiere Denkfehler und verlange Erklärungen, wenn Logik unklar erscheint.</li>
+</ul>
+<h3 id="3-wissenstransfer-fördern-statt-hirn-ausschalten"><a class="header" href="#3-wissenstransfer-fördern-statt-hirn-ausschalten">3. Wissenstransfer fördern statt Hirn ausschalten</a></h3>
+<ul>
+<li>Nutze die KI, um neues Wissen im Team aufzubauen.</li>
+<li><strong>Beispiel-Prompt:</strong> <em>"Erkläre unserem Team in 3 Sätzen, warum du hier <code>tokio::select!</code> statt <code>join!</code> verwendet hast."</em></li>
+</ul>
+<h3 id="4-qualitätsstandards-durch-unbestechliche-gates-sichern"><a class="header" href="#4-qualitätsstandards-durch-unbestechliche-gates-sichern">4. Qualitätsstandards durch unbestechliche Gates sichern</a></h3>
+<ul>
+<li>Der Mensch definiert die Qualitätsregeln in <a href="file:///home/thorsten/wissen-ahrensburg.de/.agents/AGENTS.md">AGENTS.md</a> und den <a href="file:///home/thorsten/wissen-ahrensburg.de/docs/src/skills/README.md">Skills</a>.</li>
+<li>Die KI muss die automatischen Qualitätsgates (<code>cargo check</code>, <code>cargo test</code>, <code>cargo clippy</code>, <code>npm run build:docs</code>) fehlerfrei bestehen.</li>
+</ul>
+<hr />
+<h2 id="-4-argumentations-leitfaden-gegenüber-führungskräften--management"><a class="header" href="#-4-argumentations-leitfaden-gegenüber-führungskräften--management">💬 4. Argumentations-Leitfaden gegenüber Führungskräften &amp; Management</a></h2>
+<p>Wenn Unternehmensleiter oder Entscheider KI als reines "Personaleinsparungs-Tool" missverstehen, nutze folgende Argumente:</p>
+<ol>
+<li>
+<p><strong>"KI ist kein Entwickler-Ersatz, sondern ein Entwickler-Verstärker."</strong></p>
+<ul>
+<li><em>Argument:</em> Mit AGY CLI &amp; IDE schaffen Entwickler in der gleichen Zeit die 3- bis 5-fache Menge an qualitativ hochwertigen Features – ohne Qualitätsverlust.</li>
+</ul>
+</li>
+<li>
+<p><strong>"Blindes Sparen führt zu gigantischer Technical Debt."</strong></p>
+<ul>
+<li><em>Argument:</em> Unbewachter KI-Code erzeugt versteckte Fehler, die später um ein Vielfaches teurer zu reparieren sind als die Ersparnis durch Personalabbau.</li>
+</ul>
+</li>
+<li>
+<p><strong>"Sicherheit &amp; Compliance erfordern den Menschen."</strong></p>
+<ul>
+<li><em>Argument:</em> KI haftet nicht für Datenschutzverstöße (DSGVO), Sicherheitslücken oder Urheberrechtsverletzungen. Nur erfahrene Entwickler garantieren Governance und Sicherheit.</li>
+</ul>
+</li>
+<li>
+<p><strong>"Höhere Entwickler-Zufriedenheit &amp; Innovation."</strong></p>
+<ul>
+<li><em>Argument:</em> KI nimmt Entwicklern lästige Routineaufgaben ab. Das steigert die Arbeitsfreude und lässt Raum für echte Innovation und bessere Produkte.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<blockquote>
+<p>🔗 <strong>Verwandte Themen:</strong></p>
+<ul>
+<li><a href="agy_workflow/../ai_agent_security_vibe_coding.html">👉 Kapitel 8: KI-Agenten, Subagenten &amp; Praxis-Handbuch Vibe Coding</a></li>
+<li><a href="agy_workflow/./cli_ide_setup.html">👉 Kapitel 9.1: AGY CLI &amp; IDE Setup &amp; Konfiguration</a></li>
+<li><a href="agy_workflow/./token_speed_optimization.html">👉 Kapitel 9.2: Tutorial für KI-Geschwindigkeit &amp; Token-Sparsamkeit</a></li>
+</ul>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agent-skills-overview"><a class="header" href="#agent-skills-overview">Agent Skills Overview</a></h1>
 <p>Übersicht aller verfügbaren Subagent Skills:</p>
 <ul>
@@ -1440,6 +2585,8 @@ erstellt</em></a>
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
 
         <script>
         window.addEventListener('load', function() {

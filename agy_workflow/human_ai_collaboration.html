@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mensch &amp; KI als Team (Augmented Engineering) - MeinCMS Dokumentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="../administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="../architektur_design_patterns.html"><strong aria-hidden="true">3.</strong> 3. System-Architektur, Bausteine & Design Patterns</a></li><li class="chapter-item expanded "><a href="../externe_bibliotheken.html"><strong aria-hidden="true">4.</strong> 4. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="../c_api_conan_npm.html"><strong aria-hidden="true">5.</strong> 5. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="../ubuntu_security.html"><strong aria-hidden="true">6.</strong> 6. Sicherheits-Handbuch: Ubuntu, Rust & NPM Ökosystem</a></li><li class="chapter-item expanded "><a href="../agents.html"><strong aria-hidden="true">7.</strong> 7. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="../ai_agent_security_vibe_coding.html"><strong aria-hidden="true">8.</strong> 8. KI-Agenten, Subagenten, Prompt-Sicherheit & Praxis-Handbuch Vibe Coding</a></li><li class="chapter-item expanded "><a href="../agy_praxis_performance.html"><strong aria-hidden="true">9.</strong> 9. AGY CLI & IDE: Praxis-Workflow, Einstellungen & Token-Optimierung</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../agy_workflow/cli_ide_setup.html"><strong aria-hidden="true">9.1.</strong> Schritt-für-Schritt Setup: AGY CLI & IDE</a></li><li class="chapter-item expanded "><a href="../agy_workflow/token_speed_optimization.html"><strong aria-hidden="true">9.2.</strong> Tutorial: KI-Geschwindigkeit & Token-Spar-Optimierung</a></li><li class="chapter-item expanded "><a href="../agy_workflow/human_ai_collaboration.html" class="active"><strong aria-hidden="true">9.3.</strong> Mensch & KI als Team (Augmented Engineering)</a></li></ol></li><li class="chapter-item expanded "><a href="../skills/index.html"><strong aria-hidden="true">10.</strong> 10. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../skills/admin_manager.html"><strong aria-hidden="true">10.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="../skills/backup_manager.html"><strong aria-hidden="true">10.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="../skills/db_admin.html"><strong aria-hidden="true">10.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="../skills/meincms_worker.html"><strong aria-hidden="true">10.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="../skills/parser.html"><strong aria-hidden="true">10.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="../skills/ui_worker.html"><strong aria-hidden="true">10.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="../Impressum.html"><strong aria-hidden="true">11.</strong> 11. Impressum</a></li><li class="chapter-item expanded "><a href="../Datenschschutz.html"><strong aria-hidden="true">12.</strong> 12. Datenschutz</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MeinCMS Dokumentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="-mensch--ki-agenten-als-team-augmented-engineering-statt-weg-rationalisierung"><a class="header" href="#-mensch--ki-agenten-als-team-augmented-engineering-statt-weg-rationalisierung">🤝 Mensch &amp; KI-Agenten als Team: Augmented Engineering statt Weg-Rationalisierung</a></h1>
+<p>Dieses Kapitel behandelt den <strong>Kultur- und Paradigmenwechsel</strong> bei der Arbeit mit KI-Agenten wie <strong>Google Antigravity (AGY CLI &amp; AGY IDE)</strong>. Es zeigt auf, warum der Versuch von Unternehmen, Entwickler durch KI zu "weg-zurationalisieren", scheitern muss und wie eine echte <strong>Symbiose aus Mensch und KI (Augmented Engineering)</strong> zu nachhaltigem Erfolg führt.</p>
+<hr />
+<h2 id="-1-das-industrie-missverständnis-weg-rationalisierung-von-entwicklern"><a class="header" href="#-1-das-industrie-missverständnis-weg-rationalisierung-von-entwicklern">🛑 1. Das Industrie-Missverständnis: "Weg-Rationalisierung" von Entwicklern</a></h2>
+<p>In vielen Unternehmen und Chefetagen herrscht die irrige Annahme, KI-Agenten dienten primär dazu, <strong>Entwickler-Personal einzusparen oder komplett zu ersetzen</strong>. Diese Denkweise führt in der Praxis zu verheerenden Konsequenzen:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A["Unternehmen versucht Entwickler durch reine KI zu ersetzen"] --&gt; B["Blindes Akzeptieren von KI-Code ohne menschliches Review"]
+    B --&gt; C1["🔴 Massive Technische Schulden (Technical Debt)"]
+    B --&gt; C2["🔴 Schwerwiegende Sicherheitslücken &amp; Datenabfluss"]
+    B --&gt; C3["🔴 Verlust von Domänenwissen im Unternehmen"]
+    B --&gt; C4["🔴 Unwartbarer Spaghetticode ohne Architektur"]
+    C1 &amp; C2 &amp; C3 &amp; C4 --&gt; D["💥 Projekt-Kollaps &amp; Extrem hohe Nachbesserungskosten"]
+</code></pre>
+<h3 id="die-risiken-rein-automatisierter-code-generierung-ohne-mensch"><a class="header" href="#die-risiken-rein-automatisierter-code-generierung-ohne-mensch">Die Risiken rein automatisierter Code-Generierung ohne Mensch:</a></h3>
+<ol>
+<li><strong>Kein tiefes Architekturverständnis:</strong> Eine KI hat kein Bewusstsein für langfristige Produktstrategien, Domänenlogik oder Business-Zusammenhänge.</li>
+<li><strong>Qualitäts- und Sicherheitsverlust:</strong> Ohne menschliches Security-Review schleichen sich XSS-Lücken, Multi-Tenancy-Datenlecks oder Heap-Speicherfehler ein.</li>
+<li><strong>Verlust von Know-how:</strong> Wenn niemanden mehr den Code liest und versteht, ist bei Systemausfällen kein Entwickler mehr in der Lage, Notfall-Debugging zu betreiben.</li>
+</ol>
+<hr />
+<h2 id="-2-das-richtige-paradigma-symbiose--augmented-engineering"><a class="header" href="#-2-das-richtige-paradigma-symbiose--augmented-engineering">🧠 2. Das richtige Paradigma: Symbiose &amp; Augmented Engineering</a></h2>
+<p>Die Zukunft erfolgreicher Softwareentwicklung liegt nicht in der Ersetzung des Menschen, sondern in der <strong>Verstärkung des Entwicklers (Augmented Engineering)</strong>:</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph Symbiose: Das Entwickler-Agenten-Team
+        A["👤 Menschlicher Entwickler\n(Pilot / Architekt)\n- Strategie &amp; Vision\n- Domänen-Wissen\n- Verantwortung &amp; Security Audit\n- Ethik &amp; Governance"] &lt;--&gt;|Verstärkung &amp; Schneller Feedback-Loop| B["🤖 AGY KI-Agent\n(Co-Pilot / Kraftverstärker)\n- Boilerplate-Generierung\n- Schnelle Doku-Recherche\n- Automatisierte Test-Fixes\n- Linter- &amp; Typenprüfungen"]
+    end
+</code></pre>
+<h3 id="rollenverteilung-im-entwickler-team"><a class="header" href="#rollenverteilung-im-entwickler-team">Rollenverteilung im Entwickler-Team:</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Bereich</th><th style="text-align: left">👤 Menschlicher Entwickler (Der Pilot)</th><th style="text-align: left">🤖 AGY KI-Agent (Der Co-Pilot)</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Verantwortung</strong></td><td style="text-align: left"><strong>100% Letztverantwortung</strong> für Funktion, Sicherheit &amp; Recht.</td><td style="text-align: left">Keine Haftung, rein assistierendes Werkzeug.</td></tr>
+<tr><td style="text-align: left"><strong>Architektur</strong></td><td style="text-align: left">Plant Module, Datenmodelle &amp; Systemgrenzen.</td><td style="text-align: left">Setzt vorgeschlagene Schemata in Code um.</td></tr>
+<tr><td style="text-align: left"><strong>Code Review</strong></td><td style="text-align: left">Liest den Diff Zeile für Zeile und hinterfragt Entscheide.</td><td style="text-align: left">Schlägt Optimierungen &amp; Refactorings vor.</td></tr>
+<tr><td style="text-align: left"><strong>Routineaufgabe</strong></td><td style="text-align: left">Konzentriert sich auf komplexe Problemstellungen.</td><td style="text-align: left">Übernimmt repetitive Schreibarbeit &amp; Boilerplate.</td></tr>
+<tr><td style="text-align: left"><strong>Wissen &amp; Lernen</strong></td><td style="text-align: left">Erweitert eigenes Verständnis durch Rückfragen an die KI.</td><td style="text-align: left">Erklärt Codeabschnitte &amp; Dokumentation.</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="-3-praxis-guidelines-für-entwickler-teams-im-agy-workspace"><a class="header" href="#-3-praxis-guidelines-für-entwickler-teams-im-agy-workspace">🛠️ 3. Praxis-Guidelines für Entwickler-Teams im AGY Workspace</a></h2>
+<p>Um eine gesunde, hochproduktive Teamkultur mit KI-Agenten im Unternehmen zu etablieren, gelten folgende Grundsätze:</p>
+<h3 id="1-human-in-the-loop-hitl-als-unverrückbarer-standard"><a class="header" href="#1-human-in-the-loop-hitl-als-unverrückbarer-standard">1. Human-in-the-Loop (HITL) als unverrückbarer Standard</a></h3>
+<ul>
+<li>Kein KI-generierter Code wird ohne explizites menschliches Code-Review gemergt.</li>
+<li>Die AGY IDE Tool Execution Policy bleibt stets auf <code>request-review</code> oder <code>proceed-in-sandbox</code>.</li>
+</ul>
+<h3 id="2-die-ki-als-junior-entwickler-betrachten"><a class="header" href="#2-die-ki-als-junior-entwickler-betrachten">2. Die KI als Junior-Entwickler betrachten</a></h3>
+<ul>
+<li>Behandle den AGY Agenten wie einen extrem schnellen, aber unerfahrenen Junior-Entwickler.</li>
+<li>Prüfe seine Vorschläge kritisch, korrigiere Denkfehler und verlange Erklärungen, wenn Logik unklar erscheint.</li>
+</ul>
+<h3 id="3-wissenstransfer-fördern-statt-hirn-ausschalten"><a class="header" href="#3-wissenstransfer-fördern-statt-hirn-ausschalten">3. Wissenstransfer fördern statt Hirn ausschalten</a></h3>
+<ul>
+<li>Nutze die KI, um neues Wissen im Team aufzubauen.</li>
+<li><strong>Beispiel-Prompt:</strong> <em>"Erkläre unserem Team in 3 Sätzen, warum du hier <code>tokio::select!</code> statt <code>join!</code> verwendet hast."</em></li>
+</ul>
+<h3 id="4-qualitätsstandards-durch-unbestechliche-gates-sichern"><a class="header" href="#4-qualitätsstandards-durch-unbestechliche-gates-sichern">4. Qualitätsstandards durch unbestechliche Gates sichern</a></h3>
+<ul>
+<li>Der Mensch definiert die Qualitätsregeln in <a href="file:///home/thorsten/wissen-ahrensburg.de/.agents/AGENTS.md">AGENTS.md</a> und den <a href="file:///home/thorsten/wissen-ahrensburg.de/docs/src/skills/README.md">Skills</a>.</li>
+<li>Die KI muss die automatischen Qualitätsgates (<code>cargo check</code>, <code>cargo test</code>, <code>cargo clippy</code>, <code>npm run build:docs</code>) fehlerfrei bestehen.</li>
+</ul>
+<hr />
+<h2 id="-4-argumentations-leitfaden-gegenüber-führungskräften--management"><a class="header" href="#-4-argumentations-leitfaden-gegenüber-führungskräften--management">💬 4. Argumentations-Leitfaden gegenüber Führungskräften &amp; Management</a></h2>
+<p>Wenn Unternehmensleiter oder Entscheider KI als reines "Personaleinsparungs-Tool" missverstehen, nutze folgende Argumente:</p>
+<ol>
+<li>
+<p><strong>"KI ist kein Entwickler-Ersatz, sondern ein Entwickler-Verstärker."</strong></p>
+<ul>
+<li><em>Argument:</em> Mit AGY CLI &amp; IDE schaffen Entwickler in der gleichen Zeit die 3- bis 5-fache Menge an qualitativ hochwertigen Features – ohne Qualitätsverlust.</li>
+</ul>
+</li>
+<li>
+<p><strong>"Blindes Sparen führt zu gigantischer Technical Debt."</strong></p>
+<ul>
+<li><em>Argument:</em> Unbewachter KI-Code erzeugt versteckte Fehler, die später um ein Vielfaches teurer zu reparieren sind als die Ersparnis durch Personalabbau.</li>
+</ul>
+</li>
+<li>
+<p><strong>"Sicherheit &amp; Compliance erfordern den Menschen."</strong></p>
+<ul>
+<li><em>Argument:</em> KI haftet nicht für Datenschutzverstöße (DSGVO), Sicherheitslücken oder Urheberrechtsverletzungen. Nur erfahrene Entwickler garantieren Governance und Sicherheit.</li>
+</ul>
+</li>
+<li>
+<p><strong>"Höhere Entwickler-Zufriedenheit &amp; Innovation."</strong></p>
+<ul>
+<li><em>Argument:</em> KI nimmt Entwicklern lästige Routineaufgaben ab. Das steigert die Arbeitsfreude und lässt Raum für echte Innovation und bessere Produkte.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<blockquote>
+<p>🔗 <strong>Verwandte Themen:</strong></p>
+<ul>
+<li><a href="../ai_agent_security_vibe_coding.html">👉 Kapitel 8: KI-Agenten, Subagenten &amp; Praxis-Handbuch Vibe Coding</a></li>
+<li><a href="./cli_ide_setup.html">👉 Kapitel 9.1: AGY CLI &amp; IDE Setup &amp; Konfiguration</a></li>
+<li><a href="./token_speed_optimization.html">👉 Kapitel 9.2: Tutorial für KI-Geschwindigkeit &amp; Token-Sparsamkeit</a></li>
+</ul>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../agy_workflow/token_speed_optimization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../skills/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../agy_workflow/token_speed_optimization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../skills/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../mermaid.min.js"></script>
+        <script src="../mermaid-init.js"></script>
+
+
+    </div>
+    </body>
+</html>
