@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html lang="de" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>4. C-API / C-ABI, Conan, NPM &amp; PIP Paketmanager - MeinCMS Dokumentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html" class="active"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">5.</strong> 5. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">6.</strong> 6. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">6.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">6.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">6.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">6.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">6.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">6.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">7.</strong> 7. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">8.</strong> 8. Datenschutz</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MeinCMS Dokumentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="-c-api--c-abi-conan-npm--pip-paketmanager"><a class="header" href="#-c-api--c-abi-conan-npm--pip-paketmanager">⚙️ C-API / C-ABI, Conan, NPM &amp; PIP Paketmanager</a></h1>
+<p>Dieses Kapitel beschreibt die plattformübergreifenden Schnittstellen und Paketmanager-Integrationen von <strong>MeinCMS (wissen-ahrensburg.de)</strong>. Es erläutert die C-API / C-ABI Exporte des Parser-Crates, die Paketierung für C/C++ über Conan, die verwendeten NPM-Pakete für Dokumentations-Builds sowie die Anbindung an das Python/PIP-Ökosystem.</p>
+<hr />
+<h2 id="1-c-api--c-abi-interface-meincms_parser"><a class="header" href="#1-c-api--c-abi-interface-meincms_parser">1. C-API &amp; C-ABI Interface (<code>meincms_parser</code>)</a></h2>
+<p>Das Subsystem <code>meincms_parser</code> bietet eine native <strong>C-ABI (Application Binary Interface)</strong>-Schnittstelle, die es erlaubt, den Hochleistungs-Parser in externen C-, C++- oder Fremdsprachen-Projekten (Python, PHP, Go, C#) einzubinden.</p>
+<h3 id="configuration-in-cargotoml"><a class="header" href="#configuration-in-cargotoml">Configuration in <code>Cargo.toml</code></a></h3>
+<p>Durch die Angabe von <code>cdylib</code> baut Cargo bei <code>cargo build</code> eine dynamische C-Bibliothek (<code>libmeincms_parser.so</code> unter Linux, <code>.dylib</code> unter macOS, <code>.dll</code> unter Windows):</p>
+<pre><code class="language-toml">[lib]
+crate-type = ["cdylib", "rlib"]
+</code></pre>
+<h3 id="exportierte-c-funktionen-srcffirs"><a class="header" href="#exportierte-c-funktionen-srcffirs">Exportierte C-Funktionen (<code>src/ffi.rs</code>)</a></h3>
+<p>Alle exportierten Funktionen nutzen <code>#[no_mangle]</code> und <code>unsafe extern "C"</code> zur Einhaltung der Standard C-Aufrufkonvention.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">C-Funktion</th><th style="text-align: left">Beschreibung</th><th style="text-align: left">Rückgabe</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>meincms_markdown_to_html(input: *const c_char)</code></td><td style="text-align: left">Wandelt Markdown in HTML um</td><td style="text-align: left"><code>*mut c_char</code> (String-Pointer)</td></tr>
+<tr><td style="text-align: left"><code>meincms_markdown_get_categories(input: *const c_char)</code></td><td style="text-align: left">Extrahiert Kategorien aus Markdown als JSON-Array</td><td style="text-align: left"><code>*mut c_char</code> (JSON String-Pointer)</td></tr>
+<tr><td style="text-align: left"><code>meincms_wikitext_to_html(input: *const c_char)</code></td><td style="text-align: left">Wandelt MediaWiki/WikiText in HTML um</td><td style="text-align: left"><code>*mut c_char</code> (String-Pointer)</td></tr>
+<tr><td style="text-align: left"><code>meincms_wikitext_get_categories(input: *const c_char)</code></td><td style="text-align: left">Extrahiert Kategorien aus WikiText als JSON-Array</td><td style="text-align: left"><code>*mut c_char</code> (JSON String-Pointer)</td></tr>
+<tr><td style="text-align: left"><code>meincms_free_string(ptr: *mut c_char)</code></td><td style="text-align: left">Gibt vom Rust-Heap allokierten Speicher frei</td><td style="text-align: left"><code>void</code></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>⚠️ <strong>Wichtiger Speicherhinweis:</strong> Rückgabewerte vom Typ <code>*mut c_char</code> werden von Rust allokiert und müssen in C/C++ nach Nutzung zwingend mit <code>meincms_free_string(ptr)</code> freigegeben werden, um Speicherlecks zu vermeiden!</p>
+</blockquote>
+<h3 id="header-datei-meincms_parserh-für-c--c"><a class="header" href="#header-datei-meincms_parserh-für-c--c">Header-Datei (<code>meincms_parser.h</code>) für C / C++</a></h3>
+<pre><code class="language-c">#ifndef MEINCMS_PARSER_H
+#define MEINCMS_PARSER_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Wandelt Markdown in HTML um
+char* meincms_markdown_to_html(const char* input);
+
+// Extrahiert Kategorien aus Markdown als JSON-String
+char* meincms_markdown_get_categories(const char* input);
+
+// Wandelt WikiText in HTML um
+char* meincms_wikitext_to_html(const char* input);
+
+// Extrahiert Kategorien aus WikiText als JSON-String
+char* meincms_wikitext_get_categories(const char* input);
+
+// Gibt CString Speicher auf dem Rust-Heap frei
+void meincms_free_string(char* ptr);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // MEINCMS_PARSER_H
+</code></pre>
+<h3 id="c-verwendungsbeispiel"><a class="header" href="#c-verwendungsbeispiel">C++ Verwendungsbeispiel</a></h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include "meincms_parser.h"
+
+int main() {
+    const char* markdown = "# Hallo Welt\nDies ist ein **Test** mit [[kategorie:Dokumentation]].";
+    
+    // HTML konvertieren
+    char* html = meincms_markdown_to_html(markdown);
+    std::cout &lt;&lt; "HTML Output: " &lt;&lt; html &lt;&lt; std::endl;
+    meincms_free_string(html); // Speichergabe
+
+    // Kategorien extrahieren
+    char* categories_json = meincms_markdown_get_categories(markdown);
+    std::cout &lt;&lt; "Kategorien (JSON): " &lt;&lt; categories_json &lt;&lt; std::endl;
+    meincms_free_string(categories_json); // Speichergabe
+
+    return 0;
+}
+</code></pre>
+<hr />
+<h2 id="2-conan-paketmanager-c--c-integration"><a class="header" href="#2-conan-paketmanager-c--c-integration">2. Conan Paketmanager (C / C++ Integration)</a></h2>
+<p><a href="https://conan.io/">Conan</a> ist ein verbreiteter, plattformübergreifender C/C++ Paketmanager. Um <code>meincms_parser</code> als wiederverwendbares Paket in C/C++-Projekte (z. B. via CMake) einzubinden, kann ein <code>conanfile.py</code> verwendet werden.</p>
+<h3 id="beispiel-conanfilepy-für-meincms_parser"><a class="header" href="#beispiel-conanfilepy-für-meincms_parser">Beispiel <code>conanfile.py</code> für <code>meincms_parser</code></a></h3>
+<pre><code class="language-python">from conan import ConanFile
+from conan.tools.files import copy
+import os
+
+class MeinCmsParserConan(ConanFile):
+    name = "meincms_parser"
+    version = "0.1.0"
+    license = "AGPL-3.0"
+    author = "Thorsten Klöhn"
+    url = "https://github.com/thorstenkloehn/wissen-ahrensburg.de"
+    description = "Rust-based Markdown &amp; MediaWiki Parser C-FFI Library"
+    topics = ("markdown", "wikitext", "parser", "rust", "c-ffi")
+    settings = "os", "compiler", "build_type", "arch"
+
+    def build(self):
+        # Baut die Rust-Bibliothek via Cargo
+        self.run("cargo build --release -p meincms_parser")
+
+    def package(self):
+        # Kopiert C-Header und Binärdateien (.so / .dylib / .dll / .a)
+        copy(self, "meincms_parser.h", src=self.source_folder, dst=os.path.join(self.package_folder, "include"))
+        copy(self, "*.so", src=os.path.join(self.source_folder, "target", "release"), dst=os.path.join(self.package_folder, "lib"))
+        copy(self, "*.dylib", src=os.path.join(self.source_folder, "target", "release"), dst=os.path.join(self.package_folder, "lib"))
+        copy(self, "*.dll", src=os.path.join(self.source_folder, "target", "release"), dst=os.path.join(self.package_folder, "lib"))
+
+    def package_info(self):
+        self.cpp_info.libs = ["meincms_parser"]
+</code></pre>
+<h3 id="einbindung-in-c-cmake-projekten"><a class="header" href="#einbindung-in-c-cmake-projekten">Einbindung in C++ CMake-Projekten</a></h3>
+<p>Nach dem Erstellen des Conan-Pakets (<code>conan create .</code>) kann ein C++ Projekt <code>meincms_parser</code> in <code>CMakeLists.txt</code> wie folgt nutzen:</p>
+<pre><code class="language-cmake">cmake_minimum_required(VERSION 3.15)
+project(MeinApp CXX)
+
+find_package(meincms_parser REQUIRED)
+
+add_executable(mein_app main.cpp)
+target_link_libraries(mein_app PRIVATE meincms_parser::meincms_parser)
+</code></pre>
+<hr />
+<h2 id="3-npm-paketmanager--scripts"><a class="header" href="#3-npm-paketmanager--scripts">3. NPM Paketmanager &amp; Scripts</a></h2>
+<p>Für die Verwaltung, Generierung und Veröffentlichung der Handbuch-Dokumentation wird Node.js und <strong>npm</strong> eingesetzt.</p>
+<h3 id="packagejson-Übersicht"><a class="header" href="#packagejson-Übersicht"><code>package.json</code> Übersicht</a></h3>
+<pre><code class="language-json">{
+  "name": "wissen-ahrensburg.de",
+  "version": "1.0.0",
+  "description": "Ein hochperformantes, mandantenfähiges (Multi-Tenancy) Wiki-CMS System, vollständig in Rust entwickelt.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build:docs": "node scripts/build_docs.js",
+    "ver": "npm run build:docs &amp;&amp; npx -y gh-pages -d docs/book --nojekyll --cname handbuch.wissen-ahrensburg.de"
+  },
+  "dependencies": {
+    "github-pages": "^0.1.0"
+  }
+}
+</code></pre>
+<h3 id="verwendete-npm-pakete"><a class="header" href="#verwendete-npm-pakete">Verwendete NPM Pakete</a></h3>
+<ol>
+<li>
+<p><strong><code>gh-pages</code></strong>:</p>
+<ul>
+<li>Ein Utility-Paket zur automatischen Veröffentlichung des vom <strong>mdBook</strong> erzeugten HTML-Ordners (<code>docs/book</code>) auf den <code>gh-pages</code>-Branch in GitHub.</li>
+<li>Flag <code>--nojekyll</code>: Deaktiviert Jekyll-Processing auf GitHub Pages für korrekte Auslieferung aller Unterordner.</li>
+<li>Flag <code>--cname handbuch.wissen-ahrensburg.de</code>: Setzt automatisch die Custom-Domain der Dokumentation.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>github-pages</code></strong>:</p>
+<ul>
+<li>Unterstützendes Abhängigkeitspaket für GitHub-Pages Hilfsklassen und Konfiguration.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="4-python--pip-Ökosystem-python-ffi-bindings--pip-paketierung"><a class="header" href="#4-python--pip-Ökosystem-python-ffi-bindings--pip-paketierung">4. Python &amp; PIP Ökosystem (Python FFI Bindings &amp; PIP Paketierung)</a></h2>
+<p>Neben C und C++ kann der <code>meincms_parser</code> auch direkt in Python mittels des Standard-Moduls <code>ctypes</code> oder über ein mit <code>pip</code> installierbares Python-Paket eingebunden werden.</p>
+<h3 id="einbindung-in-python-mit-ctypes"><a class="header" href="#einbindung-in-python-mit-ctypes">Einbindung in Python mit <code>ctypes</code></a></h3>
+<p>Da <code>meincms_parser</code> eine C-ABI dynamische Bibliothek erzeugt (<code>libmeincms_parser.so</code>), kann Python sie ohne zusätzliche C-Extensions laden:</p>
+<pre><code class="language-python">import ctypes
+import json
+import os
+
+# Pfad zur kompilierten Shared Library (.so / .dylib / .dll)
+lib_path = os.path.abspath("target/release/libmeincms_parser.so")
+lib = ctypes.CDLL(lib_path)
+
+# Signaturen definieren
+lib.meincms_markdown_to_html.argtypes = [ctypes.c_char_p]
+lib.meincms_markdown_to_html.restype = ctypes.c_char_p
+
+lib.meincms_markdown_get_categories.argtypes = [ctypes.c_char_p]
+lib.meincms_markdown_get_categories.restype = ctypes.c_char_p
+
+lib.meincms_free_string.argtypes = [ctypes.c_char_p]
+lib.meincms_free_string.restype = None
+
+def render_markdown(text: str) -&gt; str:
+    encoded = text.encode("utf-8")
+    raw_ptr = lib.meincms_markdown_to_html(encoded)
+    result = ctypes.cast(raw_ptr, ctypes.c_char_p).value.decode("utf-8")
+    lib.meincms_free_string(raw_ptr) # Speichergabe
+    return result
+
+def get_categories(text: str) -&gt; list:
+    encoded = text.encode("utf-8")
+    raw_ptr = lib.meincms_markdown_get_categories(encoded)
+    result_json = ctypes.cast(raw_ptr, ctypes.c_char_p).value.decode("utf-8")
+    lib.meincms_free_string(raw_ptr) # Speichergabe
+    return json.loads(result_json)
+
+if __name__ == "__main__":
+    sample = "# Hallo aus Python\nInhalt mit [[kategorie:PythonTest]]."
+    print("HTML:", render_markdown(sample))
+    print("Kategorien:", get_categories(sample))
+</code></pre>
+<h3 id="python-paketierung-pyprojecttoml--pip-install"><a class="header" href="#python-paketierung-pyprojecttoml--pip-install">Python-Paketierung (<code>pyproject.toml</code> / <code>pip install</code>)</a></h3>
+<p>Um den Parser als pip-Paket zu verteilen, kann ein <code>pyproject.toml</code> in Kombination mit <code>setuptools</code> oder <code>maturin</code> (für native Rust-Python Bindings) genutzt werden:</p>
+<pre><code class="language-toml">[build-system]
+requires = ["setuptools&gt;=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meincms_parser"
+version = "0.1.0"
+description = "Python Bindings for MeinCMS Rust Markdown &amp; MediaWiki Parser"
+authors = [{ name = "Thorsten Klöhn" }]
+license = { text = "AGPL-3.0" }
+dependencies = []
+</code></pre>
+<h3 id="pip-installation--verwendung"><a class="header" href="#pip-installation--verwendung">PIP Installation &amp; Verwendung</a></h3>
+<ul>
+<li>Installation im Entwicklungsmodus: <code>pip install -e .</code></li>
+<li>Erstellen von Distribution-Wheels: <code>pip wheel .</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="externe_bibliotheken.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="agents.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="externe_bibliotheken.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="agents.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
