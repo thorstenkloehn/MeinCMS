@@ -146,7 +146,8 @@ async fn run_export(file_name: &str, _full: bool) -> Result<(), Box<dyn std::err
                 version_nummer: 1,
                 tenant_id: "main".to_string(),
                 markdown_inhalt: Some(
-                    "# Willkommen bei MeinCMS (Rust Edition)\n\n[[kategorie:Hauptseite]]".to_string(),
+                    "# Willkommen bei MeinCMS (Rust Edition)\n\n[[kategorie:Hauptseite]]"
+                        .to_string(),
                 ),
                 wiki_text_inhalt: None,
                 zeitpunkt: Utc::now(),
@@ -186,7 +187,8 @@ async fn run_import(file_name: &str) -> Result<(), Box<dyn std::error::Error>> {
         if content.contains("<BackupContainer") {
             quick_xml::de::from_str(&content)?
         } else if content.contains("<ArrayOfWikiArtikel") || content.contains("<WikiArtikel") {
-            let articles: Vec<WikiArtikelBackup> = quick_xml::de::from_str(&content).unwrap_or_default();
+            let articles: Vec<WikiArtikelBackup> =
+                quick_xml::de::from_str(&content).unwrap_or_default();
             BackupContainer {
                 artikel: articles,
                 ..Default::default()

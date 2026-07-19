@@ -38,7 +38,10 @@ pub fn to_html(wiki_text: &str) -> String {
             let level = trimmed.chars().take_while(|&c| c == '=').count();
             if level >= 1 && level <= 6 {
                 let content = trimmed.trim_matches('=').trim();
-                result.push_str(&format!("<h{level}>{}</h{level}>\n", html_escape::encode_text(content)));
+                result.push_str(&format!(
+                    "<h{level}>{}</h{level}>\n",
+                    html_escape::encode_text(content)
+                ));
                 continue;
             }
         }
@@ -75,9 +78,17 @@ fn process_inline_wikitext(text: &str) -> String {
         let content = caps.get(1).unwrap().as_str();
         let parts: Vec<&str> = content.split('|').collect();
         if parts.len() > 1 {
-            format!("<a href=\"/wiki/{}\">{}</a>", html_escape::encode_double_quoted_attribute(parts[0].trim()), html_escape::encode_text(parts[1].trim()))
+            format!(
+                "<a href=\"/wiki/{}\">{}</a>",
+                html_escape::encode_double_quoted_attribute(parts[0].trim()),
+                html_escape::encode_text(parts[1].trim())
+            )
         } else {
-            format!("<a href=\"/wiki/{}\">{}</a>", html_escape::encode_double_quoted_attribute(content.trim()), html_escape::encode_text(content.trim()))
+            format!(
+                "<a href=\"/wiki/{}\">{}</a>",
+                html_escape::encode_double_quoted_attribute(content.trim()),
+                html_escape::encode_text(content.trim())
+            )
         }
     });
 

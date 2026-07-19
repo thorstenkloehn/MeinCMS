@@ -105,7 +105,10 @@ pub fn tokenize(input: &str) -> Vec<MarkdownToken> {
     }
 
     let mut tokens = Vec::new();
-    let lines: Vec<&str> = input.split_terminator('\n').map(|s| s.trim_end_matches('\r')).collect();
+    let lines: Vec<&str> = input
+        .split_terminator('\n')
+        .map(|s| s.trim_end_matches('\r'))
+        .collect();
     let mut in_code_block = false;
     let mut current_code_marker = String::new();
     let mut current_code_content = String::new();
@@ -114,7 +117,9 @@ pub fn tokenize(input: &str) -> Vec<MarkdownToken> {
         let trimmed_line = line.trim();
 
         if in_code_block {
-            if trimmed_line.ends_with(&current_code_marker) && trimmed_line.len() == current_code_marker.len() {
+            if trimmed_line.ends_with(&current_code_marker)
+                && trimmed_line.len() == current_code_marker.len()
+            {
                 tokens.push(MarkdownToken {
                     token_type: MarkdownTokenType::CodeBlock,
                     level: 0,
@@ -157,7 +162,10 @@ pub fn tokenize(input: &str) -> Vec<MarkdownToken> {
             if get_table_divider_regex().is_match(trimmed_line) && trimmed_line.contains('-') {
                 tokens.push(MarkdownToken::new(MarkdownTokenType::TableDivider, ""));
             } else {
-                tokens.push(MarkdownToken::new(MarkdownTokenType::TableRow, trimmed_line));
+                tokens.push(MarkdownToken::new(
+                    MarkdownTokenType::TableRow,
+                    trimmed_line,
+                ));
             }
             continue;
         }
@@ -221,19 +229,72 @@ fn tokenize_inline(text: &str, tokens: &mut Vec<MarkdownToken>) {
         }
     }
 
-    check_regex(text, get_category_regex(), MarkdownTokenType::Category, |c| (c.get(1).unwrap().as_str().trim().to_string(), vec![]), &mut earliest_match);
-    check_regex(text, get_code_inline_regex(), MarkdownTokenType::CodeInline, |c| (c.get(1).unwrap().as_str().to_string(), vec![]), &mut earliest_match);
-    check_regex(text, get_template_regex(), MarkdownTokenType::Template, |c| {
-        let parts: Vec<&str> = c.get(1).unwrap().as_str().split('|').collect();
-        let name = parts[0].trim().to_string();
-        let params = parts.iter().skip(1).map(|p| p.trim().to_string()).collect();
-        (name, params)
-    }, &mut earliest_match);
-    check_regex(text, get_bold_star_regex(), MarkdownTokenType::Bold, |c| (c.get(1).unwrap().as_str().to_string(), vec![]), &mut earliest_match);
-    check_regex(text, get_bold_underscore_regex(), MarkdownTokenType::Bold, |c| (c.get(1).unwrap().as_str().to_string(), vec![]), &mut earliest_match);
-    check_regex(text, get_italic_star_regex(), MarkdownTokenType::Italic, |c| (c.get(1).unwrap().as_str().to_string(), vec![]), &mut earliest_match);
-    check_regex(text, get_italic_underscore_regex(), MarkdownTokenType::Italic, |c| (c.get(1).unwrap().as_str().to_string(), vec![]), &mut earliest_match);
-    check_regex(text, get_link_regex(), MarkdownTokenType::Link, |c| (c.get(2).unwrap().as_str().to_string(), vec![c.get(1).unwrap().as_str().to_string()]), &mut earliest_match);
+    check_regex(
+        text,
+        get_category_regex(),
+        MarkdownTokenType::Category,
+        |c| (c.get(1).unwrap().as_str().trim().to_string(), vec![]),
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_code_inline_regex(),
+        MarkdownTokenType::CodeInline,
+        |c| (c.get(1).unwrap().as_str().to_string(), vec![]),
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_template_regex(),
+        MarkdownTokenType::Template,
+        |c| {
+            let parts: Vec<&str> = c.get(1).unwrap().as_str().split('|').collect();
+            let name = parts[0].trim().to_string();
+            let params = parts.iter().skip(1).map(|p| p.trim().to_string()).collect();
+            (name, params)
+        },
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_bold_star_regex(),
+        MarkdownTokenType::Bold,
+        |c| (c.get(1).unwrap().as_str().to_string(), vec![]),
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_bold_underscore_regex(),
+        MarkdownTokenType::Bold,
+        |c| (c.get(1).unwrap().as_str().to_string(), vec![]),
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_italic_star_regex(),
+        MarkdownTokenType::Italic,
+        |c| (c.get(1).unwrap().as_str().to_string(), vec![]),
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_italic_underscore_regex(),
+        MarkdownTokenType::Italic,
+        |c| (c.get(1).unwrap().as_str().to_string(), vec![]),
+        &mut earliest_match,
+    );
+    check_regex(
+        text,
+        get_link_regex(),
+        MarkdownTokenType::Link,
+        |c| {
+            (
+                c.get(2).unwrap().as_str().to_string(),
+                vec![c.get(1).unwrap().as_str().to_string()],
+            )
+        },
+        &mut earliest_match,
+    );
 
     if let Some((start, end, token_type, mut payload)) = earliest_match {
         if start > 0 {
@@ -329,7 +390,11 @@ fn render_tokens_to_html(tokens: &[MarkdownToken]) -> String {
                 {
                     if tokens[i].token_type == MarkdownTokenType::TableRow {
                         html.push_str("<tr>\n");
-                        let cells: Vec<&str> = tokens[i].value.split('|').filter(|s| !s.is_empty()).collect();
+                        let cells: Vec<&str> = tokens[i]
+                            .value
+                            .split('|')
+                            .filter(|s| !s.is_empty())
+                            .collect();
                         for cell in cells {
                             html.push_str("<td>");
                             let mut sub_tokens = Vec::new();
@@ -353,11 +418,14 @@ fn render_tokens_to_html(tokens: &[MarkdownToken]) -> String {
                     let mut p_tokens = Vec::new();
                     while i < tokens.len() {
                         if tokens[i].token_type == MarkdownTokenType::Newline {
-                            if i + 1 < tokens.len() && tokens[i + 1].token_type == MarkdownTokenType::Newline {
+                            if i + 1 < tokens.len()
+                                && tokens[i + 1].token_type == MarkdownTokenType::Newline
+                            {
                                 i += 1;
                                 break;
                             }
-                            let has_more = (i + 1..tokens.len()).any(|k| is_inline(&tokens[k].token_type));
+                            let has_more =
+                                (i + 1..tokens.len()).any(|k| is_inline(&tokens[k].token_type));
                             if has_more {
                                 p_tokens.push(MarkdownToken::new(MarkdownTokenType::Text, "\n"));
                             }

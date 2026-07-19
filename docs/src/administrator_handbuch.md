@@ -140,6 +140,22 @@ server {
 }
 ```
 
+### 5. Dokumentation bauen & veröffentlichen (mdBook)
+
+Die Handbuch-Dokumentation wird automatisiert mit **mdBook** gebaut und bindet `AGENTS.md` und alle Subagent-Skills aus `.agents/` ein:
+
+- **Dokumentation lokal bauen:**
+  ```bash
+  npm run build:docs
+  ```
+  *(Synchronisiert `AGENTS.md` & Skills nach `docs/src` und führt `mdbook build docs` aus)*
+
+- **Dokumentation bauen & automatisch veröffentlichen:**
+  ```bash
+  npm run ver
+  ```
+  *(Baut die Dokumentation inkl. `AGENTS.md` & Skills und lädt sie via GitHub Pages auf `handbuch.wissen-ahrensburg.de` hoch)*
+
 ---
 
 ## 4. Konfiguration & Umgebungsvariablen

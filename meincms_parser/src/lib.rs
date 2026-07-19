@@ -4,8 +4,8 @@ pub mod scripting;
 pub mod wikitext;
 
 pub use markdown::{get_categories as get_markdown_categories, to_html as markdown_to_html};
-pub use wikitext::{get_categories as get_wikitext_categories, to_html as wikitext_to_html};
 pub use scripting::{eval_rhai_script, process_rhai_macros};
+pub use wikitext::{get_categories as get_wikitext_categories, to_html as wikitext_to_html};
 
 #[cfg(test)]
 mod tests {
@@ -59,7 +59,10 @@ mod tests {
         assert_eq!(inline_result, "<p>Benutze <code>var x = 1;</code>!</p>\n");
 
         let block_result = markdown_to_html("```\nConsole.WriteLine();\n```");
-        assert_eq!(block_result, "<pre><code>Console.WriteLine();</code></pre>\n");
+        assert_eq!(
+            block_result,
+            "<pre><code>Console.WriteLine();</code></pre>\n"
+        );
 
         let special_result = markdown_to_html("'''\nSpecial Code\n'''");
         assert_eq!(special_result, "<pre><code>Special Code</code></pre>\n");

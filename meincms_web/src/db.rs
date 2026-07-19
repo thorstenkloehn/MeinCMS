@@ -1,7 +1,7 @@
+use chrono::Utc;
 use std::collections::HashMap;
 use std::sync::Arc;
 use tokio::sync::RwLock;
-use chrono::Utc;
 
 use crate::models::{WikiArtikelVersion, WikiArtikelWithVersion};
 
@@ -43,13 +43,19 @@ impl DbStore {
         };
 
         let mut lock = self.articles.write().await;
-        lock.insert(("main".to_string(), "Hauptseite".to_string()), vec![initial_version.clone()]);
-        
+        lock.insert(
+            ("main".to_string(), "Hauptseite".to_string()),
+            vec![initial_version.clone()],
+        );
+
         let doc_version = WikiArtikelVersion {
             tenant_id: "doc".to_string(),
             ..initial_version
         };
-        lock.insert(("doc".to_string(), "Hauptseite".to_string()), vec![doc_version]);
+        lock.insert(
+            ("doc".to_string(), "Hauptseite".to_string()),
+            vec![doc_version],
+        );
     }
 
     pub async fn get_article(&self, tenant_id: &str, slug: &str) -> Option<WikiArtikelWithVersion> {
@@ -100,17 +106,18 @@ impl DbStore {
         let next_version_num = (versions.len() as i64) + 1;
 
         // Backend Rule from AGENTS.md: Explicitly clear the unused content field!
-        let (final_markdown, final_mediawiki, html_out, mut auto_cats) = if syntax.eq_ignore_ascii_case("mediawiki") {
-            let mw_str = mediawiki.unwrap_or_default();
-            let html = meincms_parser::wikitext_to_html(&mw_str);
-            let cats = meincms_parser::get_wikitext_categories(&mw_str);
-            (None, Some(mw_str), html, cats)
-        } else {
-            let md_str = markdown.unwrap_or_default();
-            let html = meincms_parser::markdown_to_html(&md_str);
-            let cats = meincms_parser::get_markdown_categories(&md_str);
-            (Some(md_str), None, html, cats)
-        };
+        let (final_markdown, final_mediawiki, html_out, mut auto_cats) =
+            if syntax.eq_ignore_ascii_case("mediawiki") {
+                let mw_str = mediawiki.unwrap_or_default();
+                let html = meincms_parser::wikitext_to_html(&mw_str);
+                let cats = meincms_parser::get_wikitext_categories(&mw_str);
+                (None, Some(mw_str), html, cats)
+            } else {
+                let md_str = markdown.unwrap_or_default();
+                let html = meincms_parser::markdown_to_html(&md_str);
+                let cats = meincms_parser::get_markdown_categories(&md_str);
+                (Some(md_str), None, html, cats)
+            };
 
         // Merge categories
         for cat in kategorien {
@@ -151,7 +158,11 @@ impl DbStore {
         list
     }
 
-    pub async fn search_articles(&self, tenant_id: &str, query: &str) -> Vec<WikiArtikelWithVersion> {
+    pub async fn search_articles(
+        &self,
+        tenant_id: &str,
+        query: &str,
+    ) -> Vec<WikiArtikelWithVersion> {
         let lock = self.articles.read().await;
         let mut list = Vec::new();
         let q_lower = query.to_lowercase();
@@ -160,8 +171,12 @@ impl DbStore {
             if t_id == tenant_id {
                 let slug_match = slug.to_lowercase().contains(&q_lower);
                 let content_match = versions.last().map_or(false, |v| {
-                    v.markdown_inhalt.as_ref().map_or(false, |m| m.to_lowercase().contains(&q_lower))
-                        || v.wiki_text_inhalt.as_ref().map_or(false, |w| w.to_lowercase().contains(&q_lower))
+                    v.markdown_inhalt
+                        .as_ref()
+                        .map_or(false, |m| m.to_lowercase().contains(&q_lower))
+                        || v.wiki_text_inhalt
+                            .as_ref()
+                            .map_or(false, |w| w.to_lowercase().contains(&q_lower))
                 });
 
                 if slug_match || content_match {

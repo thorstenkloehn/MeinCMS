@@ -4,3 +4,8 @@ language = "de"
 multilingual = false
 src = "src"
 title = "MeinCMS Dokumentation"
+
+[output]
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]

@@ -1,5 +1,5 @@
-use rhai::{Engine, Scope};
 use regex::Regex;
+use rhai::{Engine, Scope};
 
 /// Führt ein Rhai-Skript in einer abgesicherten Sandbox aus.
 pub fn eval_rhai_script(script: &str) -> Result<String, String> {
@@ -24,7 +24,10 @@ pub fn process_rhai_macros(text: &str) -> String {
         let code = caps.get(1).map_or("", |m| m.as_str());
         match eval_rhai_script(code) {
             Ok(val) => val,
-            Err(err) => format!("<span style=\"color: red;\">[{}]</span>", html_escape::encode_text(&err)),
+            Err(err) => format!(
+                "<span style=\"color: red;\">[{}]</span>",
+                html_escape::encode_text(&err)
+            ),
         }
     })
     .to_string()

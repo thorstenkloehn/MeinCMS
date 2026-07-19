@@ -121,7 +121,10 @@ pub async fn post_login(Form(form): Form<LoginForm>) -> impl IntoResponse {
             .insert(header::SET_COOKIE, cookie.parse().unwrap());
         response
     } else {
-        let err_url = format!("/login?redirect={}&error=Ungueltiges+Passwort", redirect_url);
+        let err_url = format!(
+            "/login?redirect={}&error=Ungueltiges+Passwort",
+            redirect_url
+        );
         Redirect::to(&err_url).into_response()
     }
 }
@@ -162,7 +165,11 @@ pub async fn get_version(
                 }
             }
         };
-        Html(render_base_layout(&format!("Version #{}", version_num), &tenant_id, content).into_string()).into_response()
+        Html(
+            render_base_layout(&format!("Version #{}", version_num), &tenant_id, content)
+                .into_string(),
+        )
+        .into_response()
     } else {
         (axum::http::StatusCode::NOT_FOUND, "Version nicht gefunden").into_response()
     }

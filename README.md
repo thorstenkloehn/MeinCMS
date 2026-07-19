@@ -110,6 +110,8 @@ cargo run -p meincms_backup -- import mein_backup.yaml
 | `cargo run -p meincms_backup -- export backup.yaml` | Exportiert alle Artikel als YAML-Backup |
 | `cargo run -p meincms_backup -- repair` | Regeneriert alle HTML-Inhalte aus den Quellen |
 | `cargo run -p meincms_admin` | Öffnet das Administrator-Verwaltungs-Menü |
+| `npm run build:docs` | Baut die mdBook Dokus inkl. automatischer Einbindung von `AGENTS.md` & Skills |
+| `npm run ver` | Baut Dokus inkl. `AGENTS.md` & Skills und veröffentlicht automatisch via gh-pages |
 
 ---
 

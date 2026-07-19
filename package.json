@@ -18,9 +18,14 @@
     "doc": "docs"
   },
   "scripts": {
-     "ver": "gh-pages -d docs/book --nojekyll --cname handbuch.wissen-ahrensburg.de"
+    "build:docs": "node scripts/build_docs.js",
+    "ver": "npm run build:docs && npx -y gh-pages -d docs/book --nojekyll --cname handbuch.wissen-ahrensburg.de"
   },
   "dependencies": {
     "github-pages": "^0.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^10.7.0",
+    "eslint-plugin-security": "^4.0.1"
   }
 }

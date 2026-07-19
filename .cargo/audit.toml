@@ -1,0 +1,10 @@
+# Cargo audit configuration file
+# https://rustsec.org
+
+[advisories]
+# RUSTSEC-2023-0071 (rsa): Marvin Attack in rsa 0.9.10.
+# Upstream solution: No fixed upgrade is available!
+# Transitive dependency via sqlx-mysql, unused in PostgreSQL setup.
+ignore = [
+    "RUSTSEC-2023-0071",
+]

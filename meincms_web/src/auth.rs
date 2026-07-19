@@ -38,7 +38,11 @@ where
 
             Ok(AdminAuth { username })
         } else {
-            let original_uri = parts.uri.path_and_query().map(|pq| pq.as_str()).unwrap_or("/");
+            let original_uri = parts
+                .uri
+                .path_and_query()
+                .map(|pq| pq.as_str())
+                .unwrap_or("/");
             let login_url = format!("/login?redirect={}", original_uri);
             Err(Redirect::to(&login_url).into_response())
         }

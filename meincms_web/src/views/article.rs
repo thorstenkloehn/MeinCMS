@@ -128,11 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
     render_base_layout(&format!("Bearbeiten: {}", slug), tenant_id, content)
 }
 
-pub fn render_history_page(
-    slug: &str,
-    tenant_id: &str,
-    versions: &[WikiArtikelVersion],
-) -> Markup {
+pub fn render_history_page(slug: &str, tenant_id: &str, versions: &[WikiArtikelVersion]) -> Markup {
     let content = html! {
         div class="card" {
             h1 class="wiki-article-title" { "Versionshistorie: " (slug) }

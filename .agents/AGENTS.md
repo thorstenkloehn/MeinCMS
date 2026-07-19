@@ -12,7 +12,8 @@ CMS mit Wiki-Funktion & Multi-Tenancy (100% Rust Workspace Edition, PostgreSQL).
 ## Befehle (Rust & Qualitätssicherung)
 - Workspace Check & Test: `cargo check` & `cargo test --workspace`
 - Linter & Formatierung: `cargo clippy` & `cargo fmt --check`
-- Dokumentation (mdBook): `mdbook build docs`
+- Dokumentation (mdBook): `npm run build:docs` (synchronisiert `AGENTS.md` & Skills nach `docs/src` und führt `mdbook build docs` aus)
+- Dokus veröffentlich: `npm run ver` (baut Dokus inkl. AGENTS.md & Skills und veröffentlicht automatisch via gh-pages)
 - Web Backend: `cargo run -p meincms_web`
 - Backup CLI: `cargo run -p meincms_backup -- [export|import|repair]`
 - Admin CLI: `cargo run -p meincms_admin`
@@ -22,8 +23,9 @@ CMS mit Wiki-Funktion & Multi-Tenancy (100% Rust Workspace Edition, PostgreSQL).
 - **Produktion / Unix Socket:** PostgreSQL-Verbindung bevorzugt über Unix Domain Socket (`DATABASE_URL="postgres://user:pass@/var/run/postgresql/meincms"`). Webserver via `UNIX_SOCKET`.
 - **Mandanten:** Multi-Tenancy mit Filterung nach `TenantId` ("main" = Standard, "doc" = Technik).
 - **Sicherheit:** Markdown & MediaWiki strikt gegen XSS/CSRF sichern, keine Inline-Skripte. No-Cache-Header erzwingen.
+- **Menschliche Verantwortung & Code-Review:** KI-Agenten (CLI & IDE) sind Assistenzwerkzeuge. Die Verantwortung für Code-Sicherheit, Funktion und Wartbarkeit liegt stets beim Menschen. Code muss verständlich strukturiert und dokumentiert werden, damit er nachvollziehbar und optimierbar bleibt.
 - **Frontend / Maud:** Editor-Toggling via Vanilla JS (`DOMContentLoaded` & `style.display`), nicht rein über CSS-Klassen.
 - **Backend:** Beim Speichern von Wiki-Artikeln das jeweils nicht genutzte Inhaltsfeld (Markdown/MediaWiki) explizit leeren.
 - **DB-Modell:** `WikiArtikel`, `WikiArtikelVersion`, `WikiNamespace`, `WikiCategory`.
 - **Backup & Repair:** Nach Import oder Parser-Änderungen stets `repair` über `meincms_backup` ausführen.
-- **Dokumentation & mdBook:** Bei Konfigurations- oder Architekturänderungen stets die Doku in `docs/` aktualisieren und danach `mdbook build docs` ausführen.
+- **Dokumentation & mdBook:** Bei Konfigurations- oder Architekturänderungen stets die Doku in `docs/` aktualisieren und danach `npm run build:docs` bzw. `mdbook build docs` ausführen.

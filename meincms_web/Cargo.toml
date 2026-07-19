@@ -2,14 +2,15 @@
 name = "meincms_web"
 version = "0.1.0"
 edition = "2021"
+license = "AGPL-3.0-only"
 
 [dependencies]
 axum = "0.7"
 tokio = { version = "1", features = ["full"] }
-sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres", "chrono", "json"] }
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "postgres", "chrono", "json", "derive"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-maud = "0.26"
+maud = "0.27"
 tower-http = { version = "0.6", features = ["fs", "trace", "cors", "compression-gzip", "compression-br"] }
 tower = { version = "0.5", features = ["util"] }
 hyper = "1"
