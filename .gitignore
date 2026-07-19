@@ -50,3 +50,5 @@ desktop.ini
 node_modules/
 dist/
 book/
+Cargo.lock
+docs/book
