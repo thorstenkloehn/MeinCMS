@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>5. Ubuntu Security Handbuch für C-Pakete - MeinCMS Dokumentation</title>
+        <title>5. Sicherheits-Handbuch: Ubuntu, Rust &amp; NPM Ökosystem - MeinCMS Dokumentation</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html" class="active"><strong aria-hidden="true">5.</strong> 5. Ubuntu Security Handbuch für C-Pakete</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">6.</strong> 6. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">7.</strong> 7. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">7.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">7.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">7.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">7.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">7.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">7.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">8.</strong> 8. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">9.</strong> 9. Datenschutz</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> 1. Installation & Setup</a></li><li class="chapter-item expanded "><a href="administrator_handbuch.html"><strong aria-hidden="true">2.</strong> 2. Administrator-Handbuch</a></li><li class="chapter-item expanded "><a href="externe_bibliotheken.html"><strong aria-hidden="true">3.</strong> 3. Externe Bibliotheken & Crates</a></li><li class="chapter-item expanded "><a href="c_api_conan_npm.html"><strong aria-hidden="true">4.</strong> 4. C-API / C-ABI, Conan, NPM & PIP Paketmanager</a></li><li class="chapter-item expanded "><a href="ubuntu_security.html" class="active"><strong aria-hidden="true">5.</strong> 5. Sicherheits-Handbuch: Ubuntu, Rust & NPM Ökosystem</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">6.</strong> 6. KI-Agenten Konfiguration (AGENTS.md)</a></li><li class="chapter-item expanded "><a href="skills/index.html"><strong aria-hidden="true">7.</strong> 7. Agent Skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="skills/admin_manager.html"><strong aria-hidden="true">7.1.</strong> admin_manager</a></li><li class="chapter-item expanded "><a href="skills/backup_manager.html"><strong aria-hidden="true">7.2.</strong> backup_manager</a></li><li class="chapter-item expanded "><a href="skills/db_admin.html"><strong aria-hidden="true">7.3.</strong> db_admin</a></li><li class="chapter-item expanded "><a href="skills/meincms_worker.html"><strong aria-hidden="true">7.4.</strong> meincms_worker</a></li><li class="chapter-item expanded "><a href="skills/parser.html"><strong aria-hidden="true">7.5.</strong> parser</a></li><li class="chapter-item expanded "><a href="skills/ui_worker.html"><strong aria-hidden="true">7.6.</strong> ui_worker</a></li></ol></li><li class="chapter-item expanded "><a href="Impressum.html"><strong aria-hidden="true">8.</strong> 8. Impressum</a></li><li class="chapter-item expanded "><a href="Datenschschutz.html"><strong aria-hidden="true">9.</strong> 9. Datenschutz</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,65 +173,122 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="-ubuntu-security-handbuch-für-cc-pakete--systembibliotheken"><a class="header" href="#-ubuntu-security-handbuch-für-cc-pakete--systembibliotheken">🛡️ Ubuntu Security Handbuch für C/C++ Pakete &amp; Systembibliotheken</a></h1>
-<p>Dieses Dokument beschreibt die offiziellen Informationsquellen, Sicherheitsportale sowie Terminal-Befehle zur Überprüfung und Absicherung einzelner C/C++-Pakete und Systembibliotheken auf <strong>Ubuntu Linux</strong>.</p>
+                        <h1 id="-sicherheits-handbuch-ubuntu-rust--npm-Ökosystem"><a class="header" href="#-sicherheits-handbuch-ubuntu-rust--npm-Ökosystem">🛡️ Sicherheits-Handbuch: Ubuntu, Rust &amp; NPM Ökosystem</a></h1>
+<p>Dieses Dokument bietet eine vollständige Übersicht aller offiziellen Sicherheitsportale, CVE-Datenbanken und CLI-Werkzeuge zur Überprüfung von Sicherheitslücken in <strong>C/Ubuntu-Paketen</strong>, <strong>Rust Crates</strong> sowie <strong>NPM Node.js Paketen</strong>.</p>
 <hr />
-<h2 id="1-offizielle-ubuntu-security-webseiten--cve-datenbanken"><a class="header" href="#1-offizielle-ubuntu-security-webseiten--cve-datenbanken">1. Offizielle Ubuntu Security Webseiten &amp; CVE-Datenbanken</a></h2>
-<p>Canonical stellt dedizierte Portale bereit, um den Sicherheitszustand aller in Ubuntu verwendeten C-Bibliotheken (<code>glibc</code>, <code>openssl</code>, <code>zlib</code>, <code>curl</code>, <code>libssl</code> etc.) einzusehen:</p>
+<h2 id="1-ubuntu-linux--cc-sicherheitsportale"><a class="header" href="#1-ubuntu-linux--cc-sicherheitsportale">1. Ubuntu Linux &amp; C/C++ Sicherheitsportale</a></h2>
+<p>Canonical betreibt dedizierte Sicherheitsservices für alle C-Pakete und Systembibliotheken (<code>glibc</code>, <code>openssl</code>, <code>zlib</code>, <code>curl</code>):</p>
+<h3 id="offizielle-ubuntu-webseiten"><a class="header" href="#offizielle-ubuntu-webseiten">Offizielle Ubuntu Webseiten</a></h3>
 <ul>
 <li>
 <p><strong>Ubuntu Security Notices (USN):</strong><br />
 🔗 <a href="https://ubuntu.com/security/notices">https://ubuntu.com/security/notices</a><br />
-<em>Hier veröffentlicht Canonical alle offiziellen Sicherheitswarnungen und veröffentlichten Fixes für C-Bibliotheken und Pakete unter Ubuntu.</em></p>
+<em>Offizielle Ankündigungen aller Sicherheitsupdates und Patches für Ubuntu-Pakete.</em></p>
 </li>
 <li>
 <p><strong>Ubuntu CVE Tracker:</strong><br />
 🔗 <a href="https://ubuntu.com/security/cve">https://ubuntu.com/security/cve</a><br />
-<em>Ermöglicht die gezielte Suche nach Sicherheitslücken (CVEs) für einzelne C-Pakete (z. B. <code>glibc</code>, <code>openssl</code>, <code>zlib</code>, <code>curl</code>, <code>libssl</code>).</em></p>
+<em>Gezielte Suche nach spezifischen Sicherheitslücken (CVEs) in einzelnen Paketen.</em></p>
 </li>
 <li>
 <p><strong>Ubuntu Package Directory:</strong><br />
 🔗 <a href="https://packages.ubuntu.com">https://packages.ubuntu.com</a><br />
-<em>Übersicht aller Pakete und deren Herkunft aus den Repositories (<code>main</code>, <code>universe</code>, <code>security</code>).</em></p>
+<em>Übersicht aller Quell- und Binärpakete (<code>main</code>, <code>universe</code>, <code>security</code>).</em></p>
 </li>
 </ul>
+<h3 id="ubuntu-terminal-befehle"><a class="header" href="#ubuntu-terminal-befehle">Ubuntu Terminal-Befehle</a></h3>
+<ul>
+<li><strong><code>pro status</code></strong>: Prüft den allgemeinen Sicherheits- und ESM-Status (Expanded Security Maintenance).</li>
+<li><strong><code>apt-cache policy &lt;paketname&gt;</code></strong>: Zeigt Paketversion und Security-Repository-Herkunft (z.B. <code>noble-security</code>).</li>
+<li><strong><code>debsecan</code></strong>: Analysiert installierte Pakete auf bekannte CVEs (<code>sudo apt install debsecan &amp;&amp; debsecan</code>).</li>
+</ul>
 <hr />
-<h2 id="2-befehle-auf-dem-ubuntu-terminal-zur-prüfung-einzelner-c-pakete"><a class="header" href="#2-befehle-auf-dem-ubuntu-terminal-zur-prüfung-einzelner-c-pakete">2. Befehle auf dem Ubuntu-Terminal zur Prüfung einzelner C-Pakete</a></h2>
-<p>Zur Diagnose und Sicherheitsüberprüfung lokaler Ubuntu-Systeme dienen folgende Befehle:</p>
+<h2 id="2-rust-Ökosystem-sicherheitsportale--audit-tools"><a class="header" href="#2-rust-Ökosystem-sicherheitsportale--audit-tools">2. Rust Ökosystem Sicherheitsportale &amp; Audit Tools</a></h2>
+<p>Das Rust-Ökosystem verfügt über eine hochmoderne, automatisierte Sicherheitsinfrastruktur zur Überprüfung aller Cargo-Abhängigkeiten (<code>crates.io</code>).</p>
+<h3 id="offizielle-rust-security-webseiten"><a class="header" href="#offizielle-rust-security-webseiten">Offizielle Rust Security Webseiten</a></h3>
 <ul>
 <li>
-<p><strong><code>pro status</code></strong> <em>(oder <code>ubuntu-security-status</code>)</em>:<br />
-Prüft den allgemeinen Sicherheits- und ESM-Status (<strong>Expanded Security Maintenance</strong>) Ihres Ubuntu-Systems.</p>
+<p><strong>RustSec Security Advisory Database:</strong><br />
+🔗 <a href="https://advisories.rust-lang.org">https://advisories.rust-lang.org</a><br />
+<em>Die offizielle Datenbank aller gemeldeten Sicherheitslücken (Advisories) und zerschlagenen („yanked“) Crates auf crates.io.</em></p>
 </li>
 <li>
-<p><strong><code>apt-cache policy &lt;paketname&gt;</code></strong>:<br />
-Zeigt die exakt installierte Paketversion sowie die Herkunft (z. B. <code>noble-security</code>, <code>jammy-security</code>) für ein spezifisches C-Paket an:</p>
-<pre><code class="language-bash">apt-cache policy libc6 libssl3 curl
+<p><strong>GitHub RustSec Advisory Repository:</strong><br />
+🔗 <a href="https://github.com/rustsec/advisories">https://github.com/rustsec/advisories</a><br />
+<em>Das Quellcode-Repository der Rust-Sicherheitsdatenbank (Community-gepflegt).</em></p>
+</li>
+<li>
+<p><strong>Rust Language Security Notices:</strong><br />
+🔗 <a href="https://blog.rust-lang.org/category/security.html">https://blog.rust-lang.org/category/security.html</a><br />
+<em>Offizieller Rust-Blog für kritische Sicherheitsmeldungen zu Compiler, Standardbibliothek (<code>std</code>) und Cargo.</em></p>
+</li>
+</ul>
+<h3 id="rust-terminal-befehle--cli-tools"><a class="header" href="#rust-terminal-befehle--cli-tools">Rust Terminal-Befehle &amp; CLI Tools</a></h3>
+<ul>
+<li>
+<p><strong><code>cargo audit</code></strong> <em>(Empfohlen)</em>:<br />
+Scannt die Datei <code>Cargo.lock</code> des Projekts automatisch gegen die RustSec-Datenbank und meldet bekannte Sicherheitslücken:</p>
+<pre><code class="language-bash"># Installation (einmalig)
+cargo install cargo-audit
+
+# Sicherheitsprüfung im Workspace ausführen
+cargo audit
 </code></pre>
 </li>
 <li>
-<p><strong><code>debsecan</code></strong>:<br />
-Analysiert das laufende Ubuntu-System auf alle aktuell bekannten CVE-Sicherheitslücken in den installierten Paketen:</p>
-<pre><code class="language-bash">sudo apt install debsecan
-debsecan
+<p><strong><code>cargo deny</code></strong>:<br />
+Prüft den Workspace nicht nur auf Sicherheitslücken, sondern auch auf unerwünschte Lizenzen und doppelte Abhängigkeiten:</p>
+<pre><code class="language-bash">cargo install cargo-deny
+cargo deny check
 </code></pre>
 </li>
 </ul>
 <hr />
-<h2 id="3-sicherheitsarchitektur-der-c-abi-in-meincms-meincms_parser"><a class="header" href="#3-sicherheitsarchitektur-der-c-abi-in-meincms-meincms_parser">3. Sicherheitsarchitektur der C-ABI in MeinCMS (<code>meincms_parser</code>)</a></h2>
-<p>Die C-ABI Schnittstelle in <code>meincms_parser</code> profitiert von den Sicherheitsgarantien der Rust-Laufzeitumgebung:</p>
-<ol>
-<li><strong>Speichersicherheit (Memory Safety):</strong><br />
-Rust führt vor dem Export an die C-ABI strikte Bounds-Checks und UTF-8-Validierungen durch. Dadurch werden klassische C-Pufferüberläufe (Buffer Overflows) ausgeschlossen.</li>
-<li><strong>Explizite Speichergabe:</strong><br />
-Die C-API stellt die Funktion <code>meincms_free_string(*mut c_char)</code> bereit, die C/C++-Entwicklern eine kontrollierte Freigabe des Rust-Heap-Speichers garantiert.</li>
-<li><strong>Ubuntu Compiler Hardening Flags:</strong><br />
-Bei der Einbindung von <code>libmeincms_parser.so</code> in eigene C/C++-Programme unter Ubuntu sollten folgende GCC/Clang-Hardening-Flags verwendet werden:
-<pre><code class="language-bash">gcc -O2 -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE -pie -Wl,-z,relro,-z,now main.c -lmeincms_parser -o main_app
+<h2 id="3-npm--nodejs-Ökosystem-sicherheitsportale--audit-tools"><a class="header" href="#3-npm--nodejs-Ökosystem-sicherheitsportale--audit-tools">3. NPM &amp; Node.js Ökosystem Sicherheitsportale &amp; Audit Tools</a></h2>
+<p>Auch für NPM-Pakete existieren globale Datenbanken und integrierte Auditing-Werkzeuge.</p>
+<h3 id="offizielle-npm-security-webseiten"><a class="header" href="#offizielle-npm-security-webseiten">Offizielle NPM Security Webseiten</a></h3>
+<ul>
+<li>
+<p><strong>GitHub Advisory Database (NPM Security):</strong><br />
+🔗 <a href="https://github.com/advisories?query=type%3Anpm">https://github.com/advisories?query=type%3Anpm</a><br />
+<em>Die zentrale GitHub/NPM Datenbank zur Abfrage aller CVEs und advisories für Node.js/NPM Pakete.</em></p>
+</li>
+<li>
+<p><strong>NPM Security Documentation &amp; Best Practices:</strong><br />
+🔗 <a href="https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities">https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities</a><br />
+<em>Dokumentation zum automatischen Sicherheits-Audit von Paketabhängigkeiten.</em></p>
+</li>
+</ul>
+<h3 id="npm-terminal-befehle--cli-tools"><a class="header" href="#npm-terminal-befehle--cli-tools">NPM Terminal-Befehle &amp; CLI Tools</a></h3>
+<ul>
+<li>
+<p><strong><code>npm audit</code></strong>:<br />
+Vergleicht <code>package.json</code> und <code>package-lock.json</code> automatisch mit der GitHub Advisory Database:</p>
+<pre><code class="language-bash">npm audit
 </code></pre>
 </li>
-</ol>
-
+<li>
+<p><strong><code>npm audit fix</code></strong>:<br />
+Aktualisiert verwundbare Pakete automatisch auf die nächstsichere Version (ohne Breaking Changes).</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-plattformübergreifende-vulnerability-datenbanken-osv"><a class="header" href="#4-plattformübergreifende-vulnerability-datenbanken-osv">4. Plattformübergreifende Vulnerability Datenbanken (OSV)</a></h2>
+<ul>
+<li><strong>Google OSV (Open Source Vulnerabilities):</strong><br />
+🔗 <a href="https://osv.dev">https://osv.dev</a><br />
+<em>Eine universelle, Open-Source-Datenbank von Google, die Sicherheitslücken über Sprachgrenzen hinweg (Rust/Cargo, NPM, PyPI, Linux/Ubuntu, Go, C/C++) aggregiert.</em></li>
+</ul>
+<hr />
+<h2 id="-zusammenfassende-befehlsübersicht-für-dieses-projekt"><a class="header" href="#-zusammenfassende-befehlsübersicht-für-dieses-projekt">📑 Zusammenfassende Befehlsübersicht für dieses Projekt</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Ökosystem</th><th style="text-align: left">Befehl</th><th style="text-align: left">Zweck</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Ubuntu C/System</strong></td><td style="text-align: left"><code>apt-cache policy libc6</code></td><td style="text-align: left">Prüft Security-Patch-Stand von C-Bibliotheken</td></tr>
+<tr><td style="text-align: left"><strong>Ubuntu C/System</strong></td><td style="text-align: left"><code>debsecan</code></td><td style="text-align: left">Analysiert lokale Ubuntu-Pakete auf CVEs</td></tr>
+<tr><td style="text-align: left"><strong>Rust</strong></td><td style="text-align: left"><code>cargo audit</code></td><td style="text-align: left">Scannt alle Rust-Crates (<code>Cargo.lock</code>) gegen RustSec DB</td></tr>
+<tr><td style="text-align: left"><strong>Rust</strong></td><td style="text-align: left"><code>cargo deny check</code></td><td style="text-align: left">Prüft Sicherheitslücken &amp; Lizenzkonformität</td></tr>
+<tr><td style="text-align: left"><strong>NPM</strong></td><td style="text-align: left"><code>npm audit</code></td><td style="text-align: left">Scannt alle NPM-Pakete (<code>package-lock.json</code>) gegen GitHub Advisory DB</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
