@@ -5,7 +5,7 @@ target/
 **/target/
 **/*.rs.bk
 meincms_web/target
-
+.cargo
 # ==========================================
 # 2. Geheimnisse & Umgebungsvariablen
 # ==========================================
