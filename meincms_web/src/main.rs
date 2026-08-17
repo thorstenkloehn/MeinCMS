@@ -50,11 +50,11 @@ async fn main() {
         .route("/logout", get(get_logout))
         .route("/alle", get(get_all_articles))
         .route("/suche", get(get_search))
-        .route("/edit/*slug", get(get_edit_article))
-        .route("/save/*slug", post(post_save_article))
-        .route("/wiki/*slug", get(get_article))
-        .route("/history/*slug", get(get_history))
-        .route("/version/:version_num", get(get_version))
+        .route("/edit/{*slug}", get(get_edit_article))
+        .route("/save/{*slug}", post(post_save_article))
+        .route("/wiki/{*slug}", get(get_article))
+        .route("/history/{*slug}", get(get_history))
+        .route("/version/{version_num}", get(get_version))
         .layer(axum::middleware::map_response(
             |mut response: axum::response::Response| async move {
                 let headers = response.headers_mut();

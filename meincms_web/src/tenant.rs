@@ -1,5 +1,4 @@
 use axum::{
-    async_trait,
     extract::FromRequestParts,
     http::{header, request::Parts, StatusCode},
 };
@@ -7,7 +6,6 @@ use axum::{
 #[derive(Debug, Clone)]
 pub struct Tenant(pub String);
 
-#[async_trait]
 impl<S> FromRequestParts<S> for Tenant
 where
     S: Send + Sync,

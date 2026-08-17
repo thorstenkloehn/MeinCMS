@@ -10,4 +10,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 rpassword = "7.3"
 argon2 = "0.5"
+# rand_core's OsRng needs its "getrandom" feature explicitly enabled here;
+# it used to be pulled in transitively via the (now-removed) `rsa` crate.
+rand_core = { version = "0.6", features = ["getrandom"] }
 meincms_parser = { path = "../meincms_parser" }

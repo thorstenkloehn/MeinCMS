@@ -1,5 +1,4 @@
 use axum::{
-    async_trait,
     extract::FromRequestParts,
     http::{header, request::Parts},
     response::{IntoResponse, Redirect, Response},
@@ -10,7 +9,6 @@ pub struct AdminAuth {
     pub username: String,
 }
 
-#[async_trait]
 impl<S> FromRequestParts<S> for AdminAuth
 where
     S: Send + Sync,
